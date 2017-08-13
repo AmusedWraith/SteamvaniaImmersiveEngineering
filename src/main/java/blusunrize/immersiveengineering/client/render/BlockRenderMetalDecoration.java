@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 
 import blusunrize.immersiveengineering.client.ClientUtils;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDecoration;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorStructural;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityLantern;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityStructuralArm;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityWallmountMetal;
@@ -24,7 +24,7 @@ public class BlockRenderMetalDecoration implements ISimpleBlockRenderingHandler
 {
 	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
 	private static final TileEntityLantern lantern = new TileEntityLantern();
-	private static final TileEntityConnectorStructural conn = new TileEntityConnectorStructural();
+
 	private static final TileEntityWallmountMetal wall = new TileEntityWallmountMetal();
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer)
@@ -111,12 +111,7 @@ public class BlockRenderMetalDecoration implements ISimpleBlockRenderingHandler
 				tes.addVertexWithUV(1, 0, 0, iSide.getMinU(), iSide.getMinV());
 				tes.draw();
 			}
-			else if(metadata==BlockMetalDecoration.META_connectorStructural)
-			{
-				Tessellator.instance.startDrawingQuads();
-				ClientUtils.handleStaticTileRenderer(conn);
-				Tessellator.instance.draw();
-			}
+
 			else if(metadata==BlockMetalDecoration.META_wallMount)
 			{
 				Tessellator.instance.startDrawingQuads();
@@ -424,13 +419,7 @@ public class BlockRenderMetalDecoration implements ISimpleBlockRenderingHandler
 
 			return true;
 		}
-		else if(meta==BlockMetalDecoration.META_connectorStructural)
-		{
-			TileEntityConnectorStructural tile = (TileEntityConnectorStructural)world.getTileEntity(x, y, z);
-			ClientUtils.handleStaticTileRenderer(tile);
-			ClientUtils.renderAttachedConnections(tile);
-			return true;
-		}
+
 		else if(meta==BlockMetalDecoration.META_wallMount)
 		{
 			TileEntityWallmountMetal tile = (TileEntityWallmountMetal)world.getTileEntity(x, y, z);

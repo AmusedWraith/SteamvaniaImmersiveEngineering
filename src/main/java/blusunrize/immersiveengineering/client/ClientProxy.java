@@ -64,9 +64,9 @@ import blusunrize.immersiveengineering.client.render.TileRenderChargingStation;
 import blusunrize.immersiveengineering.client.render.TileRenderConnectorHV;
 import blusunrize.immersiveengineering.client.render.TileRenderConnectorLV;
 import blusunrize.immersiveengineering.client.render.TileRenderConnectorMV;
-import blusunrize.immersiveengineering.client.render.TileRenderConnectorStructural;
+
 import blusunrize.immersiveengineering.client.render.TileRenderCrusher;
-//LKM
+
 //import blusunrize.immersiveengineering.client.render.TileRenderDieselGenerator;
 import blusunrize.immersiveengineering.client.render.TileRenderElectricLantern;
 import blusunrize.immersiveengineering.client.render.TileRenderEnergyMeter;
@@ -107,7 +107,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityChargingSta
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorHV;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorLV;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorMV;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorStructural;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConveyorSorter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
 //LKM
@@ -220,7 +220,7 @@ public class ClientProxy extends CommonProxy
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityConnectorHV.class, new TileRenderConnectorHV());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySampleDrill.class, new TileRenderSampleDrill());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityConnectorStructural.class, new TileRenderConnectorStructural());
+
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLantern.class, new TileRenderLantern());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBreakerSwitch.class, new TileRenderBreakerSwitch());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEnergyMeter.class, new TileRenderEnergyMeter());
@@ -377,8 +377,8 @@ public class ClientProxy extends CommonProxy
 				new ManualPages.Crafting(ManualHelper.getManual(), "", storageBlocks,storageSlabs,new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_sheetMetal)),
 				new ManualPages.Text(ManualHelper.getManual(), "metalconstruction1"),
 				new ManualPages.Crafting(ManualHelper.getManual(), "", new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_fence),new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_scaffolding),new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_structuralArm)),
-				new ManualPages.Crafting(ManualHelper.getManual(), "", new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_wallMount)),
-				new ManualPages.Crafting(ManualHelper.getManual(), "metalconstruction2", new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_connectorStructural)));
+				new ManualPages.Crafting(ManualHelper.getManual(), "", new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_wallMount)));
+		//		new ManualPages.Crafting(ManualHelper.getManual(), "metalconstruction2", new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_connectorStructural)));
 		ManualHelper.addEntry("concrete", ManualHelper.CAT_CONSTRUCTION, new ManualPages.Crafting(ManualHelper.getManual(), "concrete0", new ItemStack(IEContent.blockStoneDecoration,1,4)),
 				new ManualPages.Crafting(ManualHelper.getManual(), "", new ItemStack(IEContent.blockStoneDecoration,1,5),new ItemStack(IEContent.blockConcreteStair,1,0),new ItemStack(IEContent.blockConcreteTileStair,1,0)));
 		ManualHelper.addEntry("multiblocks", ManualHelper.CAT_CONSTRUCTION,

@@ -265,7 +265,7 @@ public class IERecipes
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDecoration, 2,BlockMetalDecoration.META_heavyEngineering), "IGI","PEP","IGI", 'I',"ingotSteel",'E',"ingotElectrum",'G',componentSteel,'P',Blocks.piston);
 		
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDecoration, 2,BlockMetalDecoration.META_lightEngineering), "IGI","CCC","IGI", 'I',"ingotIron",'C',"ingotCopper",'G',componentIron);
-		addOredictRecipe(new ItemStack(IEContent.blockMetalDecoration, 8,BlockMetalDecoration.META_connectorStructural), "FIF","III", 'I',"ingotSteel",'F',new ItemStack(IEContent.blockMetalDecoration,1,0));
+
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDecoration, 4,BlockMetalDecoration.META_wallMount), "WW","WF","W ", 'W',new ItemStack(IEContent.blockMetalDecoration,1,1),'F',new ItemStack(IEContent.blockMetalDecoration,1,0));
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDecoration, 4,BlockMetalDecoration.META_sheetMetal), " I ","I I"," I ", 'I',"plateIron");
 		addShapelessOredictRecipe(new ItemStack(IEContent.itemMetal,1,30), new ItemStack(IEContent.blockMetalDecoration, 1,BlockMetalDecoration.META_sheetMetal));

@@ -49,7 +49,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityChargingSta
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorHV;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorLV;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorMV;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorStructural;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConveyorBelt;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConveyorSorter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
@@ -444,7 +444,7 @@ public class IEContent
 		registerTile(TileEntityMetalPress.class);
 
 		registerTile(TileEntityStructuralArm.class);
-		registerTile(TileEntityConnectorStructural.class);
+
 		registerTile(TileEntityWallmountMetal.class);
 		registerTile(TileEntityLantern.class);
 
