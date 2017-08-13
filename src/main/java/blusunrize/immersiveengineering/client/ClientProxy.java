@@ -61,9 +61,7 @@ import blusunrize.immersiveengineering.client.render.TileRenderBottlingMachine;
 import blusunrize.immersiveengineering.client.render.TileRenderBreakerSwitch;
 import blusunrize.immersiveengineering.client.render.TileRenderBucketWheel;
 import blusunrize.immersiveengineering.client.render.TileRenderChargingStation;
-import blusunrize.immersiveengineering.client.render.TileRenderConnectorHV;
-import blusunrize.immersiveengineering.client.render.TileRenderConnectorLV;
-import blusunrize.immersiveengineering.client.render.TileRenderConnectorMV;
+
 
 import blusunrize.immersiveengineering.client.render.TileRenderCrusher;
 
@@ -104,9 +102,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBottlingMac
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBreakerSwitch;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBucketWheel;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityChargingStation;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorHV;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorLV;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorMV;
+
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConveyorSorter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
@@ -215,10 +211,7 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerBlockHandler(new BlockRenderMetalDevices2());
 		RenderingRegistry.registerBlockHandler(new BlockRenderMetalDecoration());
 		RenderingRegistry.registerBlockHandler(new BlockRenderMetalMultiblocks());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityConnectorLV.class, new TileRenderConnectorLV());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityConnectorMV.class, new TileRenderConnectorMV());
 
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityConnectorHV.class, new TileRenderConnectorHV());
 
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLantern.class, new TileRenderLantern());
@@ -406,7 +399,7 @@ public class ClientProxy extends CommonProxy
 				new ManualPages.Image(ManualHelper.getManual(), "wiring3", "immersiveengineering:textures/misc/wiring.png;0;70;110;60", "immersiveengineering:textures/misc/wiring.png;0;130;110;60"),
 				new ManualPages.Text(ManualHelper.getManual(), "wiring4"),
 				new ManualPages.Text(ManualHelper.getManual(), "wiring5"),
-				new ManualPages.CraftingMulti(ManualHelper.getManual(), "wiringConnector", new ItemStack(IEContent.blockMetalDevice,1,BlockMetalDevices.META_connectorLV),new ItemStack(IEContent.blockMetalDevice,1,BlockMetalDevices.META_connectorMV),new ItemStack(IEContent.blockMetalDevice,1,BlockMetalDevices.META_connectorHV)),
+		
 				new ManualPages.CraftingMulti(ManualHelper.getManual(), "wiringCapacitor", new ItemStack(IEContent.blockMetalDevice,1,BlockMetalDevices.META_capacitorLV),new ItemStack(IEContent.blockMetalDevice,1,BlockMetalDevices.META_capacitorMV),new ItemStack(IEContent.blockMetalDevice,1,BlockMetalDevices.META_capacitorHV)),
 				new ManualPages.Crafting(ManualHelper.getManual(), "wiringCutters", new ItemStack(IEContent.itemTool,1,1)),
 				new ManualPages.Crafting(ManualHelper.getManual(), "wiringVoltmeter", new ItemStack(IEContent.itemTool,1,2)));

@@ -45,29 +45,29 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 	public IIcon[][] icon_capacitorSide = new IIcon[3][3];
 	public IIcon[] icons_sorter = new IIcon[6];
 
-	public static final int META_connectorLV=0;
-	public static final int META_capacitorLV=1;
-	public static final int META_connectorMV=2;
-	public static final int META_capacitorMV=3;
+//	public static final int META_connectorLV=0;
+	public static final int META_capacitorLV=0;
+//	public static final int META_connectorMV=2;
+	public static final int META_capacitorMV=1;
 
 	//public static final int META_relayHV=4;
-	public static final int META_connectorHV=4;
-	public static final int META_capacitorHV=5;
+//	public static final int META_connectorHV=4;
+	public static final int META_capacitorHV=2;
 
-	public static final int META_dynamo=6;
-	public static final int META_thermoelectricGen=7;
-	public static final int META_conveyorBelt=8;
-	public static final int META_furnaceHeater=9;
-	public static final int META_sorter=10;
+	public static final int META_dynamo=3;
+	public static final int META_thermoelectricGen=4;
+	public static final int META_conveyorBelt=5;
+	public static final int META_furnaceHeater=6;
+	public static final int META_sorter=7;
 
-	public static final int META_conveyorDropper=11;
+	public static final int META_conveyorDropper=8;
 	
 	public BlockMetalDevices()
 	{
 		super("metalDevice", Material.iron, 4, ItemBlockMetalDevices.class,
-				"connectorLV","capacitorLV",
-				"connectorMV","capacitorMV",
-				"connectorHV","capacitorHV",
+				"capacitorLV",
+				"capacitorMV",
+				"capacitorHV",
 				"dynamo","thermoelectricGen",
 				"conveyorBelt","furnaceHeater","sorter",
 				"conveyorDropper");
@@ -237,20 +237,9 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 		icons[META_conveyorDropper][2] = iconRegister.registerIcon("immersiveengineering:metal_dynamo_bottom");
 		icons[META_conveyorDropper][3] = iconRegister.registerIcon("immersiveengineering:metal_dynamo_bottom");
 
-		//0 connectorLV
-		//2 connectorMV
-
-
-		//6 connectorHV
 	
-		for(int i=0;i<4;i++)
-		{
-			icons[META_connectorLV][i] = iconRegister.registerIcon("immersiveengineering:metal_connectorLV");
-			icons[META_connectorMV][i] = iconRegister.registerIcon("immersiveengineering:metal_connectorMV");
-
-			icons[META_connectorHV][i] = iconRegister.registerIcon("immersiveengineering:metal_connectorHV");
-			
-		}
+	
+		
 	}
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -405,34 +394,9 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
 		TileEntity te = world.getTileEntity(x, y, z);
-		if(te instanceof TileEntityConnectorLV)
-		{
-			float length =  te instanceof TileEntityConnectorHV?.75f: te instanceof TileEntityConnectorMV?.5625f: .5f;
 
-			switch(((TileEntityConnectorLV)te).facing )
-			{
-			case 0://UP
-				this.setBlockBounds(.3125f,0,.3125f,  .6875f,length,.6875f);
-				break;
-			case 1://DOWN
-				this.setBlockBounds(.3125f,1-length,.3125f,  .6875f,1,.6875f);
-				break;
-			case 2://SOUTH
-				this.setBlockBounds(.3125f,.3125f,0,  .6875f,.6875f,length);
-				break;
-			case 3://NORTH
-				this.setBlockBounds(.3125f,.3125f,1-length,  .6875f,.6875f,1);
-				break;
-			case 4://EAST
-				this.setBlockBounds(0,.3125f,.3125f,  length,.6875f,.6875f);
-				break;
-			case 5://WEST
-				this.setBlockBounds(1-length,.3125f,.3125f,  1,.6875f,.6875f);
-				break;
-			}
-		}
 		
-		else if(te instanceof TileEntityConveyorBelt)
+		if(te instanceof TileEntityConveyorBelt)
 		{
 			TileEntityConveyorBelt tile = (TileEntityConveyorBelt) te;
 			this.setBlockBounds(0F, 0F, 0F, 1F, tile.transportDown||tile.transportUp?1.125f:0.125F, 1F);
@@ -472,17 +436,14 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 	{
 		switch(meta)
 		{
-		case META_connectorLV:
-			return new TileEntityConnectorLV();
+	
 		case META_capacitorLV:
 			return new TileEntityCapacitorLV();
-		case META_connectorMV:
-			return new TileEntityConnectorMV();
+		
 		case META_capacitorMV:
 			return new TileEntityCapacitorMV();
 
-		case META_connectorHV:
-			return new TileEntityConnectorHV();
+		
 		case META_capacitorHV:
 			return new TileEntityCapacitorHV();
 
@@ -513,17 +474,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block nbid)
 	{
 		TileEntity te = world.getTileEntity(x, y, z);
-		if(te instanceof TileEntityConnectorLV)
-		{
-			TileEntityConnectorLV relay = (TileEntityConnectorLV)te;
-			ForgeDirection fd = ForgeDirection.getOrientation(relay.facing);
-			if(world.isAirBlock(x+fd.offsetX, y+fd.offsetY, z+fd.offsetZ))
-			{
-				dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-				world.setBlockToAir(x, y, z);
-			}
-		}
-
+		
 
 	}
 
@@ -629,17 +580,11 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 	@Optional.Method(modid = "AquaTweaks")
 	public boolean shouldRenderFluid(IBlockAccess world, int x, int y, int z)
 	{
-		int meta = world.getBlockMetadata(x, y, z);
-		return meta==META_connectorLV
-				|| meta==META_connectorMV
-				|| meta==META_connectorHV;
+		return false;
 	}
 	@Optional.Method(modid = "AquaTweaks")
 	public boolean canConnectTo(IBlockAccess world, int x, int y, int z, int side)
 	{
-		int meta = world.getBlockMetadata(x, y, z);
-		return meta==META_connectorLV
-				|| meta==META_connectorMV
-				|| meta==META_connectorHV;
+		return false;
 	}
 }

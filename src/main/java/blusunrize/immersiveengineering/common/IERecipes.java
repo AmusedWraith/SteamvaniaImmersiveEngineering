@@ -225,15 +225,14 @@ public class IERecipes
 		addOredictRecipe(new ItemStack(IEContent.blockStorage,1,9), "WWW","WIW","WWW", 'W',"ingotIron",'I',"ingotIron");
 		addOredictRecipe(new ItemStack(IEContent.blockStorage,1,10), "WWW","WIW","WWW", 'W',"ingotElectrum",'I',"ingotIron");
 
-		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice,8, BlockMetalDevices.META_connectorLV), "BIB"," I ","BIB", 'I',"ingotCopper",'B',Blocks.hardened_clay);
+		
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice,1, BlockMetalDevices.META_capacitorLV), "III","CLC","WRW", 'L',"ingotLead",'I',"ingotIron",'C',"ingotCopper",'R',"dustRedstone",'W',"plankTreatedWood");
-		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice,8, BlockMetalDevices.META_connectorMV), "BIB"," I ","BIB", 'I',"ingotIron",'B',Blocks.hardened_clay);
+	
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice,1, BlockMetalDevices.META_capacitorMV), "III","ELE","WRW", 'L',"ingotLead",'I',"ingotIron",'E',"ingotElectrum",'R',"blockRedstone",'W',"plankTreatedWood");
 
 		
-		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice,4, BlockMetalDevices.META_connectorHV), "BIB","BIB","BIB", 'I',"ingotAluminum",'B',Blocks.hardened_clay);
-		if(OreDictionary.doesOreNameExist("dustAluminium"))
-			addOredictRecipe(new ItemStack(IEContent.blockMetalDevice,4, BlockMetalDevices.META_connectorHV), "BIB","BIB","BIB", 'I',"ingotAluminium",'B',Blocks.hardened_clay);
+		
+		
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice,1, BlockMetalDevices.META_capacitorHV), "III","ALA","WRW", 'L',"blockLead",'I',"ingotSteel",'A',"ingotAluminum",'R',"blockRedstone",'W',"plankTreatedWood");
 		if(OreDictionary.doesOreNameExist("dustAluminium"))
 			addOredictRecipe(new ItemStack(IEContent.blockMetalDevice,1, BlockMetalDevices.META_capacitorHV), "III","ALA","WRW", 'L',"blockLead",'I',"ingotSteel",'A',"ingotAluminium",'R',"blockRedstone",'W',"plankTreatedWood");
@@ -253,7 +252,7 @@ public class IERecipes
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice2,8, BlockMetalDevices2.META_fluidPipe), "IPI","P P","IPI", 'P',"plateIron",'I',"ingotIron");
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice2,1, BlockMetalDevices2.META_fluidPump), " I ","ICI","PPP", 'I',"ingotIron",'C',componentIron,'P',new ItemStack(IEContent.blockMetalDevice2,1,BlockMetalDevices2.META_fluidPipe));
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice2,1, BlockMetalDevices2.META_barrel), "SSS","S S","SSS", 'S',new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_sheetMetal));
-		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice2,1, BlockMetalDevices2.META_redstoneBreaker), "H H","ICI","IRI", 'H',new ItemStack(IEContent.blockMetalDevice,1,BlockMetalDevices.META_connectorHV), 'I',"ingotIron", 'C',Items.repeater, 'R',"dustRedstone");
+	
 	
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice2,1, BlockMetalDevices2.META_blastFurnacePreheater), "S ","S ","HP", 'S',new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_sheetMetal), 'H',new ItemStack(IEContent.blockMetalDevice,1,BlockMetalDevices.META_furnaceHeater), 'P',new ItemStack(IEContent.blockMetalDevice2,1,BlockMetalDevices2.META_fluidPipe));
 

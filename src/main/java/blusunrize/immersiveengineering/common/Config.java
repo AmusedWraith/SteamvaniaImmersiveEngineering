@@ -9,7 +9,7 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import blusunrize.immersiveengineering.ImmersiveEngineering;
 import blusunrize.immersiveengineering.api.IEApi;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorLV;
+
 import blusunrize.immersiveengineering.common.items.ItemJerrycan;
 import blusunrize.immersiveengineering.common.util.IELogger;
 import blusunrize.immersiveengineering.common.util.IEPotions;
@@ -114,7 +114,7 @@ public class Config
 		Property propConnectorInput = config.get("machines", "Wire Connector Input", new int[]{256,1024,4096}, "In- and output rates of LV,MV and HV Wire Conenctors. This is independant of the transferrate of the wires.");
 		if(propConnectorInput.getIntList().length<3)
 			propConnectorInput.set(new int[]{256,1024,4096});
-		TileEntityConnectorLV.connectorInputValues = propConnectorInput.getIntList();
+
 		setIntArray("wireConnectorInput", propConnectorInput.getIntList());
 
 		setInt("capacitorLV_storage", config.get("machines", "Capacitor LV: RF Storage", 100000, "The maximum amount of RF that can be stored in a low-voltage capacitor").getInt());

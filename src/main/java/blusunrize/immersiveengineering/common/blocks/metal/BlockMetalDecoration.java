@@ -37,7 +37,7 @@ public class BlockMetalDecoration extends BlockIEBase implements blusunrize.aqua
 	public static final int META_heavyEngineering=5;
 	public static final int META_generator=6;
 	public static final int META_lightEngineering=7;
-//	public static final int META_connectorStructural=8;
+
 	public static final int META_wallMount=8;
 	public static final int META_sheetMetal=9;
 
@@ -319,18 +319,7 @@ public class BlockMetalDecoration extends BlockIEBase implements blusunrize.aqua
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
-/*		TileEntity te = world.getTileEntity(x, y, z);
-		if(te instanceof TileEntityConnectorStructural)
-		{	
-			if(Utils.isHammer(player.getCurrentEquippedItem()))
-			{
-				((TileEntityConnectorStructural)te).rotation += 22.5f;
-				((TileEntityConnectorStructural)te).rotation %= 360;
-				te.markDirty();
-				world.markBlockForUpdate(x, y, z);
-				return true;
-			}
-		}*/
+
 		return false;
 	}
 

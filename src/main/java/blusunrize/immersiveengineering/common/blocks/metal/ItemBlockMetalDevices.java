@@ -56,13 +56,6 @@ public class ItemBlockMetalDevices extends ItemBlockIEBase
 		int f = playerViewQuarter==0 ? 2:playerViewQuarter==1 ? 5:playerViewQuarter==2 ? 3: 4;
 
 
-
-		if(meta==BlockMetalDevices.META_connectorLV||meta==BlockMetalDevices.META_connectorMV||meta==BlockMetalDevices.META_connectorHV)
-		{
-			ForgeDirection fd = ForgeDirection.getOrientation(side).getOpposite();
-			if(world.isAirBlock(x+fd.offsetX, y+fd.offsetY, z+fd.offsetZ))
-				return false;
-		}
 		
 		int conveyorFacingPre=-1;
 		int conveyorModePre=-1;
@@ -99,8 +92,7 @@ public class ItemBlockMetalDevices extends ItemBlockIEBase
 			else
 				((TileEntityCapacitorLV)tileEntity).sideConfig[f]=1;
 		}
-		else if(tileEntity instanceof TileEntityConnectorLV)
-			((TileEntityConnectorLV)tileEntity).facing = ForgeDirection.getOrientation(side).getOpposite().ordinal();
+
 
 		else if(tileEntity instanceof TileEntityDynamo)
 			((TileEntityDynamo)tileEntity).facing=f;

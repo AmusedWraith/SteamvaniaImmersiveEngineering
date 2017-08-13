@@ -27,8 +27,7 @@ public class ItemBlockMetalDecorations extends ItemBlockIEBase
 		if(!ret)
 			return ret;
 		TileEntity tileEntity = world.getTileEntity(x, y, z);
-		if(tileEntity instanceof TileEntityConnectorLV)
-			((TileEntityConnectorLV)tileEntity).facing = ForgeDirection.getOrientation(side).getOpposite().ordinal();
+
 		if(tileEntity instanceof TileEntityLantern)
 			((TileEntityLantern)tileEntity).facing = side;
 		if(tileEntity instanceof TileEntityStructuralArm)

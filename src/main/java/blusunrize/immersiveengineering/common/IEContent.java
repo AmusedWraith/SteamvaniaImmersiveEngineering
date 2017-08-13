@@ -46,9 +46,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCapacitorHV
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCapacitorLV;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCapacitorMV;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityChargingStation;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorHV;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorLV;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorMV;
+
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConveyorBelt;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConveyorSorter;
@@ -414,11 +412,11 @@ public class IEContent
 		registerTile(TileEntityWoodenBarrel.class);
 		registerTile(TileEntityWallmount.class);
 
-		registerTile(TileEntityConnectorLV.class);
+
 		registerTile(TileEntityCapacitorLV.class);
-		registerTile(TileEntityConnectorMV.class);
+
 		registerTile(TileEntityCapacitorMV.class);
-		registerTile(TileEntityConnectorHV.class);
+
 		registerTile(TileEntityCapacitorHV.class);
 		registerTile(TileEntityDynamo.class);
 		registerTile(TileEntityThermoelectricGen.class);

@@ -13,9 +13,7 @@ import org.lwjgl.opengl.GL11;
 
 import blusunrize.immersiveengineering.client.ClientUtils;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDevices;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorHV;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorLV;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorMV;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConveyorBelt;
 
 
@@ -25,9 +23,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 public class BlockRenderMetalDevices implements ISimpleBlockRenderingHandler
 {
 	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
-	private static final TileEntityConnectorLV connLv = new TileEntityConnectorLV();
-	private static final TileEntityConnectorMV connMv = new TileEntityConnectorMV();
-	private static final TileEntityConnectorHV connHv = new TileEntityConnectorHV();
+
 
 
 	@Override
@@ -36,26 +32,14 @@ public class BlockRenderMetalDevices implements ISimpleBlockRenderingHandler
 		GL11.glPushMatrix();
 		try{
 
-			if(metadata==BlockMetalDevices.META_connectorLV)
-			{
-				GL11.glScalef(1.25f, 1.25f, 1.25f);
-				Tessellator.instance.startDrawingQuads();
-				ClientUtils.handleStaticTileRenderer(connLv);
-				Tessellator.instance.draw();
-			}
-			else if(metadata==BlockMetalDevices.META_capacitorLV)
+
+			if(metadata==BlockMetalDevices.META_capacitorLV)
 			{
 				block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 				renderer.setRenderBoundsFromBlock(block);
 				ClientUtils.drawInventoryBlock(block, metadata, renderer);
 			}
-			else if(metadata==BlockMetalDevices.META_connectorMV)
-			{
-				GL11.glScalef(1.25f, 1.25f, 1.25f);
-				Tessellator.instance.startDrawingQuads();
-				ClientUtils.handleStaticTileRenderer(connMv);
-				Tessellator.instance.draw();
-			}
+
 			else if(metadata==BlockMetalDevices.META_capacitorMV)
 			{
 				block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -64,13 +48,7 @@ public class BlockRenderMetalDevices implements ISimpleBlockRenderingHandler
 			}
 
 
-			else if(metadata==BlockMetalDevices.META_connectorHV)
-			{
-				GL11.glScalef(1.25f, 1.25f, 1.25f);
-				Tessellator.instance.startDrawingQuads();
-				ClientUtils.handleStaticTileRenderer(connHv);
-				Tessellator.instance.draw();
-			}
+
 			else if(metadata==BlockMetalDevices.META_capacitorHV)
 			{
 				block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -120,39 +98,21 @@ public class BlockRenderMetalDevices implements ISimpleBlockRenderingHandler
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
-		if(metadata==BlockMetalDevices.META_connectorLV)
-		{
-			TileEntityConnectorLV tile = (TileEntityConnectorLV)world.getTileEntity(x, y, z);
-			ClientUtils.handleStaticTileRenderer(tile);
-			ClientUtils.renderAttachedConnections(tile);
-			return true;
-		}
-		else if(metadata==BlockMetalDevices.META_capacitorLV)
+
+		if(metadata==BlockMetalDevices.META_capacitorLV)
 		{
 			renderer.setRenderBounds(0,0,0, 1,1,1);
 			return renderer.renderStandardBlock(block, x, y, z);
 		}
 
-		else if(metadata==BlockMetalDevices.META_connectorMV)
-		{
-			TileEntityConnectorMV tile = (TileEntityConnectorMV)world.getTileEntity(x, y, z);
-			ClientUtils.handleStaticTileRenderer(tile);
-			ClientUtils.renderAttachedConnections(tile);
-			return true;
-		}
+
 		else if(metadata==BlockMetalDevices.META_capacitorMV)
 		{
 			renderer.setRenderBounds(0,0,0, 1,1,1);
 			return renderer.renderStandardBlock(block, x, y, z);
 		}
 
-		else if(metadata==BlockMetalDevices.META_connectorHV)
-		{
-			TileEntityConnectorHV tile = (TileEntityConnectorHV)world.getTileEntity(x, y, z);
-			ClientUtils.handleStaticTileRenderer(tile);
-			ClientUtils.renderAttachedConnections(tile);
-			return true;
-		}
+
 		else if(metadata==BlockMetalDevices.META_capacitorHV)
 		{
 			renderer.setRenderBounds(0,0,0, 1,1,1);
