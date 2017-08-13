@@ -64,7 +64,7 @@ public class ShaderRegistry
 		registerShader_Drill(name, overlayType, rarity, colourBackground, colourPrimary, colourSecondary, additionalTexture);
 		registerShader_Railgun(name, overlayType, rarity, colourBackground, colourPrimary, colourSecondary, additionalTexture);
 		registerShader_Minecart(name, overlayType, rarity, colourBackground, colourPrimary, colourSecondary, additionalTexture);
-		registerShader_Balloon(name, overlayType, rarity, colourBackground, colourPrimary, colourSecondary, additionalTexture);
+		
 		return shaderRegistry.get(name).setCrateLoot(loot).setBagLoot(bags);
 	}
 
@@ -127,18 +127,7 @@ public class ShaderRegistry
 
 		return shader;
 	}
-	public static ShaderCaseBalloon registerShader_Balloon(String name, String overlayType, EnumRarity rarity, int[] colourUnderlying, int[] colourPrimary, int[] colourSecondary, String additionalTexture)
-	{
-		if(!shaderList.contains(name))
-			shaderList.add(name);
-		ShaderCaseBalloon shader = new ShaderCaseBalloon(overlayType, colourUnderlying, colourPrimary, colourSecondary, additionalTexture);
-		if(!shaderRegistry.containsKey(name))
-			shaderRegistry.put(name, new ShaderRegistryEntry(name, rarity, shader));
-		else
-			shaderRegistry.get(name).addCase(shader);
 
-		return shader;
-	}
 
 	public static ManualEntry manualEntry;
 	public static Item itemShader;

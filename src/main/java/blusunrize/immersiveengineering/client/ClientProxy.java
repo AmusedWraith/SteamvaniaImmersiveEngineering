@@ -33,7 +33,7 @@ import blusunrize.immersiveengineering.client.gui.GuiRevolver;
 import blusunrize.immersiveengineering.client.gui.GuiSorter;
 import blusunrize.immersiveengineering.client.gui.GuiSqueezer;
 import blusunrize.immersiveengineering.client.gui.GuiToolbox;
-import blusunrize.immersiveengineering.client.render.BlockRenderClothDevices;
+
 import blusunrize.immersiveengineering.client.render.BlockRenderMetalDecoration;
 import blusunrize.immersiveengineering.client.render.BlockRenderMetalDevices;
 import blusunrize.immersiveengineering.client.render.BlockRenderMetalDevices2;
@@ -54,7 +54,7 @@ import blusunrize.immersiveengineering.client.render.ItemRenderToolbox;
 import blusunrize.immersiveengineering.client.render.ItemRenderVoltmeter;
 import blusunrize.immersiveengineering.client.render.TileRenderArcFurnace;
 import blusunrize.immersiveengineering.client.render.TileRenderAssembler;
-import blusunrize.immersiveengineering.client.render.TileRenderBalloon;
+
 import blusunrize.immersiveengineering.client.render.TileRenderBlastFurnaceAdvanced;
 import blusunrize.immersiveengineering.client.render.TileRenderBlastFurnacePreheater;
 import blusunrize.immersiveengineering.client.render.TileRenderBottlingMachine;
@@ -92,7 +92,7 @@ import blusunrize.immersiveengineering.common.CommonProxy;
 import blusunrize.immersiveengineering.common.Config;
 import blusunrize.immersiveengineering.common.IEContent;
 import blusunrize.immersiveengineering.common.IERecipes;
-import blusunrize.immersiveengineering.common.blocks.cloth.TileEntityBalloon;
+
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDecoration;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDevices;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDevices2;
@@ -257,9 +257,7 @@ public class ClientProxy extends CommonProxy
 		//STONE
 		RenderingRegistry.registerBlockHandler(new BlockRenderStoneDevices());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBlastFurnaceAdvanced.class, new TileRenderBlastFurnaceAdvanced());
-		//CLOTH
-		RenderingRegistry.registerBlockHandler(new BlockRenderClothDevices());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBalloon.class, new TileRenderBalloon());
+
 
 		//REVOLVER
 		revolverTextureMap = new TextureMap(Config.getInt("revolverSheetID"), "textures/revolvers");
@@ -395,8 +393,7 @@ public class ClientProxy extends CommonProxy
 				new ManualPages.Crafting(ManualHelper.getManual(), "lighting1", new ItemStack(IEContent.blockMetalDevice2,1,BlockMetalDevices2.META_electricLantern)),
 				new ManualPages.Text(ManualHelper.getManual(), "lighting2"),
 				new ManualPages.Crafting(ManualHelper.getManual(), "lighting3", new ItemStack(IEContent.blockMetalDevice2,1,BlockMetalDevices2.META_floodlight)));
-		ManualHelper.addEntry("balloon", ManualHelper.CAT_CONSTRUCTION, new ManualPages.Crafting(ManualHelper.getManual(), "balloon0", new ItemStack(IEContent.blockClothDevice,1,0)),
-				new ManualPages.Text(ManualHelper.getManual(), "balloon1"));
+
 		ManualHelper.addEntry("tanksilo", ManualHelper.CAT_CONSTRUCTION,
 				new ManualPageMultiblock(ManualHelper.getManual(), "tanksilo0", MultiblockSheetmetalTank.instance),
 				new ManualPageMultiblock(ManualHelper.getManual(), "tanksilo1", MultiblockSilo.instance),

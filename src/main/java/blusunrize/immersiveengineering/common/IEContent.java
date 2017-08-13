@@ -29,8 +29,7 @@ import blusunrize.immersiveengineering.common.blocks.BlockIEStairs;
 import blusunrize.immersiveengineering.common.blocks.BlockStorage;
 import blusunrize.immersiveengineering.common.blocks.ItemBlockIEBase;
 import blusunrize.immersiveengineering.common.blocks.TileEntityIESlab;
-import blusunrize.immersiveengineering.common.blocks.cloth.BlockClothDevices;
-import blusunrize.immersiveengineering.common.blocks.cloth.TileEntityBalloon;
+
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDecoration;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDecoration2;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDevices;
@@ -245,7 +244,7 @@ public class IEContent
 		blockConcreteTileStair = new BlockIEStairs("concreteTileStairs",blockStoneDecoration,5);
 		blockCrop = new BlockIECrop("hemp", "0B","1B","2B","3B","4B","0T");
 		blockFakeLight = new BlockFakeLight();
-		blockClothDevice = new BlockClothDevices();
+
 
 		itemMetal = new ItemIEBase("metal", 64,
 				"ingotCopper","ingotAluminum","ingotLead","ingotSilver","ingotNickel","ingotConstantan","ingotElectrum","ingotSteel",  
@@ -468,7 +467,7 @@ public class IEContent
 		registerTile(TileEntityBlastFurnace.class);
 		registerTile(TileEntityBlastFurnaceAdvanced.class);
 
-		registerTile(TileEntityBalloon.class);
+
 
 		/**ENTITIES*/
 		EntityRegistry.registerModEntity(EntityRevolvershot.class, "revolverShot", 0, ImmersiveEngineering.instance, 64, 1, true);
