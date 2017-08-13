@@ -17,7 +17,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorHV
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorLV;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorMV;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConveyorBelt;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRelayHV;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySampleDrill;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
@@ -29,7 +29,7 @@ public class BlockRenderMetalDevices implements ISimpleBlockRenderingHandler
 	private static final TileEntityConnectorLV connLv = new TileEntityConnectorLV();
 	private static final TileEntityConnectorMV connMv = new TileEntityConnectorMV();
 	private static final TileEntityConnectorHV connHv = new TileEntityConnectorHV();
-	private static final TileEntityRelayHV relayHv = new TileEntityRelayHV();
+
 
 	private static final TileEntitySampleDrill drill = new TileEntitySampleDrill();
 	@Override
@@ -65,13 +65,7 @@ public class BlockRenderMetalDevices implements ISimpleBlockRenderingHandler
 				ClientUtils.drawInventoryBlock(block, metadata, renderer);
 			}
 
-			else if(metadata==BlockMetalDevices.META_relayHV)
-			{
-				GL11.glScalef(1f, 1f, 1f);
-				Tessellator.instance.startDrawingQuads();
-				ClientUtils.handleStaticTileRenderer(relayHv);
-				Tessellator.instance.draw();
-			}
+
 			else if(metadata==BlockMetalDevices.META_connectorHV)
 			{
 				GL11.glScalef(1.25f, 1.25f, 1.25f);
@@ -158,13 +152,7 @@ public class BlockRenderMetalDevices implements ISimpleBlockRenderingHandler
 			renderer.setRenderBounds(0,0,0, 1,1,1);
 			return renderer.renderStandardBlock(block, x, y, z);
 		}
-		else if(metadata==BlockMetalDevices.META_relayHV)
-		{
-			TileEntityRelayHV tile = (TileEntityRelayHV)world.getTileEntity(x, y, z);
-			ClientUtils.handleStaticTileRenderer(tile);
-			ClientUtils.renderAttachedConnections(tile);
-			return true;
-		}
+
 		else if(metadata==BlockMetalDevices.META_connectorHV)
 		{
 			TileEntityConnectorHV tile = (TileEntityConnectorHV)world.getTileEntity(x, y, z);

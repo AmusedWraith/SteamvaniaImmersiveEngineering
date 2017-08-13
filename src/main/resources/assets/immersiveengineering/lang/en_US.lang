@@ -26,13 +26,13 @@ tile.ImmersiveEngineering.storageSlab.Electrum.name=Electrum Slab
 tile.ImmersiveEngineering.storageSlab.Steel.name=Steel Slab
 
 tile.ImmersiveEngineering.metalDevice.connectorLV.name=LV Wire Connector
-tile.ImmersiveEngineering.metalDevice.capacitorLV.name=LV Capacitor
+tile.ImmersiveEngineering.metalDevice.capacitorLV.name=LV Flywheel
 tile.ImmersiveEngineering.metalDevice.connectorMV.name=MV Wire Connector
-tile.ImmersiveEngineering.metalDevice.capacitorMV.name=MV Capacitor
+tile.ImmersiveEngineering.metalDevice.capacitorMV.name=MV Flywheel
 tile.ImmersiveEngineering.metalDevice.transformer.name=Transformer
 tile.ImmersiveEngineering.metalDevice.relayHV.name=HV Wire Relay
 tile.ImmersiveEngineering.metalDevice.connectorHV.name=HV Wire Connector
-tile.ImmersiveEngineering.metalDevice.capacitorHV.name=HV Capacitor
+tile.ImmersiveEngineering.metalDevice.capacitorHV.name=HV Flywheel
 tile.ImmersiveEngineering.metalDevice.transformerHV.name=HV Transformer
 tile.ImmersiveEngineering.metalDevice.dynamo.name=Kinetic Dynamo
 tile.ImmersiveEngineering.metalDevice.thermoelectricGen.name=Thermoelectric Generator

@@ -71,7 +71,6 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityMetalBarrel
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityMetalPress;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRedstoneBreaker;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRefinery;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRelayHV;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySampleDrill;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySheetmetalTank;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySilo;
@@ -420,7 +419,6 @@ public class IEContent
 		registerTile(TileEntityCapacitorLV.class);
 		registerTile(TileEntityConnectorMV.class);
 		registerTile(TileEntityCapacitorMV.class);
-		registerTile(TileEntityRelayHV.class);
 		registerTile(TileEntityConnectorHV.class);
 		registerTile(TileEntityCapacitorHV.class);
 		registerTile(TileEntityDynamo.class);

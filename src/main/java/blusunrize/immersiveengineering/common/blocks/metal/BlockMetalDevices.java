@@ -50,24 +50,24 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 	public static final int META_connectorMV=2;
 	public static final int META_capacitorMV=3;
 
-	public static final int META_relayHV=4;
-	public static final int META_connectorHV=5;
-	public static final int META_capacitorHV=6;
+	//public static final int META_relayHV=4;
+	public static final int META_connectorHV=4;
+	public static final int META_capacitorHV=5;
 
-	public static final int META_dynamo=7;
-	public static final int META_thermoelectricGen=8;
-	public static final int META_conveyorBelt=9;
-	public static final int META_furnaceHeater=10;
-	public static final int META_sorter=11;
-	public static final int META_sampleDrill=12;
-	public static final int META_conveyorDropper=13;
+	public static final int META_dynamo=6;
+	public static final int META_thermoelectricGen=7;
+	public static final int META_conveyorBelt=8;
+	public static final int META_furnaceHeater=9;
+	public static final int META_sorter=10;
+	public static final int META_sampleDrill=11;
+	public static final int META_conveyorDropper=12;
 	
 	public BlockMetalDevices()
 	{
 		super("metalDevice", Material.iron, 4, ItemBlockMetalDevices.class,
 				"connectorLV","capacitorLV",
 				"connectorMV","capacitorMV",
-				"relayHV","connectorHV","capacitorHV",
+				"connectorHV","capacitorHV",
 				"dynamo","thermoelectricGen",
 				"conveyorBelt","furnaceHeater","sorter",
 				"sampleDrill","conveyorDropper");
@@ -167,11 +167,15 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
+		
+
+		
+		
 		//1 capacitorLV
-		icons[1][0] = iconRegister.registerIcon("immersiveengineering:metal_capacitorLV_bottom_none");
-		icons[1][1] = iconRegister.registerIcon("immersiveengineering:metal_capacitorLV_top_none");
-		icons[1][2] = iconRegister.registerIcon("immersiveengineering:metal_capacitorLV_side_none");
-		icons[1][3] = iconRegister.registerIcon("immersiveengineering:metal_capacitorLV_side_none");
+		icons[META_capacitorLV][0] = iconRegister.registerIcon("immersiveengineering:metal_capacitorLV_bottom_none");
+		icons[META_capacitorLV][1] = iconRegister.registerIcon("immersiveengineering:metal_capacitorLV_top_none");
+		icons[META_capacitorLV][2] = iconRegister.registerIcon("immersiveengineering:metal_capacitorLV_side_none");
+		icons[META_capacitorLV][3] = iconRegister.registerIcon("immersiveengineering:metal_capacitorLV_side_none");
 		for(int i=0;i<3;i++)
 		{
 			String s = i==0?"none":i==1?"in":"out";
@@ -180,10 +184,10 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 			icon_capacitorSide[0][i]= iconRegister.registerIcon("immersiveengineering:metal_capacitorLV_side_"+s);
 		}
 		//3 capacitorMV
-		icons[3][0] = iconRegister.registerIcon("immersiveengineering:metal_capacitorMV_bottom_none");
-		icons[3][1] = iconRegister.registerIcon("immersiveengineering:metal_capacitorMV_top_none");
-		icons[3][2] = iconRegister.registerIcon("immersiveengineering:metal_capacitorMV_side_none");
-		icons[3][3] = iconRegister.registerIcon("immersiveengineering:metal_capacitorMV_side_none");
+		icons[META_capacitorMV][0] = iconRegister.registerIcon("immersiveengineering:metal_capacitorMV_bottom_none");
+		icons[META_capacitorMV][1] = iconRegister.registerIcon("immersiveengineering:metal_capacitorMV_top_none");
+		icons[META_capacitorMV][2] = iconRegister.registerIcon("immersiveengineering:metal_capacitorMV_side_none");
+		icons[META_capacitorMV][3] = iconRegister.registerIcon("immersiveengineering:metal_capacitorMV_side_none");
 		for(int i=0;i<3;i++)
 		{
 			String s = i==0?"none":i==1?"in":"out";
@@ -236,14 +240,14 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 		//0 connectorLV
 		//2 connectorMV
 		//4 transformer
-		//5 relayHV
+
 		//6 connectorHV
 		//8 transformerHV
 		for(int i=0;i<4;i++)
 		{
 			icons[META_connectorLV][i] = iconRegister.registerIcon("immersiveengineering:metal_connectorLV");
 			icons[META_connectorMV][i] = iconRegister.registerIcon("immersiveengineering:metal_connectorMV");
-			icons[META_relayHV][i] = iconRegister.registerIcon("immersiveengineering:metal_relayHV");
+
 			icons[META_connectorHV][i] = iconRegister.registerIcon("immersiveengineering:metal_connectorHV");
 			icons[META_sampleDrill][i] = iconRegister.registerIcon("immersiveengineering:metal_coreDrill");
 		}
@@ -440,7 +444,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 		TileEntity te = world.getTileEntity(x, y, z);
 		if(te instanceof TileEntityConnectorLV)
 		{
-			float length = te instanceof TileEntityRelayHV?.875f: te instanceof TileEntityConnectorHV?.75f: te instanceof TileEntityConnectorMV?.5625f: .5f;
+			float length =  te instanceof TileEntityConnectorHV?.75f: te instanceof TileEntityConnectorMV?.5625f: .5f;
 
 			switch(((TileEntityConnectorLV)te).facing )
 			{
@@ -519,8 +523,6 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 		case META_capacitorMV:
 			return new TileEntityCapacitorMV();
 
-		case META_relayHV:
-			return new TileEntityRelayHV();
 		case META_connectorHV:
 			return new TileEntityConnectorHV();
 		case META_capacitorHV:
@@ -680,7 +682,6 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 		int meta = world.getBlockMetadata(x, y, z);
 		return meta==META_connectorLV
 				|| meta==META_connectorMV
-				|| meta==META_relayHV
 				|| meta==META_connectorHV;
 	}
 	@Optional.Method(modid = "AquaTweaks")
@@ -689,7 +690,6 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 		int meta = world.getBlockMetadata(x, y, z);
 		return meta==META_connectorLV
 				|| meta==META_connectorMV
-				|| meta==META_relayHV
 				|| meta==META_connectorHV;
 	}
 }

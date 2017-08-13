@@ -57,8 +57,7 @@ public class ItemBlockMetalDevices extends ItemBlockIEBase
 
 		if(meta==BlockMetalDevices.META_sampleDrill && (!world.isAirBlock(x,y+1,z)||!world.isAirBlock(x,y+2,z)))
 			return false;
-		if(meta==BlockMetalDevices.META_relayHV&& world.isAirBlock(x,y+1,z))
-			return false;
+
 		if(meta==BlockMetalDevices.META_connectorLV||meta==BlockMetalDevices.META_connectorMV||meta==BlockMetalDevices.META_connectorHV)
 		{
 			ForgeDirection fd = ForgeDirection.getOrientation(side).getOpposite();
@@ -91,12 +90,8 @@ public class ItemBlockMetalDevices extends ItemBlockIEBase
 		if(!ret)
 			return ret;
 		TileEntity tileEntity = world.getTileEntity(x, y, z);
-		if(tileEntity instanceof TileEntityRelayHV)
-		{
-			if(!world.isAirBlock(x, y+1,z))
-				((TileEntityConnectorLV)tileEntity).facing = ForgeDirection.UP.ordinal();
-		}
-		else if(tileEntity instanceof TileEntityCapacitorLV)
+
+		if(tileEntity instanceof TileEntityCapacitorLV)
 		{
 			if(ItemNBTHelper.hasKey(stack, "energyStorage"))
 				((TileEntityCapacitorLV)tileEntity).energyStorage.setEnergyStored(ItemNBTHelper.getInt(stack, "energyStorage"));
