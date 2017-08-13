@@ -80,7 +80,7 @@ import blusunrize.immersiveengineering.client.render.TileRenderPost;
 import blusunrize.immersiveengineering.client.render.TileRenderRedstoneBreaker;
 import blusunrize.immersiveengineering.client.render.TileRenderRefinery;
 
-import blusunrize.immersiveengineering.client.render.TileRenderSampleDrill;
+
 import blusunrize.immersiveengineering.client.render.TileRenderSheetmetalTank;
 import blusunrize.immersiveengineering.client.render.TileRenderSilo;
 import blusunrize.immersiveengineering.client.render.TileRenderWallmount;
@@ -124,7 +124,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityMetalPress;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRedstoneBreaker;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRefinery;
 
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySampleDrill;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySheetmetalTank;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySilo;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySqueezer;
@@ -219,7 +219,7 @@ public class ClientProxy extends CommonProxy
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityConnectorMV.class, new TileRenderConnectorMV());
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityConnectorHV.class, new TileRenderConnectorHV());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySampleDrill.class, new TileRenderSampleDrill());
+
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLantern.class, new TileRenderLantern());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBreakerSwitch.class, new TileRenderBreakerSwitch());
@@ -232,8 +232,7 @@ public class ClientProxy extends CommonProxy
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityChargingStation.class, new TileRenderChargingStation());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBlastFurnacePreheater.class, new TileRenderBlastFurnacePreheater());
 		// MULTIBLOCKS
-		//LKM
-		//ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDieselGenerator.class, new TileRenderDieselGenerator());
+
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRefinery.class, new TileRenderRefinery());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCrusher.class, new TileRenderCrusher());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBucketWheel.class, new TileRenderBucketWheel());

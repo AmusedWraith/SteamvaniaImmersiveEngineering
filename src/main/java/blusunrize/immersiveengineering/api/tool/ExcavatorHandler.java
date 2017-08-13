@@ -347,7 +347,6 @@ public class ExcavatorHandler
 		{
 			ArrayList<IManualPage> pages = new ArrayList();
 			pages.add(new ManualPages.Text(ManualHelper.getManual(), "minerals0"));
-			pages.add(new ManualPages.Crafting(ManualHelper.getManual(), "minerals1", new ItemStack(IEContent.blockMetalDevice,1,BlockMetalDevices.META_sampleDrill)));
 			pages.add(new ManualPages.Text(ManualHelper.getManual(), "minerals2"));
 
 			final ExcavatorHandler.MineralMix[] minerals = ExcavatorHandler.mineralList.keySet().toArray(new ExcavatorHandler.MineralMix[0]);

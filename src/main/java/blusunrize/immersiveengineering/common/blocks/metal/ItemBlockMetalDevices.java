@@ -55,8 +55,7 @@ public class ItemBlockMetalDevices extends ItemBlockIEBase
 		int playerViewQuarter = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 		int f = playerViewQuarter==0 ? 2:playerViewQuarter==1 ? 5:playerViewQuarter==2 ? 3: 4;
 
-		if(meta==BlockMetalDevices.META_sampleDrill && (!world.isAirBlock(x,y+1,z)||!world.isAirBlock(x,y+2,z)))
-			return false;
+
 
 		if(meta==BlockMetalDevices.META_connectorLV||meta==BlockMetalDevices.META_connectorMV||meta==BlockMetalDevices.META_connectorHV)
 		{
@@ -159,16 +158,7 @@ public class ItemBlockMetalDevices extends ItemBlockIEBase
 			}
 			tile.facing=f;
 		}
-		else if(tileEntity instanceof TileEntitySampleDrill)
-		{
-			for(int i=1;i<=2;i++)
-			{
-				world.setBlock(x,y+i,z, field_150939_a,meta, 0x3);
-				TileEntity te = world.getTileEntity(x, y+i, z);
-				if(te instanceof TileEntitySampleDrill)
-					((TileEntitySampleDrill) te).pos = i;
-			}
-		}
+
 		return ret;
 	}
 }

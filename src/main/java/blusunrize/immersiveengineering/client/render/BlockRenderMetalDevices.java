@@ -18,7 +18,6 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorLV
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorMV;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConveyorBelt;
 
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySampleDrill;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -31,7 +30,6 @@ public class BlockRenderMetalDevices implements ISimpleBlockRenderingHandler
 	private static final TileEntityConnectorHV connHv = new TileEntityConnectorHV();
 
 
-	private static final TileEntitySampleDrill drill = new TileEntitySampleDrill();
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer)
 	{
@@ -110,12 +108,7 @@ public class BlockRenderMetalDevices implements ISimpleBlockRenderingHandler
 				renderer.setRenderBoundsFromBlock(block);
 				ClientUtils.drawInventoryBlock(block, metadata, renderer);
 			}
-			else if(metadata==BlockMetalDevices.META_sampleDrill)
-			{
-				GL11.glScalef(.5f,.5f,.5f);
-				GL11.glTranslatef(0,-1f,0);
-				TileEntityRendererDispatcher.instance.renderTileEntityAt(drill, 0.0D, 0.0D, 0.0D, 0.0F);
-			}
+
 		}catch(Exception e)
 		{
 			e.printStackTrace();

@@ -59,8 +59,8 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 	public static final int META_conveyorBelt=8;
 	public static final int META_furnaceHeater=9;
 	public static final int META_sorter=10;
-	public static final int META_sampleDrill=11;
-	public static final int META_conveyorDropper=12;
+
+	public static final int META_conveyorDropper=11;
 	
 	public BlockMetalDevices()
 	{
@@ -70,7 +70,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 				"connectorHV","capacitorHV",
 				"dynamo","thermoelectricGen",
 				"conveyorBelt","furnaceHeater","sorter",
-				"sampleDrill","conveyorDropper");
+				"conveyorDropper");
 		setHardness(3.0F);
 		setResistance(15.0F);
 		this.setMetaLightOpacity(META_capacitorLV, 255);
@@ -249,7 +249,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 			icons[META_connectorMV][i] = iconRegister.registerIcon("immersiveengineering:metal_connectorMV");
 
 			icons[META_connectorHV][i] = iconRegister.registerIcon("immersiveengineering:metal_connectorHV");
-			icons[META_sampleDrill][i] = iconRegister.registerIcon("immersiveengineering:metal_coreDrill");
+			
 		}
 	}
 	@Override
@@ -396,44 +396,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 				return true;
 			}
 		}
-		if(te instanceof TileEntitySampleDrill)
-		{
-			int off = ((TileEntitySampleDrill)te).pos;
-			TileEntity te2 = world.getTileEntity(x, y-off, z);
-			if(!world.isRemote && te2 instanceof TileEntitySampleDrill)
-			{
-				TileEntitySampleDrill drill = (TileEntitySampleDrill)te2;
-				int chunkX = (x>>4);
-				int chunkZ = (z>>4);
-				String s0 = (chunkX*16)+", "+(chunkZ*16);
-				String s1 = (chunkX*16+16)+", "+(chunkZ*16+16);
-				player.addChatMessage(new ChatComponentTranslation(Lib.CHAT_INFO+"forChunk", s0,s1).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.DARK_GRAY)));
-				if(!drill.isSamplingFinished())
-				{
-					float f = drill.getSampleProgress();
-					player.addChatMessage(new ChatComponentTranslation(Lib.CHAT_INFO+"coreDrill.progress",(int)(f*100)+"%").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GRAY)));
-				}
-				else
-				{
-					String mineralName = drill.getVeinLocalizedName();
-					if(mineralName==null)
-						player.addChatMessage(new ChatComponentTranslation(Lib.CHAT_INFO+"coreDrill.result.none").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GRAY)));
-					else
-					{
-						float veinIntegrity = drill.getVeinIntegrity();
-						if(veinIntegrity<0)
-							mineralName = StatCollector.translateToLocal(Lib.CHAT_INFO+"coreDrill.infinite")+" "+mineralName;
-						player.addChatMessage(new ChatComponentTranslation(Lib.CHAT_INFO+"coreDrill.result.mineral",mineralName));
-						if(veinIntegrity>0)
-						{
-							String f = Utils.formatDouble(veinIntegrity*100,"0.##")+"%";
-							player.addChatMessage(new ChatComponentTranslation(Lib.CHAT_INFO+"coreDrill.result.depl",f));
-						}
-					}
-				}
-			}
-			return true;
-		}
+		
 
 		return false;
 	}
@@ -500,12 +463,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 			return true;
 		if(meta==META_dynamo||meta==META_thermoelectricGen||meta==META_furnaceHeater)
 			return true;
-		if (meta==META_sampleDrill)
-		{
-			TileEntity te = world.getTileEntity(x, y, z);
-			if (te instanceof TileEntitySampleDrill&&((TileEntitySampleDrill)te).pos==0)
-				return true;
-		}
+
 		return false;
 	}
 
@@ -538,8 +496,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 			return new TileEntityFurnaceHeater();
 		case META_sorter:
 			return new TileEntityConveyorSorter();
-		case META_sampleDrill:
-			return new TileEntitySampleDrill();
+
 		case META_conveyorDropper:
 			return new TileEntityConveyorBelt(true);
 		}
@@ -567,14 +524,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 			}
 		}
 
-		if(te instanceof TileEntitySampleDrill)
-		{
-			TileEntitySampleDrill drill = (TileEntitySampleDrill)te;
-			if((drill.pos==0 && (world.isAirBlock(x,y+1,z)||world.isAirBlock(x,y+2,z)))
-					||(drill.pos==1 && (world.isAirBlock(x,y-1,z)||world.isAirBlock(x,y+1,z)))
-					||(drill.pos==2 && (world.isAirBlock(x,y-1,z)||world.isAirBlock(x,y-2,z))))
-				world.setBlockToAir(x, y, z);
-		}
+
 	}
 
 	@Override

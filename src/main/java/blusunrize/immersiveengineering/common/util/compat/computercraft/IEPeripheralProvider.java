@@ -16,7 +16,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityExcavator;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFermenter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFloodlight;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRefinery;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySampleDrill;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySqueezer;
 import dan200.computercraft.api.peripheral.IPeripheral;
 import dan200.computercraft.api.peripheral.IPeripheralProvider;
@@ -81,13 +81,7 @@ public class IEPeripheralProvider implements IPeripheralProvider
 				else
 					return null;
 			}*/
-			if (te instanceof TileEntitySampleDrill)
-			{
-				if (((TileEntitySampleDrill) te).pos==0)
-					return new PeripheralCoreDrill(world, x, y, z);
-				else
-					return null;
-			}
+
 			if (te instanceof TileEntityFloodlight)
 				return new PeripheralFloodlight(world, x, y, z);
 			if (te instanceof TileEntityFermenter)

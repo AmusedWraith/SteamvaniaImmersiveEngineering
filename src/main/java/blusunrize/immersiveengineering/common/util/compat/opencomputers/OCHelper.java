@@ -23,7 +23,6 @@ public class OCHelper extends IECompatModule
 		API.driver.add(new BottlingMachineDriver());
 		API.driver.add(new RefineryDriver());
 		API.driver.add(new SqueezerDriver());
-		API.driver.add(new SampleDrillDriver());
 		API.driver.add(new FermenterDriver());
 		API.driver.add(new FloodlightDriver());
 		API.driver.add(new ExcavatorDriver());
