@@ -10,7 +10,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBlastFurnac
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityChargingStation;
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityEnergyMeter;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFloodlight;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPipe;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPump;
 
@@ -33,7 +33,7 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 
 	private static final TileEntityChargingStation charge = new TileEntityChargingStation();
 
-	private static final TileEntityFloodlight flood = new TileEntityFloodlight();
+
 	private static final TileEntityFluidPipe pipe = new TileEntityFluidPipe();
 	private static final TileEntityFluidPump pump = new TileEntityFluidPump();
 
@@ -53,14 +53,6 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 				Tessellator.instance.draw();
 			}
 
-			else if(metadata==BlockMetalDevices2.META_floodlight)
-			{
-				Tessellator.instance.startDrawingQuads();
-				TileEntitySpecialRenderer tesr = TileEntityRendererDispatcher.instance.getSpecialRenderer(flood);
-				if(tesr instanceof TileRenderFloodlight)
-					((TileRenderFloodlight)tesr).model.render(flood, Tessellator.instance, new Matrix4().translate(0,.125,0),new Matrix4().rotate(Math.PI,0,1,0), 0,false);
-				Tessellator.instance.draw();
-			}
 			else if(metadata==BlockMetalDevices2.META_fluidPipe)
 			{
 				Tessellator.instance.startDrawingQuads();
@@ -146,7 +138,7 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
-		if(renderPass==0||metadata==BlockMetalDevices2.META_floodlight||metadata==BlockMetalDevices2.META_chargingStation)
+		if(renderPass==0||metadata==BlockMetalDevices2.META_chargingStation)
 			if(metadata==BlockMetalDevices2.META_skycrateDispenser)
 			{
 				renderer.setRenderBounds(0, 0, 0, 1, 1, 1);
@@ -163,14 +155,6 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 				}
 			}
 
-			else if(metadata==BlockMetalDevices2.META_floodlight)
-			{
-				TileEntityFloodlight tile = (TileEntityFloodlight) world.getTileEntity(x, y, z);
-				ClientUtils.handleStaticTileRenderer(tile);
-				if(renderPass==0)
-					ClientUtils.renderAttachedConnections(tile);
-				return true;
-			}
 			else if(metadata==BlockMetalDevices2.META_fluidPipe)
 			{
 				TileEntityFluidPipe tile = (TileEntityFluidPipe)world.getTileEntity(x, y, z);

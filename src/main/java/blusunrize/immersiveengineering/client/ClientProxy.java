@@ -69,7 +69,7 @@ import blusunrize.immersiveengineering.client.render.TileRenderCrusher;
 
 import blusunrize.immersiveengineering.client.render.TileRenderEnergyMeter;
 import blusunrize.immersiveengineering.client.render.TileRenderExcavator;
-import blusunrize.immersiveengineering.client.render.TileRenderFloodlight;
+
 import blusunrize.immersiveengineering.client.render.TileRenderFluidPipe;
 import blusunrize.immersiveengineering.client.render.TileRenderFluidPump;
 import blusunrize.immersiveengineering.client.render.TileRenderLantern;
@@ -109,7 +109,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityEnergyMeter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityExcavator;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFermenter;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFloodlight;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPipe;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPump;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityLantern;
@@ -214,7 +214,7 @@ public class ClientProxy extends CommonProxy
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEnergyMeter.class, new TileRenderEnergyMeter());
 
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFloodlight.class, new TileRenderFloodlight());
+
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFluidPipe.class, new TileRenderFluidPipe());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFluidPump.class, new TileRenderFluidPump());
 
@@ -378,8 +378,8 @@ public class ClientProxy extends CommonProxy
 		ManualHelper.addEntry("blueprints", ManualHelper.CAT_CONSTRUCTION, new ManualPages.Text(ManualHelper.getManual(), "blueprints0"),new ManualPages.Text(ManualHelper.getManual(), "blueprints1"));
 		ManualHelper.addEntry("lighting", ManualHelper.CAT_CONSTRUCTION,
 				new ManualPages.Crafting(ManualHelper.getManual(), "lighting0", new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_lantern)),
-				new ManualPages.Text(ManualHelper.getManual(), "lighting2"),
-				new ManualPages.Crafting(ManualHelper.getManual(), "lighting3", new ItemStack(IEContent.blockMetalDevice2,1,BlockMetalDevices2.META_floodlight)));
+				new ManualPages.Text(ManualHelper.getManual(), "lighting2"));
+				
 
 		ManualHelper.addEntry("tanksilo", ManualHelper.CAT_CONSTRUCTION,
 				new ManualPageMultiblock(ManualHelper.getManual(), "tanksilo0", MultiblockSheetmetalTank.instance),

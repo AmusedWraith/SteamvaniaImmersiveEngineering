@@ -71,13 +71,7 @@ public class ItemBlockMetalDevices2 extends ItemBlockIEBase
 			if(tileEntityOther instanceof TileEntityEnergyMeter)
 				((TileEntityEnergyMeter)tileEntityOther).facing = f;
 		}
-		else if(tileEntity instanceof TileEntityFloodlight)
-		{
-			((TileEntityFloodlight)tileEntity).side = side;
-			if(f==side && player.rotationPitch>0)
-				f = ForgeDirection.OPPOSITES[f];
-			((TileEntityFloodlight)tileEntity).facing = f;
-		}
+
 		else if(tileEntity instanceof TileEntityFluidPump)
 		{
 			((TileEntityFluidPump)tileEntity).dummy = false;

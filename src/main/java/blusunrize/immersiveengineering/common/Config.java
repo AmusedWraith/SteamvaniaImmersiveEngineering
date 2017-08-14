@@ -157,7 +157,7 @@ public class Config
 		setBoolean("arcfurnace_recycle", config.get("machines", "Arc Furnace: Recycling", true, "Set this to false to disable the Arc Furnace's recycling of armors and tools").getBoolean());
 		
 		setBoolean("lantern_spawnPrevent", config.get("machines", "Powered Lantern: Spawn Prevention", true, "Set this to false to disable the mob-spawn prevention of the Powered Lantern").getBoolean());
-		setBoolean("floodlight_spawnPrevent", config.get("machines", "Floodlight: Spawn Prevention", true, "Set this to false to disable the mob-spawn prevention of the Floodlight").getBoolean());
+
 		
 		setInt("pump_consumption", config.get("machines", "Fluid Pump: Consumed", 250, "The RF the Fluid Pump will consume to pick up a fluid block in the world").getInt());
 		setInt("pump_consumption_accelerate", config.get("machines", "Fluid Pump: Acceleration", 5, "The RF the Fluid Pump will consume pressurize+accellerate fluids, increasing the transferrate").getInt());

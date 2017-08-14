@@ -15,8 +15,7 @@ public class OCHelper extends IECompatModule
 	@Override
 	public void init()
 	{
-		//LKM
-		//API.driver.add(new DieselGenDriver());
+
 		API.driver.add(new CrusherDriver());
 		API.driver.add(new ArcFurnaceDriver());
 		API.driver.add(new AssemblerDriver());
@@ -24,7 +23,6 @@ public class OCHelper extends IECompatModule
 		API.driver.add(new RefineryDriver());
 		API.driver.add(new SqueezerDriver());
 		API.driver.add(new FermenterDriver());
-		API.driver.add(new FloodlightDriver());
 		API.driver.add(new ExcavatorDriver());
 		API.driver.add(new CapacitorDriver());
 		API.driver.add(new EnergyMeterDriver());

@@ -42,7 +42,7 @@ public class NEIConfig implements IConfigureNEI
 		registerDualHandler(new NEIArcFurnaceHandler());
 
 
-		API.hideItem(new ItemStack(IEContent.blockFakeLight,1,OreDictionary.WILDCARD_VALUE));
+
 		API.hideItem(new ItemStack(IEContent.itemFakeIcons,1,OreDictionary.WILDCARD_VALUE));
 
 		API.registerGuiOverlay(GuiAssembler.class, "crafting", new AssemblerNEIHelper.StackPositioner());

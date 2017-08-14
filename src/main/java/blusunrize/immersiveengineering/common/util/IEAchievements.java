@@ -34,7 +34,7 @@ public class IEAchievements
 	public static Achievement placeWindmill;//1,-1
 	public static Achievement craftHeater;//2,-2
 	public static Achievement craftPump;//2,3
-	public static Achievement placeFloodlight;//2,3
+
 	
 	public static Achievement craftWorkbench;
 	public static Achievement craftRevolver;
@@ -71,7 +71,7 @@ public class IEAchievements
 		placeWindmill = new AchievementIE("placeWindmill", -1, 2, new ItemStack(IEContent.blockWoodenDevice,1,2), openManual).setPlacement(new ItemStack(IEContent.blockWoodenDevice,1,2),new ItemStack(IEContent.blockWoodenDevice,1,3));
 		craftHeater = new AchievementIE("craftHeater", -2, 3, new ItemStack(IEContent.blockMetalDevice,1,12), openManual).setNormalCrafting();
 		craftPump = new AchievementIE("craftPump", 2, 3, new ItemStack(IEContent.blockMetalDevice2,1,6), openManual).setNormalCrafting();
-		placeFloodlight = new AchievementIE("placeFloodlight", -2, 4, new ItemStack(IEContent.blockMetalDevice2,1,4), openManual).setPlacement();
+
 		
 		mbImprovedBlastFurnace = new AchievementIE("mbImprovedBlastFurnace", 6, -4, new ItemStack(IEContent.blockStoneDevice,1,5), makeSteel).setSpecial();
 		mbSilo = new AchievementIE("mbSilo", 6, -3, new ItemStack(IEContent.blockMetalMultiblocks,1,BlockMetalMultiblocks.META_silo), craftHammer).setSpecial();

@@ -20,8 +20,7 @@ import blusunrize.immersiveengineering.api.tool.ChemthrowerHandler.ChemthrowerEf
 import blusunrize.immersiveengineering.api.tool.ExcavatorHandler;
 import blusunrize.immersiveengineering.api.tool.ExternalHeaterHandler;
 import blusunrize.immersiveengineering.api.tool.RailgunHandler;
-import blusunrize.immersiveengineering.common.blocks.BlockFakeLight;
-import blusunrize.immersiveengineering.common.blocks.BlockFakeLight.TileEntityFakeLight;
+
 import blusunrize.immersiveengineering.common.blocks.BlockIEBase;
 import blusunrize.immersiveengineering.common.blocks.BlockIEBase.BlockIESimple;
 import blusunrize.immersiveengineering.common.blocks.BlockIESlabs;
@@ -57,7 +56,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityDynamo;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityEnergyMeter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityExcavator;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFermenter;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFloodlight;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPipe;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPump;
 
@@ -185,7 +184,7 @@ public class IEContent
 	public static Block blockConcreteStair;
 	public static Block blockConcreteTileStair;
 	public static Block blockCrop;
-	public static Block blockFakeLight;
+
 	public static BlockIEBase blockClothDevice;
 	public static ItemIEBase itemMetal;
 	public static ItemIEBase itemMaterial;
@@ -239,7 +238,7 @@ public class IEContent
 		blockConcreteStair = new BlockIEStairs("concreteStairs",blockStoneDecoration,4);
 		blockConcreteTileStair = new BlockIEStairs("concreteTileStairs",blockStoneDecoration,5);
 		blockCrop = new BlockIECrop("hemp", "0B","1B","2B","3B","4B","0T");
-		blockFakeLight = new BlockFakeLight();
+
 
 
 		itemMetal = new ItemIEBase("metal", 64,
@@ -447,7 +446,7 @@ public class IEContent
 		registerTile(TileEntitySkycrateDispenser.class);
 		registerTile(TileEntityEnergyMeter.class);
 
-		registerTile(TileEntityFloodlight.class);
+
 		registerTile(TileEntityFluidPipe.class);
 		registerTile(TileEntityFluidPump.class);
 		registerTile(TileEntityMetalBarrel.class);
@@ -455,7 +454,7 @@ public class IEContent
 		registerTile(TileEntityChargingStation.class);
 		registerTile(TileEntityBlastFurnacePreheater.class);
 
-		registerTile(TileEntityFakeLight.class);
+	
 
 		registerTile(TileEntityCokeOven.class);
 		registerTile(TileEntityBlastFurnace.class);

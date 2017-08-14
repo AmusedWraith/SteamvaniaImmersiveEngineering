@@ -14,7 +14,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityEnergyMeter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityExcavator;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFermenter;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFloodlight;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRefinery;
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySqueezer;
@@ -82,8 +82,7 @@ public class IEPeripheralProvider implements IPeripheralProvider
 					return null;
 			}*/
 
-			if (te instanceof TileEntityFloodlight)
-				return new PeripheralFloodlight(world, x, y, z);
+
 			if (te instanceof TileEntityFermenter)
 			{
 				TileEntityFermenter fer = (TileEntityFermenter) te;
