@@ -48,18 +48,18 @@ import net.minecraftforge.oredict.OreDictionary;
 @Optional.Interface(iface = "blusunrize.aquatweaks.api.IAquaConnectable", modid = "AquaTweaks")
 public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingboxes, blusunrize.aquatweaks.api.IAquaConnectable
 {
-	public static final int META_breakerSwitch=0;
-	public static final int META_skycrateDispenser=1;
-	public static final int META_energyMeter=2;
-	public static final int META_electricLantern=3;
-	public static final int META_floodlight=4;
-	public static final int META_fluidPipe=5;
-	public static final int META_fluidPump=6;
-	public static final int META_barrel=7;
-	public static final int META_capacitorCreative=8;
-	public static final int META_redstoneBreaker = 9;
-	public static final int META_chargingStation = 10;
-	public static final int META_blastFurnacePreheater = 11;
+
+	public static final int META_skycrateDispenser=0;
+	public static final int META_energyMeter=1;
+	public static final int META_electricLantern=2;
+	public static final int META_floodlight=3;
+	public static final int META_fluidPipe=4;
+	public static final int META_fluidPump=5;
+	public static final int META_barrel=6;
+	public static final int META_capacitorCreative=7;
+
+	public static final int META_chargingStation = 8;
+	public static final int META_blastFurnacePreheater = 9;
 
 	IIcon[] iconPump = new IIcon[7];
 	IIcon iconFloodlightGlass;
@@ -69,7 +69,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	public BlockMetalDevices2()
 	{
 		super("metalDevice2", Material.iron, 1, ItemBlockMetalDevices2.class,
-				"breakerSwitch","skycrateDispenser","energyMeter","electricLantern","floodlight","fluidPipe", "fluidPump", "barrel", "capacitorCreative", "redstoneBreaker","chargingStation","blastFurnacePreheater");
+				"skycrateDispenser","energyMeter","electricLantern","floodlight","fluidPipe", "fluidPump", "barrel", "capacitorCreative","chargingStation","blastFurnacePreheater");
 		setHardness(3.0F);
 		setResistance(15.0F);
 		this.setMetaLightOpacity(META_barrel, 255);
@@ -225,30 +225,8 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 				return true;
 			}
 		}
-		if(!player.isSneaking() && te instanceof TileEntityBreakerSwitch && !(te instanceof TileEntityRedstoneBreaker))
-		{
-			if(!world.isRemote)
-			{
-				if(Utils.isHammer(player.getCurrentEquippedItem()))
-				{
-					((TileEntityBreakerSwitch)te).inverted = !((TileEntityBreakerSwitch)te).inverted;
-					player.addChatMessage(new ChatComponentTranslation(Lib.CHAT_INFO+ (((TileEntityBreakerSwitch)te).inverted?"invertedOn":"invertedOff")));
-					te.markDirty();
-				}
-				else
-				{
-					((TileEntityBreakerSwitch)te).toggle();
-					te.markDirty();
-				}
-				world.notifyBlocksOfNeighborChange(x, y, z, this);
-				for(ForgeDirection fd:  ForgeDirection.VALID_DIRECTIONS)
-					world.notifyBlocksOfNeighborChange(x+fd.offsetX, y+fd.offsetY, z+fd.offsetZ, this);
 
-				world.func_147451_t(x, y, z);
-			}
-			return true;
-		}
-		else if(te instanceof TileEntityEnergyMeter)
+		if(te instanceof TileEntityEnergyMeter)
 		{
 			if(!world.isRemote)
 			{
@@ -439,18 +417,8 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
 		TileEntity te = world.getTileEntity(x, y, z);
-		if(te instanceof TileEntityBreakerSwitch && !(te instanceof TileEntityRedstoneBreaker))
-		{
-			int f = ((TileEntityBreakerSwitch)te).facing;
-			int side = ((TileEntityBreakerSwitch)te).sideAttached;
-			if(side==0)
-				this.setBlockBounds(f<4?.25f:f==5?.75f:0, .1875f, f>3?.25f:f==3?.75f:0, f<4?.75f:f==4?.25f:1,.8125f,f>3?.75f:f==2?.25f:1);
-			else if(side==1)
-				this.setBlockBounds(f>=4?.1875f:.25f,0,f<=3?.1875f:.25f, f>=4?.8125f:.75f,.25f,f<=3?.8125f:.75f);
-			else
-				this.setBlockBounds(f>=4?.1875f:.25f,.75f,f<=3?.1875f:.25f, f>=4?.8125f:.75f,1,f<=3?.8125f:.75f);
-		}
-		else if (te instanceof TileEntityEnergyMeter && !((TileEntityEnergyMeter)te).dummy)
+
+		if (te instanceof TileEntityEnergyMeter && !((TileEntityEnergyMeter)te).dummy)
 		{
 			this.setBlockBounds(.1875f,0,.1875f, .8125f,.875f,.8125f);
 		}
@@ -471,17 +439,6 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 		}
 		else if(world.getBlockMetadata(x, y, z)==META_electricLantern)
 			this.setBlockBounds(.1875f,0,.1875f, .8125f,1,.8125f);
-		else if(te instanceof TileEntityRedstoneBreaker)
-		{
-			int f = ((TileEntityBreakerSwitch)te).facing;
-			int side = ((TileEntityBreakerSwitch)te).sideAttached;
-			if(side==0)
-				this.setBlockBounds(0,.125f,0, 1,.875f,1);
-			else if(side==1)
-				this.setBlockBounds(f>=4?.125f:0,0,f<=3?.125f:0, f>=4?.875f:1,1,f<=3?.875f:1);
-			else
-				this.setBlockBounds(f>=4?.125f:0,0,f<=3?.125f:0, f>=4?.875f:1,1,f<=3?.875f:1);
-		}
 		else if(te instanceof TileEntityChargingStation)
 		{
 			int f = ((TileEntityChargingStation)te).facing;
@@ -704,8 +661,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	{
 		switch(meta)
 		{
-		case META_breakerSwitch:
-			return new TileEntityBreakerSwitch();
+		
 		case META_skycrateDispenser:
 			return new TileEntitySkycrateDispenser();
 		case META_energyMeter:
@@ -722,8 +678,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 			return new TileEntityMetalBarrel();
 		case META_capacitorCreative:
 			return new TileEntityCapacitorCreative();
-		case META_redstoneBreaker:
-			return new TileEntityRedstoneBreaker();
+		
 		case META_chargingStation:
 			return new TileEntityChargingStation();
 		case META_blastFurnacePreheater:
@@ -883,22 +838,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 			}
 		}
 	}
-	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor)
-	{
-		TileEntity tile = world.getTileEntity(x, y, z);
-		if(!world.isRemote && tile instanceof TileEntityRedstoneBreaker)
-		{
-			boolean RS = !world.isBlockIndirectlyGettingPowered(x,y,z);
-			boolean b = ((TileEntityRedstoneBreaker)tile).active;
-			((TileEntityRedstoneBreaker)tile).active = RS;
-			if(b!=RS)
-			{
-				tile.markDirty();
-				ImmersiveNetHandler.INSTANCE.resetCachedIndirectConnections();
-			}
-		}
-	}
+
 
 	//	@Override
 	//	public void onNeighborChange(IBlockAccess world, int x, int y, int z, int tileX, int tileY, int tileZ)
@@ -1013,31 +953,6 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	}
 
 	@Override
-	public int isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int side)
-	{
-		TileEntity te = world.getTileEntity(x, y, z);
-		if(te instanceof TileEntityBreakerSwitch && !(te instanceof TileEntityRedstoneBreaker))
-		{
-			TileEntityBreakerSwitch breaker = (TileEntityBreakerSwitch)te;
-			boolean power = (breaker.active&&!breaker.inverted) || (!breaker.active&&breaker.inverted);
-			return power?15:0;
-		}
-		return 0;
-	}
-	@Override
-	public int isProvidingStrongPower(IBlockAccess world, int x, int y, int z, int side)
-	{
-		TileEntity te = world.getTileEntity(x, y, z);
-		if(te instanceof TileEntityBreakerSwitch && !(te instanceof TileEntityRedstoneBreaker))
-		{
-			TileEntityBreakerSwitch breaker = (TileEntityBreakerSwitch)te;
-			int powerSide = breaker.sideAttached>0?breaker.sideAttached-1:breaker.facing;
-			boolean power = (breaker.active&&!breaker.inverted) || (!breaker.active&&breaker.inverted);
-			return power&&ForgeDirection.OPPOSITES[side]==powerSide?15:0;
-		}
-		return 0;
-	}
-	@Override
 	public boolean canProvidePower()
 	{
 		return true;
@@ -1045,8 +960,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	@Override
 	public boolean canConnectRedstone(IBlockAccess world, int x, int y, int z, int side)
 	{
-		if(world.getBlockMetadata(x, y, z)==META_breakerSwitch)
-			return super.canConnectRedstone(world, x, y, z, side);
+	
 		return false;
 	}
 
@@ -1064,12 +978,12 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	public boolean shouldRenderFluid(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		return meta==META_breakerSwitch||meta==META_electricLantern||meta==META_floodlight||meta==META_fluidPipe||meta==META_redstoneBreaker;
+		return meta==META_electricLantern||meta==META_floodlight||meta==META_fluidPipe;
 	}
 	@Optional.Method(modid = "AquaTweaks")
 	public boolean canConnectTo(IBlockAccess world, int x, int y, int z, int side)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		return meta==META_breakerSwitch||meta==META_electricLantern||meta==META_floodlight||meta==META_fluidPipe||meta==META_redstoneBreaker;
+		return meta==META_electricLantern||meta==META_floodlight||meta==META_fluidPipe;
 	}
 }

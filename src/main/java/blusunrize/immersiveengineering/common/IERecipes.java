@@ -245,7 +245,6 @@ public class IERecipes
 	
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice,1, BlockMetalDevices.META_conveyorDropper), "C","H", 'C',new ItemStack(IEContent.blockMetalDevice,1,BlockMetalDevices.META_conveyorBelt),'H',Blocks.hopper);
 
-		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice2,1, BlockMetalDevices2.META_breakerSwitch), " L ","CIC", 'L',Blocks.lever,'C',Blocks.hardened_clay,'I',"ingotCopper");
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice2,1, BlockMetalDevices2.META_energyMeter), " M ","BCB","ICI", 'M',new ItemStack(IEContent.itemTool,1,2), 'B', Blocks.hardened_clay, 'I',"ingotIron", 'C',"ingotCopper");
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice2,2, BlockMetalDevices2.META_electricLantern), "PIP","PGP","IRI", 'P',"paneGlass",'I',"ingotIron",'G',"glowstone",'R',"dustRedstone");
 

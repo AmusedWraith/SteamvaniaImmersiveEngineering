@@ -6,14 +6,14 @@ import blusunrize.immersiveengineering.client.ClientUtils;
 import blusunrize.immersiveengineering.common.IEContent;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDevices2;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBlastFurnacePreheater;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBreakerSwitch;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityChargingStation;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityElectricLantern;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityEnergyMeter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFloodlight;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPipe;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPump;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRedstoneBreaker;
+
 import blusunrize.immersiveengineering.common.util.chickenbones.Matrix4;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -30,29 +30,21 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
 	public static int renderPass = 0;
 	private static final TileEntityBlastFurnacePreheater heat = new TileEntityBlastFurnacePreheater();
-	private static final TileEntityBreakerSwitch breaker = new TileEntityBreakerSwitch();
+
 	private static final TileEntityChargingStation charge = new TileEntityChargingStation();
 	private static final TileEntityElectricLantern lantern = new TileEntityElectricLantern();
 	private static final TileEntityFloodlight flood = new TileEntityFloodlight();
 	private static final TileEntityFluidPipe pipe = new TileEntityFluidPipe();
 	private static final TileEntityFluidPump pump = new TileEntityFluidPump();
-	private static final TileEntityRedstoneBreaker redBreaker = new TileEntityRedstoneBreaker();
+
 	private static final TileEntityEnergyMeter meter = new TileEntityEnergyMeter();
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer)
 	{
 		GL11.glPushMatrix();
 		try{
-			if(metadata==BlockMetalDevices2.META_breakerSwitch)
-			{
-				GL11.glTranslatef(-1f,-.75f,.25f);
-				GL11.glScalef(1.25f, 1.25f, 1.25f);
-				GL11.glRotatef(-90, 1,0,0);
-				Tessellator.instance.startDrawingQuads();
-				ClientUtils.handleStaticTileRenderer(breaker);
-				Tessellator.instance.draw();
-			}
-			else if(metadata==BlockMetalDevices2.META_energyMeter)
+
+			if(metadata==BlockMetalDevices2.META_energyMeter)
 			{
 				GL11.glScalef(.75f,.75f,.75f);
 				GL11.glTranslatef(0,.625f,0);
@@ -128,13 +120,6 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 				renderer.setRenderBoundsFromBlock(block);
 				ClientUtils.drawInventoryBlock(block, metadata, renderer);
 			}
-			else if(metadata==BlockMetalDevices2.META_redstoneBreaker)
-			{
-				GL11.glTranslatef(-.5f,-.5f,-.5f);
-				Tessellator.instance.startDrawingQuads();
-				ClientUtils.handleStaticTileRenderer(redBreaker);
-				Tessellator.instance.draw();
-			}
 			else if(metadata==BlockMetalDevices2.META_chargingStation)
 			{
 				Tessellator.instance.startDrawingQuads();
@@ -167,14 +152,7 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
 		if(renderPass==0||metadata==BlockMetalDevices2.META_floodlight||metadata==BlockMetalDevices2.META_chargingStation)
-			if(metadata==BlockMetalDevices2.META_breakerSwitch)
-			{
-				TileEntityBreakerSwitch tile = (TileEntityBreakerSwitch)world.getTileEntity(x, y, z);
-				ClientUtils.handleStaticTileRenderer(tile);
-				ClientUtils.renderAttachedConnections(tile);
-				return true;
-			}
-			else if(metadata==BlockMetalDevices2.META_skycrateDispenser)
+			if(metadata==BlockMetalDevices2.META_skycrateDispenser)
 			{
 				renderer.setRenderBounds(0, 0, 0, 1, 1, 1);
 				return renderer.renderStandardBlock(block, x, y, z);
@@ -243,13 +221,7 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 				renderer.setRenderBounds(0,0,0, 1,1,1);
 				return renderer.renderStandardBlock(block, x, y, z);
 			}
-			else if(metadata==BlockMetalDevices2.META_redstoneBreaker)
-			{
-				TileEntityRedstoneBreaker tile = (TileEntityRedstoneBreaker)world.getTileEntity(x, y, z);
-				ClientUtils.handleStaticTileRenderer(tile);
-				ClientUtils.renderAttachedConnections(tile);
-				return true;
-			}
+
 			else if(metadata==BlockMetalDevices2.META_chargingStation)
 			{
 				TileEntityChargingStation tile = (TileEntityChargingStation)world.getTileEntity(x, y, z);

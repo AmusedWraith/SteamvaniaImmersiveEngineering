@@ -62,17 +62,7 @@ public class ItemBlockMetalDevices2 extends ItemBlockIEBase
 		boolean ret = super.placeBlockAt(stack, player, world, x, y, z, side, hitX, hitY, hitZ, meta);
 		if(!ret) return false;
 		TileEntity tileEntity = world.getTileEntity(x, y, z);
-		if(tileEntity instanceof TileEntityBreakerSwitch)
-		{
-			if(side<2)
-			{
-				((TileEntityBreakerSwitch)tileEntity).sideAttached = ForgeDirection.OPPOSITES[side]+1;
-				((TileEntityBreakerSwitch)tileEntity).facing = f;
-			}
-			else
-				((TileEntityBreakerSwitch)tileEntity).facing = ForgeDirection.OPPOSITES[side];
-		}
-		else if(tileEntity instanceof TileEntityEnergyMeter)
+		if(tileEntity instanceof TileEntityEnergyMeter)
 		{
 			((TileEntityEnergyMeter)tileEntity).facing = f;
 			((TileEntityEnergyMeter)tileEntity).dummy = true;

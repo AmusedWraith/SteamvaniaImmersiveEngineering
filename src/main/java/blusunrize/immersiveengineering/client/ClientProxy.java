@@ -58,7 +58,7 @@ import blusunrize.immersiveengineering.client.render.TileRenderAssembler;
 import blusunrize.immersiveengineering.client.render.TileRenderBlastFurnaceAdvanced;
 import blusunrize.immersiveengineering.client.render.TileRenderBlastFurnacePreheater;
 import blusunrize.immersiveengineering.client.render.TileRenderBottlingMachine;
-import blusunrize.immersiveengineering.client.render.TileRenderBreakerSwitch;
+
 import blusunrize.immersiveengineering.client.render.TileRenderBucketWheel;
 import blusunrize.immersiveengineering.client.render.TileRenderChargingStation;
 
@@ -75,7 +75,7 @@ import blusunrize.immersiveengineering.client.render.TileRenderFluidPump;
 import blusunrize.immersiveengineering.client.render.TileRenderLantern;
 import blusunrize.immersiveengineering.client.render.TileRenderMetalPress;
 import blusunrize.immersiveengineering.client.render.TileRenderPost;
-import blusunrize.immersiveengineering.client.render.TileRenderRedstoneBreaker;
+
 import blusunrize.immersiveengineering.client.render.TileRenderRefinery;
 
 
@@ -99,7 +99,6 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityArcFurnace;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityAssembler;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBlastFurnacePreheater;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBottlingMachine;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBreakerSwitch;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBucketWheel;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityChargingStation;
 
@@ -117,7 +116,6 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPipe;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPump;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityLantern;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityMetalPress;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRedstoneBreaker;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRefinery;
 
 
@@ -215,13 +213,13 @@ public class ClientProxy extends CommonProxy
 
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLantern.class, new TileRenderLantern());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBreakerSwitch.class, new TileRenderBreakerSwitch());
+
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEnergyMeter.class, new TileRenderEnergyMeter());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityElectricLantern.class, new TileRenderElectricLantern());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFloodlight.class, new TileRenderFloodlight());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFluidPipe.class, new TileRenderFluidPipe());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFluidPump.class, new TileRenderFluidPump());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRedstoneBreaker.class, new TileRenderRedstoneBreaker());
+
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityChargingStation.class, new TileRenderChargingStation());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBlastFurnacePreheater.class, new TileRenderBlastFurnacePreheater());
 		// MULTIBLOCKS
@@ -408,7 +406,6 @@ public class ClientProxy extends CommonProxy
 				new ManualPages.CraftingMulti(ManualHelper.getManual(), "generatorWindmill", new ItemStack(IEContent.blockWoodenDevice,1,2),new ItemStack(IEContent.itemMaterial,1,2)),
 				new ManualPages.CraftingMulti(ManualHelper.getManual(), "generatorWatermill", new ItemStack(IEContent.blockWoodenDevice,1,1),new ItemStack(IEContent.itemMaterial,1,1)),
 				new ManualPages.CraftingMulti(ManualHelper.getManual(), "generatorWindmillImproved", new ItemStack(IEContent.blockWoodenDevice,1,3),new ItemStack(IEContent.itemMaterial,1,5)));
-		ManualHelper.getManual().addEntry("breaker", ManualHelper.CAT_ENERGY, new ManualPages.Crafting(ManualHelper.getManual(), "breaker0", new ItemStack(IEContent.blockMetalDevice2,1,BlockMetalDevices2.META_breakerSwitch)),new ManualPages.Text(ManualHelper.getManual(), "breaker1"), new ManualPages.Crafting(ManualHelper.getManual(), "breaker2", new ItemStack(IEContent.blockMetalDevice2,1,BlockMetalDevices2.META_redstoneBreaker)));
 		ManualHelper.getManual().addEntry("eMeter", ManualHelper.CAT_ENERGY, new ManualPages.Crafting(ManualHelper.getManual(), "eMeter0", new ItemStack(IEContent.blockMetalDevice2,1,BlockMetalDevices2.META_energyMeter)));
 
 

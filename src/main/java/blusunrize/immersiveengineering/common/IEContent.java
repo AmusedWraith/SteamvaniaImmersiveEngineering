@@ -39,7 +39,6 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityArcFurnace;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityAssembler;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBlastFurnacePreheater;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBottlingMachine;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBreakerSwitch;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBucketWheel;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCapacitorCreative;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCapacitorHV;
@@ -66,7 +65,6 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityLantern;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityLightningRod;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityMetalBarrel;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityMetalPress;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRedstoneBreaker;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRefinery;
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySheetmetalTank;
@@ -445,7 +443,7 @@ public class IEContent
 		registerTile(TileEntityWallmountMetal.class);
 		registerTile(TileEntityLantern.class);
 
-		registerTile(TileEntityBreakerSwitch.class);
+
 		registerTile(TileEntitySkycrateDispenser.class);
 		registerTile(TileEntityEnergyMeter.class);
 		registerTile(TileEntityElectricLantern.class);
@@ -454,7 +452,6 @@ public class IEContent
 		registerTile(TileEntityFluidPump.class);
 		registerTile(TileEntityMetalBarrel.class);
 		registerTile(TileEntityCapacitorCreative.class);
-		registerTile(TileEntityRedstoneBreaker.class);
 		registerTile(TileEntityChargingStation.class);
 		registerTile(TileEntityBlastFurnacePreheater.class);
 
