@@ -55,12 +55,12 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 	public static final int META_capacitorHV=2;
 
 	public static final int META_dynamo=3;
-	public static final int META_thermoelectricGen=4;
-	public static final int META_conveyorBelt=5;
-	public static final int META_furnaceHeater=6;
-	public static final int META_sorter=7;
 
-	public static final int META_conveyorDropper=8;
+	public static final int META_conveyorBelt=4;
+	public static final int META_furnaceHeater=5;
+	public static final int META_sorter=6;
+
+	public static final int META_conveyorDropper=7;
 	
 	public BlockMetalDevices()
 	{
@@ -68,7 +68,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 				"capacitorLV",
 				"capacitorMV",
 				"capacitorHV",
-				"dynamo","thermoelectricGen",
+				"dynamo",
 				"conveyorBelt","furnaceHeater","sorter",
 				"conveyorDropper");
 		setHardness(3.0F);
@@ -79,7 +79,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 		this.setMetaLightOpacity(META_capacitorHV, 255);
 
 		this.setMetaLightOpacity(META_dynamo, 255);
-		this.setMetaLightOpacity(META_thermoelectricGen, 255);
+
 		this.setMetaLightOpacity(META_furnaceHeater, 255);
 		this.setMetaLightOpacity(META_sorter, 255);
 	}
@@ -213,11 +213,8 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 		icons[META_dynamo][1] = iconRegister.registerIcon("immersiveengineering:metal_dynamo_top");
 		icons[META_dynamo][2] = iconRegister.registerIcon("immersiveengineering:metal_dynamo_front");
 		icons[META_dynamo][3] = iconRegister.registerIcon("immersiveengineering:metal_dynamo_side");
-		//10 thermoelectricGen
-		icons[META_thermoelectricGen][0] = iconRegister.registerIcon("immersiveengineering:metal_thermogen_bottom");
-		icons[META_thermoelectricGen][1] = iconRegister.registerIcon("immersiveengineering:metal_thermogen_top");
-		icons[META_thermoelectricGen][2] = iconRegister.registerIcon("immersiveengineering:metal_thermogen_side");
-		icons[META_thermoelectricGen][3] = iconRegister.registerIcon("immersiveengineering:metal_thermogen_side");
+
+
 		//11 conveyorBelt
 		icons[META_conveyorBelt][0] = iconRegister.registerIcon("immersiveengineering:metal_conveyor_top");
 		icons[META_conveyorBelt][1] = iconRegister.registerIcon("immersiveengineering:metal_conveyor_top");
@@ -425,7 +422,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 		int meta = world.getBlockMetadata(x, y, z);
 		if(meta==META_capacitorLV||meta==META_capacitorMV||meta==META_capacitorHV)
 			return true;
-		if(meta==META_dynamo||meta==META_thermoelectricGen||meta==META_furnaceHeater)
+		if(meta==META_dynamo||meta==META_furnaceHeater)
 			return true;
 
 		return false;
@@ -449,8 +446,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 
 		case META_dynamo:
 			return new TileEntityDynamo();
-		case META_thermoelectricGen:
-			return new TileEntityThermoelectricGen();
+		
 		case META_conveyorBelt:
 			return new TileEntityConveyorBelt();
 		case META_furnaceHeater:

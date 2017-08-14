@@ -15,7 +15,7 @@ import blusunrize.immersiveengineering.api.ManualHelper;
 import blusunrize.immersiveengineering.api.ManualPageMultiblock;
 import blusunrize.immersiveengineering.api.crafting.BlueprintCraftingRecipe;
 import blusunrize.immersiveengineering.api.energy.DieselHandler;
-import blusunrize.immersiveengineering.api.energy.ThermoelectricHandler;
+
 import blusunrize.immersiveengineering.api.shader.ShaderRegistry;
 import blusunrize.immersiveengineering.api.tool.ExcavatorHandler;
 import blusunrize.immersiveengineering.client.fx.EntityFXBlockParts;
@@ -410,18 +410,16 @@ public class ClientProxy extends CommonProxy
 				new ManualPages.CraftingMulti(ManualHelper.getManual(), "generatorWindmillImproved", new ItemStack(IEContent.blockWoodenDevice,1,3),new ItemStack(IEContent.itemMaterial,1,5)));
 		ManualHelper.getManual().addEntry("breaker", ManualHelper.CAT_ENERGY, new ManualPages.Crafting(ManualHelper.getManual(), "breaker0", new ItemStack(IEContent.blockMetalDevice2,1,BlockMetalDevices2.META_breakerSwitch)),new ManualPages.Text(ManualHelper.getManual(), "breaker1"), new ManualPages.Crafting(ManualHelper.getManual(), "breaker2", new ItemStack(IEContent.blockMetalDevice2,1,BlockMetalDevices2.META_redstoneBreaker)));
 		ManualHelper.getManual().addEntry("eMeter", ManualHelper.CAT_ENERGY, new ManualPages.Crafting(ManualHelper.getManual(), "eMeter0", new ItemStack(IEContent.blockMetalDevice2,1,BlockMetalDevices2.META_energyMeter)));
-		Map<String,Integer> sortedMap = ThermoelectricHandler.getThermalValuesSorted(true);
-		String[][] table = formatToTable_ItemIntHashmap(sortedMap,"K");	
-		ManualHelper.getManual().addEntry("thermoElectric", ManualHelper.CAT_ENERGY,
-				new ManualPages.Crafting(ManualHelper.getManual(), "thermoElectric0", new ItemStack(IEContent.blockMetalDevice,1,BlockMetalDevices.META_thermoelectricGen)),
-				new ManualPages.Table(ManualHelper.getManual(), "thermoElectric1", table, false));
-		ManualHelper.addEntry("highvoltage", ManualHelper.CAT_ENERGY,
-				new ManualPages.Text(ManualHelper.getManual(), "highvoltage0"),
-				new ManualPages.Crafting(ManualHelper.getManual(), "", new ItemStack(IEContent.blockMetalDevice,1,8),new ItemStack(IEContent.blockMetalDevice,1,4)),
-				new ManualPages.Crafting(ManualHelper.getManual(), "", new ItemStack(IEContent.blockMetalDevice,1,5),new ItemStack(IEContent.blockMetalDevice,1,7)));
-		sortedMap = DieselHandler.getFuelValuesSorted(true);
+
+
+
+//		ManualHelper.addEntry("highvoltage", ManualHelper.CAT_ENERGY,
+//				new ManualPages.Text(ManualHelper.getManual(), "highvoltage0"),
+//				new ManualPages.Crafting(ManualHelper.getManual(), "", new ItemStack(IEContent.blockMetalDevice,1,8),new ItemStack(IEContent.blockMetalDevice,1,4)),
+//				new ManualPages.Crafting(ManualHelper.getManual(), "", new ItemStack(IEContent.blockMetalDevice,1,5),new ItemStack(IEContent.blockMetalDevice,1,7)));
+		Map<String,Integer> sortedMap = DieselHandler.getFuelValuesSorted(true);
 		Map.Entry<String,Integer>[] dieselFuels = sortedMap.entrySet().toArray(new Map.Entry[0]);
-		table = new String[dieselFuels.length][2];
+		String[][] table = new String[dieselFuels.length][2];
 		for(int i=0; i<table.length; i++)
 		{
 			Fluid f = FluidRegistry.getFluid(dieselFuels[i].getKey());
@@ -430,14 +428,7 @@ public class ClientProxy extends CommonProxy
 			String am = Utils.formatDouble(bt/20f, "0.###")+" ("+bt+")";
 			table[i] = new String[]{sf,am};
 		}
-		//LKM
-		/*
-		ManualHelper.addEntry("dieselgen", ManualHelper.CAT_ENERGY,
-				new ManualPages.Text(ManualHelper.getManual(), "dieselgen0"),
-				new ManualPageMultiblock(ManualHelper.getManual(), "dieselgen1", MultiblockDieselGenerator.instance),
-				new ManualPages.Text(ManualHelper.getManual(), "dieselgen2"),
-				new ManualPages.Table(ManualHelper.getManual(), "dieselgen3", table, false)
-				);*/
+
 		ManualHelper.addEntry("lightningrod", ManualHelper.CAT_ENERGY,
 				new ManualPages.Crafting(ManualHelper.getManual(), "lightningrod0",  new ItemStack(IEContent.blockMetalMultiblocks,1,BlockMetalMultiblocks.META_lightningRod)),
 				new ManualPageMultiblock(ManualHelper.getManual(), "lightningrod1", MultiblockLightningRod.instance),

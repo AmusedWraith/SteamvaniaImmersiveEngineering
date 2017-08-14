@@ -62,12 +62,7 @@ public class BlockRenderMetalDevices implements ISimpleBlockRenderingHandler
 				renderer.setRenderBoundsFromBlock(block);
 				ClientUtils.drawInventoryBlock(block, metadata, renderer);
 			}
-			else if(metadata==BlockMetalDevices.META_thermoelectricGen)
-			{
-				block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-				renderer.setRenderBoundsFromBlock(block);
-				ClientUtils.drawInventoryBlock(block, metadata, renderer);
-			}
+
 			else if(metadata==BlockMetalDevices.META_conveyorBelt || metadata==BlockMetalDevices.META_conveyorDropper)
 			{
 				block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
@@ -124,11 +119,7 @@ public class BlockRenderMetalDevices implements ISimpleBlockRenderingHandler
 			renderer.setRenderBounds(0,0,0, 1,1,1);
 			return renderer.renderStandardBlock(block, x, y, z);
 		}
-		else if(metadata==BlockMetalDevices.META_thermoelectricGen)
-		{
-			renderer.setRenderBounds(0,0,0, 1,1,1);
-			return renderer.renderStandardBlock(block, x, y, z);
-		}
+
 		else if(metadata==BlockMetalDevices.META_conveyorBelt || metadata==BlockMetalDevices.META_conveyorDropper)
 		{
 			renderer.enableAO = true;

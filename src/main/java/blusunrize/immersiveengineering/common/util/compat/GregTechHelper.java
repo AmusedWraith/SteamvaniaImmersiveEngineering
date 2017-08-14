@@ -33,7 +33,7 @@ public class GregTechHelper extends IECompatModule
 	public void init()
 	{
 		IERecipes.addOredictRecipe(new ItemStack(IEContent.blockMetalDevice,8, BlockMetalDevices.META_conveyorBelt), "LLL","IRI", 'I',"ingotIron",'R',"dustRedstone",'L',"sheetRubber");
-		IERecipes.addOredictRecipe(new ItemStack(IEContent.blockMetalDevice,1, BlockMetalDevices.META_thermoelectricGen), "III","CBC","CCC", 'I',"ingotSteel",'C',"ingotCupronickel",'B',new ItemStack(IEContent.blockStorage,1,8));
+		
 		if(Config.getBoolean("hardmodeBulletRecipes"))
 			BlueprintCraftingRecipe.addRecipe("bullet", new ItemStack(IEContent.itemBullet,1,3), new ItemStack(IEContent.itemBullet,1,0),Items.gunpowder,"ingotSteel","ingotCupronickel");
 		else

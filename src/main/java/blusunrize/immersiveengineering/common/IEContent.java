@@ -12,7 +12,7 @@ import blusunrize.immersiveengineering.api.crafting.BlueprintCraftingRecipe;
 import blusunrize.immersiveengineering.api.crafting.CokeOvenRecipe;
 import blusunrize.immersiveengineering.api.crafting.MetalPressRecipe;
 import blusunrize.immersiveengineering.api.energy.DieselHandler;
-import blusunrize.immersiveengineering.api.energy.ThermoelectricHandler;
+
 import blusunrize.immersiveengineering.api.energy.WireType;
 import blusunrize.immersiveengineering.api.tool.ChemthrowerHandler;
 import blusunrize.immersiveengineering.api.tool.ChemthrowerHandler.ChemthrowerEffect_Extinguish;
@@ -74,7 +74,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySilo;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySkycrateDispenser;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySqueezer;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityStructuralArm;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityThermoelectricGen;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityWallmountMetal;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockArcFurnace;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockAssembler;
@@ -419,7 +419,7 @@ public class IEContent
 
 		registerTile(TileEntityCapacitorHV.class);
 		registerTile(TileEntityDynamo.class);
-		registerTile(TileEntityThermoelectricGen.class);
+
 		registerTile(TileEntityConveyorBelt.class);
 		registerTile(TileEntityFurnaceHeater.class);
 		registerTile(TileEntityConveyorSorter.class);
@@ -578,12 +578,7 @@ public class IEContent
 
 		DieselHandler.addRefineryRecipe(new FluidStack(fluidPlantoil,8), new FluidStack(fluidEthanol,8), new FluidStack(fluidBiodiesel,16));
 
-		ThermoelectricHandler.registerSourceInKelvin("blockIce", 273);
-		ThermoelectricHandler.registerSourceInKelvin("blockPackedIce", 200);
-		ThermoelectricHandler.registerSourceInKelvin("blockPlutonium", 4000);
-		ThermoelectricHandler.registerSourceInKelvin("blockBlutonium", 4000);
-		ThermoelectricHandler.registerSourceInKelvin("blockUranium", 2000);
-		ThermoelectricHandler.registerSourceInKelvin("blockYellorium", 2000);
+
 
 		ExcavatorHandler.mineralVeinCapacity = Config.getInt("excavator_depletion");
 		ExcavatorHandler.addMineral("Iron", 25, .1f, new String[]{"oreIron","oreNickel","oreTin","denseoreIron"}, new float[]{.5f,.25f,.20f,.05f});
