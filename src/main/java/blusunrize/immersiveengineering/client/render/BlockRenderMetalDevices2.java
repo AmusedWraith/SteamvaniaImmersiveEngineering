@@ -8,7 +8,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDevices2;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBlastFurnacePreheater;
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityChargingStation;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityElectricLantern;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityEnergyMeter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFloodlight;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPipe;
@@ -32,7 +32,7 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 	private static final TileEntityBlastFurnacePreheater heat = new TileEntityBlastFurnacePreheater();
 
 	private static final TileEntityChargingStation charge = new TileEntityChargingStation();
-	private static final TileEntityElectricLantern lantern = new TileEntityElectricLantern();
+
 	private static final TileEntityFloodlight flood = new TileEntityFloodlight();
 	private static final TileEntityFluidPipe pipe = new TileEntityFluidPipe();
 	private static final TileEntityFluidPump pump = new TileEntityFluidPump();
@@ -52,12 +52,7 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 				ClientUtils.handleStaticTileRenderer(meter);
 				Tessellator.instance.draw();
 			}
-			else if(metadata==BlockMetalDevices2.META_electricLantern)
-			{
-				Tessellator.instance.startDrawingQuads();
-				ClientUtils.handleStaticTileRenderer(lantern);
-				Tessellator.instance.draw();
-			}
+
 			else if(metadata==BlockMetalDevices2.META_floodlight)
 			{
 				Tessellator.instance.startDrawingQuads();
@@ -167,13 +162,7 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 					return true;
 				}
 			}
-			else if(metadata==BlockMetalDevices2.META_electricLantern)
-			{
-				TileEntityElectricLantern tile = (TileEntityElectricLantern)world.getTileEntity(x, y, z);
-				ClientUtils.handleStaticTileRenderer(tile);
-				ClientUtils.renderAttachedConnections(tile);
-				return true;
-			}
+
 			else if(metadata==BlockMetalDevices2.META_floodlight)
 			{
 				TileEntityFloodlight tile = (TileEntityFloodlight) world.getTileEntity(x, y, z);

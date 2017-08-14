@@ -51,15 +51,14 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 
 	public static final int META_skycrateDispenser=0;
 	public static final int META_energyMeter=1;
-	public static final int META_electricLantern=2;
-	public static final int META_floodlight=3;
-	public static final int META_fluidPipe=4;
-	public static final int META_fluidPump=5;
-	public static final int META_barrel=6;
-	public static final int META_capacitorCreative=7;
+	public static final int META_floodlight=2;
+	public static final int META_fluidPipe=3;
+	public static final int META_fluidPump=4;
+	public static final int META_barrel=5;
+	public static final int META_capacitorCreative=6;
 
-	public static final int META_chargingStation = 8;
-	public static final int META_blastFurnacePreheater = 9;
+	public static final int META_chargingStation = 7;
+	public static final int META_blastFurnacePreheater = 8;
 
 	IIcon[] iconPump = new IIcon[7];
 	IIcon iconFloodlightGlass;
@@ -69,7 +68,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	public BlockMetalDevices2()
 	{
 		super("metalDevice2", Material.iron, 1, ItemBlockMetalDevices2.class,
-				"skycrateDispenser","energyMeter","electricLantern","floodlight","fluidPipe", "fluidPump", "barrel", "capacitorCreative","chargingStation","blastFurnacePreheater");
+				"skycrateDispenser","energyMeter","floodlight","fluidPipe", "fluidPump", "barrel", "capacitorCreative","chargingStation","blastFurnacePreheater");
 		setHardness(3.0F);
 		setResistance(15.0F);
 		this.setMetaLightOpacity(META_barrel, 255);
@@ -437,8 +436,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 			else
 				this.setBlockBounds(0, 0, 0, 1, 1, 1);
 		}
-		else if(world.getBlockMetadata(x, y, z)==META_electricLantern)
-			this.setBlockBounds(.1875f,0,.1875f, .8125f,1,.8125f);
+
 		else if(te instanceof TileEntityChargingStation)
 		{
 			int f = ((TileEntityChargingStation)te).facing;
@@ -631,9 +629,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	public boolean isSideSolid(IBlockAccess world, int x, int y, int z, ForgeDirection side)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		if(meta==META_electricLantern)
-			return side.ordinal()<2;
-		else if(meta==META_floodlight)
+		if(meta==META_floodlight)
 		{
 			TileEntity te = world.getTileEntity(x, y, z);
 			return te instanceof TileEntityFloodlight&&side.getOpposite().ordinal() == ((TileEntityFloodlight)te).side;
@@ -666,8 +662,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 			return new TileEntitySkycrateDispenser();
 		case META_energyMeter:
 			return new TileEntityEnergyMeter();
-		case META_electricLantern:
-			return new TileEntityElectricLantern();
+
 		case META_floodlight:
 			return new TileEntityFloodlight();
 		case META_fluidPipe:
@@ -969,8 +964,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	public int getLightValue(IBlockAccess world, int x, int y, int z)
 	{
 		TileEntity te = world.getTileEntity(x, y, z);
-		if(te instanceof TileEntityElectricLantern)
-			return ((TileEntityElectricLantern)te).active?15:0;
+
 		return 0;
 	}
 
@@ -978,12 +972,12 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	public boolean shouldRenderFluid(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		return meta==META_electricLantern||meta==META_floodlight||meta==META_fluidPipe;
+		return meta==META_floodlight||meta==META_fluidPipe;
 	}
 	@Optional.Method(modid = "AquaTweaks")
 	public boolean canConnectTo(IBlockAccess world, int x, int y, int z, int side)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		return meta==META_electricLantern||meta==META_floodlight||meta==META_fluidPipe;
+		return meta==META_floodlight||meta==META_fluidPipe;
 	}
 }

@@ -53,7 +53,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
 //LKM
 //import blusunrize.immersiveengineering.common.blocks.metal.TileEntityDieselGenerator;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityDynamo;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityElectricLantern;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityEnergyMeter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityExcavator;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFermenter;
@@ -446,7 +446,7 @@ public class IEContent
 
 		registerTile(TileEntitySkycrateDispenser.class);
 		registerTile(TileEntityEnergyMeter.class);
-		registerTile(TileEntityElectricLantern.class);
+
 		registerTile(TileEntityFloodlight.class);
 		registerTile(TileEntityFluidPipe.class);
 		registerTile(TileEntityFluidPump.class);
