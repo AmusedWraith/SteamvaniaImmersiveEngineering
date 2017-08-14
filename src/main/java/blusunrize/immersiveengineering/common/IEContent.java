@@ -68,7 +68,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRefinery;
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySheetmetalTank;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySilo;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySkycrateDispenser;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySqueezer;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityStructuralArm;
 
@@ -112,7 +112,7 @@ import blusunrize.immersiveengineering.common.entities.EntityChemthrowerShot;
 import blusunrize.immersiveengineering.common.entities.EntityRailgunShot;
 import blusunrize.immersiveengineering.common.entities.EntityRevolvershot;
 import blusunrize.immersiveengineering.common.entities.EntityRevolvershotHoming;
-import blusunrize.immersiveengineering.common.entities.EntitySkycrate;
+
 import blusunrize.immersiveengineering.common.entities.EntitySkylineHook;
 import blusunrize.immersiveengineering.common.entities.EntityWolfpackShot;
 import blusunrize.immersiveengineering.common.items.ItemBullet;
@@ -443,7 +443,7 @@ public class IEContent
 		registerTile(TileEntityLantern.class);
 
 
-		registerTile(TileEntitySkycrateDispenser.class);
+
 		registerTile(TileEntityEnergyMeter.class);
 
 
@@ -465,7 +465,7 @@ public class IEContent
 		/**ENTITIES*/
 		EntityRegistry.registerModEntity(EntityRevolvershot.class, "revolverShot", 0, ImmersiveEngineering.instance, 64, 1, true);
 		EntityRegistry.registerModEntity(EntitySkylineHook.class, "skylineHook", 1, ImmersiveEngineering.instance, 64, 1, true);
-		EntityRegistry.registerModEntity(EntitySkycrate.class, "skylineCrate", 2, ImmersiveEngineering.instance, 64, 1, true);
+
 		EntityRegistry.registerModEntity(EntityRevolvershotHoming.class, "revolverShotHoming", 3, ImmersiveEngineering.instance, 64, 1, true);
 		EntityRegistry.registerModEntity(EntityWolfpackShot.class, "revolverShotWolfpack", 4, ImmersiveEngineering.instance, 64, 1, true);		
 		EntityRegistry.registerModEntity(EntityChemthrowerShot.class, "chemthrowerShot", 5, ImmersiveEngineering.instance, 64, 1, true);

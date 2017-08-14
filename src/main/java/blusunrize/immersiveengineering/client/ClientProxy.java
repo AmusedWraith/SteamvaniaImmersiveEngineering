@@ -45,7 +45,6 @@ import blusunrize.immersiveengineering.client.render.EntityRenderChemthrowerShot
 import blusunrize.immersiveengineering.client.render.EntityRenderNone;
 import blusunrize.immersiveengineering.client.render.EntityRenderRailgunShot;
 import blusunrize.immersiveengineering.client.render.EntityRenderRevolvershot;
-import blusunrize.immersiveengineering.client.render.EntityRenderSkycrate;
 import blusunrize.immersiveengineering.client.render.ItemRenderChemthrower;
 import blusunrize.immersiveengineering.client.render.ItemRenderDrill;
 import blusunrize.immersiveengineering.client.render.ItemRenderRailgun;
@@ -152,7 +151,7 @@ import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWoodenPost
 import blusunrize.immersiveengineering.common.entities.EntityChemthrowerShot;
 import blusunrize.immersiveengineering.common.entities.EntityRailgunShot;
 import blusunrize.immersiveengineering.common.entities.EntityRevolvershot;
-import blusunrize.immersiveengineering.common.entities.EntitySkycrate;
+
 import blusunrize.immersiveengineering.common.entities.EntitySkylineHook;
 import blusunrize.immersiveengineering.common.items.ItemRevolver;
 import blusunrize.immersiveengineering.common.items.ItemToolbox;
@@ -256,7 +255,7 @@ public class ClientProxy extends CommonProxy
 		MinecraftForgeClient.registerItemRenderer(IEContent.itemDrill, new ItemRenderDrill());
 		//ZIPLINE
 		RenderingRegistry.registerEntityRenderingHandler(EntitySkylineHook.class, new EntityRenderNone());
-		RenderingRegistry.registerEntityRenderingHandler(EntitySkycrate.class, new EntityRenderSkycrate());
+
 		//CHEMTHROWER
 		MinecraftForgeClient.registerItemRenderer(IEContent.itemChemthrower, new ItemRenderChemthrower());
 		RenderingRegistry.registerEntityRenderingHandler(EntityChemthrowerShot.class, new EntityRenderChemthrowerShot());

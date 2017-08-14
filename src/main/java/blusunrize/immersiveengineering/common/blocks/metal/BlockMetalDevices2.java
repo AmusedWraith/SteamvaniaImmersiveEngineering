@@ -49,16 +49,16 @@ import net.minecraftforge.oredict.OreDictionary;
 public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingboxes, blusunrize.aquatweaks.api.IAquaConnectable
 {
 
-	public static final int META_skycrateDispenser=0;
-	public static final int META_energyMeter=1;
-	//public static final int META_floodlight=2;
-	public static final int META_fluidPipe=2;
-	public static final int META_fluidPump=3;
-	public static final int META_barrel=4;
-	public static final int META_capacitorCreative=5;
 
-	public static final int META_chargingStation = 6;
-	public static final int META_blastFurnacePreheater = 7;
+	public static final int META_energyMeter=0;
+
+	public static final int META_fluidPipe=1;
+	public static final int META_fluidPump=2;
+	public static final int META_barrel=3;
+	public static final int META_capacitorCreative=4;
+
+	public static final int META_chargingStation = 5;
+	public static final int META_blastFurnacePreheater = 6;
 
 	IIcon[] iconPump = new IIcon[7];
 
@@ -68,7 +68,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	public BlockMetalDevices2()
 	{
 		super("metalDevice2", Material.iron, 1, ItemBlockMetalDevices2.class,
-				"skycrateDispenser","energyMeter","fluidPipe", "fluidPump", "barrel", "capacitorCreative","chargingStation","blastFurnacePreheater");
+				"energyMeter","fluidPipe", "fluidPump", "barrel", "capacitorCreative","chargingStation","blastFurnacePreheater");
 		setHardness(3.0F);
 		setResistance(15.0F);
 		this.setMetaLightOpacity(META_barrel, 255);
@@ -636,9 +636,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	{
 		switch(meta)
 		{
-		
-		case META_skycrateDispenser:
-			return new TileEntitySkycrateDispenser();
+
 		case META_energyMeter:
 			return new TileEntityEnergyMeter();
 

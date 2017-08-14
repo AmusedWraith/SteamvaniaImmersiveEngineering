@@ -139,12 +139,7 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
 		if(renderPass==0||metadata==BlockMetalDevices2.META_chargingStation)
-			if(metadata==BlockMetalDevices2.META_skycrateDispenser)
-			{
-				renderer.setRenderBounds(0, 0, 0, 1, 1, 1);
-				return renderer.renderStandardBlock(block, x, y, z);
-			}
-			else if(metadata==BlockMetalDevices2.META_energyMeter)
+			if(metadata==BlockMetalDevices2.META_energyMeter)
 			{
 				TileEntityEnergyMeter tile = (TileEntityEnergyMeter)world.getTileEntity(x, y, z);
 				if(!tile.dummy)
