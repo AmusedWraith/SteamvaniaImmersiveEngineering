@@ -60,7 +60,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFermenter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFloodlight;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPipe;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPump;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFurnaceHeater;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityLantern;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityLightningRod;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityMetalBarrel;
@@ -419,7 +419,7 @@ public class IEContent
 		registerTile(TileEntityDynamo.class);
 
 		registerTile(TileEntityConveyorBelt.class);
-		registerTile(TileEntityFurnaceHeater.class);
+
 		registerTile(TileEntityConveyorSorter.class);
 
 

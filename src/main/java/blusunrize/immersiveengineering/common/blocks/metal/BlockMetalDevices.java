@@ -57,10 +57,10 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 	public static final int META_dynamo=3;
 
 	public static final int META_conveyorBelt=4;
-	public static final int META_furnaceHeater=5;
-	public static final int META_sorter=6;
 
-	public static final int META_conveyorDropper=7;
+	public static final int META_sorter=5;
+
+	public static final int META_conveyorDropper=6;
 	
 	public BlockMetalDevices()
 	{
@@ -69,7 +69,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 				"capacitorMV",
 				"capacitorHV",
 				"dynamo",
-				"conveyorBelt","furnaceHeater","sorter",
+				"conveyorBelt","sorter",
 				"conveyorDropper");
 		setHardness(3.0F);
 		setResistance(15.0F);
@@ -80,7 +80,6 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 
 		this.setMetaLightOpacity(META_dynamo, 255);
 
-		this.setMetaLightOpacity(META_furnaceHeater, 255);
 		this.setMetaLightOpacity(META_sorter, 255);
 	}
 
@@ -220,12 +219,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 		icons[META_conveyorBelt][1] = iconRegister.registerIcon("immersiveengineering:metal_conveyor_top");
 		icons[META_conveyorBelt][2] = iconRegister.registerIcon("immersiveengineering:metal_dynamo_bottom");
 		icons[META_conveyorBelt][3] = iconRegister.registerIcon("immersiveengineering:metal_dynamo_bottom");
-		//12 furnaceHeater
-		icons[META_furnaceHeater][0] = iconRegister.registerIcon("immersiveengineering:metal_furnaceHeater_socket");
-		icons[META_furnaceHeater][1] = iconRegister.registerIcon("immersiveengineering:metal_furnaceHeater_inactive");
-		icons[META_furnaceHeater][2] = iconRegister.registerIcon("immersiveengineering:metal_furnaceHeater_active");
-		icons[META_furnaceHeater][3] = iconRegister.registerIcon("immersiveengineering:metal_furnaceHeater_active");
-		//13 sorter
+			//13 sorter
 		for(int i=0; i<6; i++)
 			icons_sorter[i] = iconRegister.registerIcon("immersiveengineering:metal_sorter_"+i);
 		//15 conveyorDropper
@@ -268,13 +262,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 			else
 				return icons[META_conveyorBelt][1];
 		}
-		if(te instanceof TileEntityFurnaceHeater)
-		{
-			if( ((TileEntityFurnaceHeater)te).sockets[side]==1)
-				return icons[META_furnaceHeater][0];
-			else
-				return icons[META_furnaceHeater][ ((TileEntityFurnaceHeater)te).showActiveTexture()?2:1 ];
-		}
+
 		if(world.getBlockMetadata(x, y, z) == META_sorter)
 			return icons_sorter[side];
 
@@ -362,18 +350,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 			}
 			return true;
 		}
-		if(te instanceof TileEntityFurnaceHeater && Utils.isHammer(player.getCurrentEquippedItem()))
-		{
-			if(player.isSneaking())
-				side = ForgeDirection.OPPOSITES[side];
-			if(!world.isRemote)
-			{
-				((TileEntityFurnaceHeater)te).toggleSide(side);
-				te.markDirty();
-				world.func_147451_t(x, y, z);
-			}
-			return true;
-		}
+
 		if(te instanceof TileEntityConveyorSorter)
 		{
 			if(!player.isSneaking())
@@ -422,7 +399,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 		int meta = world.getBlockMetadata(x, y, z);
 		if(meta==META_capacitorLV||meta==META_capacitorMV||meta==META_capacitorHV)
 			return true;
-		if(meta==META_dynamo||meta==META_furnaceHeater)
+		if(meta==META_dynamo)
 			return true;
 
 		return false;
@@ -449,8 +426,7 @@ public class BlockMetalDevices extends BlockIEBase implements blusunrize.aquatwe
 		
 		case META_conveyorBelt:
 			return new TileEntityConveyorBelt();
-		case META_furnaceHeater:
-			return new TileEntityFurnaceHeater();
+		
 		case META_sorter:
 			return new TileEntityConveyorSorter();
 
