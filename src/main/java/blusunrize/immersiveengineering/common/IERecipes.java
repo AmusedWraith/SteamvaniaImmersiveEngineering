@@ -20,7 +20,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDevices2;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalMultiblocks;
 import blusunrize.immersiveengineering.common.crafting.RecipeJerrycan;
 import blusunrize.immersiveengineering.common.crafting.RecipePotionBullets;
-import blusunrize.immersiveengineering.common.crafting.RecipeRevolver;
+
 import blusunrize.immersiveengineering.common.crafting.RecipeShaderBags;
 import blusunrize.immersiveengineering.common.crafting.RecipeShapedArrayList;
 import blusunrize.immersiveengineering.common.util.Utils;
@@ -55,10 +55,7 @@ public class IERecipes
 		addOredictRecipe(new ItemStack(IEContent.itemTool,1,1), "SI"," S", 'I',"ingotIron", 'S',"treatedStick").setMirrored(true);
 		addOredictRecipe(new ItemStack(IEContent.itemTool,1,2), " P ","SCS", 'C',"ingotCopper", 'P',Items.compass, 'S',"treatedStick");
 		addShapelessOredictRecipe(new ItemStack(IEContent.itemTool,1,3), Items.book,Blocks.lever);
-		addOredictRecipe(new ItemStack(IEContent.itemRevolver,1,0), " I ","HDB","GIG", 'I',"ingotIron",'B',new ItemStack(IEContent.itemMaterial,1,7),'D',new ItemStack(IEContent.itemMaterial,1,8),'G',new ItemStack(IEContent.itemMaterial,1,9),'H',new ItemStack(IEContent.itemMaterial,1,10)).setMirrored(true);
-		addOredictRecipe(new ItemStack(IEContent.itemRevolver,1,1), "  I","IIS","  I", 'I',"ingotIron",'S',"ingotSteel");
-		GameRegistry.addRecipe(new RecipeRevolver());
-		RecipeSorter.register(ImmersiveEngineering.MODID+":revolverLoop", RecipeRevolver.class, RecipeSorter.Category.SHAPELESS, "after:forge:shapelessore");
+
 
 		addOredictRecipe(new ItemStack(IEContent.itemBullet,3,0), "I I","I I"," I ", 'I',"ingotCopper");
 		addOredictRecipe(new ItemStack(IEContent.itemBullet,3,1), "PDP","PDP"," I ", 'I',"ingotCopper",'P',Items.paper,'D',"dyeRed");

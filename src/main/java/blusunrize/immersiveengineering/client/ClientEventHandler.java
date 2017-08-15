@@ -27,10 +27,10 @@ import blusunrize.immersiveengineering.common.Config;
 import blusunrize.immersiveengineering.common.IEContent;
 import blusunrize.immersiveengineering.common.blocks.IEBlockInterfaces;
 import blusunrize.immersiveengineering.common.blocks.IEBlockInterfaces.IBlockOverlayText;
-import blusunrize.immersiveengineering.common.gui.ContainerRevolver;
+
 import blusunrize.immersiveengineering.common.items.ItemChemthrower;
 import blusunrize.immersiveengineering.common.items.ItemDrill;
-import blusunrize.immersiveengineering.common.items.ItemRevolver;
+
 import blusunrize.immersiveengineering.common.items.ItemSkyhook;
 import blusunrize.immersiveengineering.common.util.IELogger;
 import blusunrize.immersiveengineering.common.util.ItemNBTHelper;
@@ -113,11 +113,7 @@ public class ClientEventHandler
 		{
 			iconItemBlank = event.map.registerIcon("immersiveengineering:white");
 		}
-		if(event.map.getTextureType()==Config.getInt("revolverSheetID"))
-		{
-			IELogger.info("Stitching Revolver Textures!");
-			((ItemRevolver)IEContent.itemRevolver).stichRevolverTextures(event.map);
-		}
+
 		for(ShaderRegistry.ShaderRegistryEntry entry : ShaderRegistry.shaderRegistry.values())
 			for(ShaderCase sCase : entry.getCases())
 				sCase.stichTextures(event.map, event.map.getTextureType());
@@ -136,24 +132,7 @@ public class ClientEventHandler
 			itemSheetWidth = GL11.glGetTexLevelParameteri(GL11.GL_TEXTURE_2D, 0, GL11.GL_TEXTURE_WIDTH);
 			itemSheetHeight = GL11.glGetTexLevelParameteri(GL11.GL_TEXTURE_2D, 0, GL11.GL_TEXTURE_HEIGHT);
 		}
-		//
-		//		if(event.map.getTextureType()==Config.getInt("revolverSheetID"))
-		//		{
-		//			try {
-		//				IELogger.debug("TEST-udafe");
-		//				TextureAtlasSprite tal = (TextureAtlasSprite)event.map.registerIcon("immersiveengineering:revolver");
-		//				URL url = new URL("http://i.imgur.com/bU3bEDe.png");
-		//				BufferedImage img = ImageIO.read(url);
-		//				IELogger.debug("url = "+url);
-		//				IELogger.debug("img = "+img);
-		//				IELogger.debug("Loading sprite");
-		//				tal.loadSprite(new BufferedImage[]{img}, null, false);
-		//				IELogger.debug("sprite loaded");
-		//				((ItemRevolver)IEContent.itemRevolver).revolverDefaultTexture=tal;
-		//			} catch (Exception e) {
-		//				e.printStackTrace();
-		//			}
-		//		}
+
 	}
 
 	void rebindUVsToIcon(WavefrontObject model, ModelIEObj modelIE)
@@ -452,56 +431,7 @@ public class ClientEventHandler
 						}
 					}
 				}
-				else if(equipped.getItem() instanceof ItemRevolver && equipped.getItemDamage()!=2)
-				{
-					ClientUtils.bindTexture("immersiveengineering:textures/gui/revolver.png");
-					ItemStack[] bullets = ((ItemRevolver)equipped.getItem()).getBullets(equipped);
-					int bulletAmount = bullets.length;
-					float dx = event.resolution.getScaledWidth()-32-48;
-					float dy = event.resolution.getScaledHeight()-64;
-					GL11.glPushMatrix();
-					GL11.glEnable(GL11.GL_BLEND);
-					GL11.glTranslated(dx, dy, 0);
-					GL11.glScalef(.5f, .5f, 1);
-
-					ClientUtils.drawTexturedRect(0,1,74,74, 0/256f,74/256f, 51/256f,125/256f);
-					if(bulletAmount>=18)
-						ClientUtils.drawTexturedRect(47,1,103,74, 74/256f,177/256f, 51/256f,125/256f);
-					else if(bulletAmount>8)
-						ClientUtils.drawTexturedRect(57,1,79,39, 57/256f,136/256f, 12/256f,51/256f);
-
-					RenderItem ir = RenderItem.getInstance();
-					int[][] slots = ContainerRevolver.slotPositions[bulletAmount>=18?2: bulletAmount>8?1: 0];
-					for(int i=0; i<bulletAmount; i++)
-					{
-						if(bullets[i]!=null)
-						{
-							int x = 0; 
-							int y = 0;
-							if(i==0)
-							{
-								x = 29;
-								y = 3;
-							}
-							else if(i-1<slots.length)
-							{
-								x = slots[i-1][0];
-								y = slots[i-1][1];
-							}
-							else
-							{
-								int ii = i-(slots.length+1);
-								x = ii==0?48: ii==1?29: ii==3?2: 10;
-								y = ii==1?57: ii==3?30: ii==4?11: 49;
-							}
-
-							ir.renderItemIntoGUI(ClientUtils.mc().fontRenderer, ClientUtils.mc().renderEngine, bullets[i], x,y);
-						}
-					}
-					RenderHelper.disableStandardItemLighting();
-					GL11.glDisable(GL11.GL_BLEND);
-					GL11.glPopMatrix();
-				}
+				
 				else if((equipped.getItem() instanceof ItemDrill && equipped.getItemDamage()==0)
 						||equipped.getItem() instanceof ItemChemthrower)
 				{

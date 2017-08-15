@@ -19,28 +19,20 @@ public class Lib
 	
 	public static final int GUIID_CokeOven = 0;
 	public static final int GUIID_BlastFurnace = 1;
-	public static final int GUIID_Revolver = 2;
-	public static final int GUIID_Manual = 3;
-	public static final int GUIID_WoodenCrate = 4;
-	public static final int GUIID_Squeezer = 5;
-	public static final int GUIID_Fermenter = 6;
-	public static final int GUIID_Sorter = 7;
-	public static final int GUIID_Refinery = 8;
-	public static final int GUIID_Workbench = 9;
-	public static final int GUIID_ArcFurnace = 10;
-	public static final int GUIID_Assembler = 11;
-	public static final int GUIID_Toolbox = 12;
+
+	public static final int GUIID_Manual = 2;
+	public static final int GUIID_WoodenCrate = 3;
+	public static final int GUIID_Squeezer = 4;
+	public static final int GUIID_Fermenter = 5;
+	public static final int GUIID_Sorter = 6;
+	public static final int GUIID_Refinery = 7;
+	public static final int GUIID_Workbench = 8;
+	public static final int GUIID_ArcFurnace = 9;
+	public static final int GUIID_Assembler = 10;
+	public static final int GUIID_Toolbox = 11;
 	
 	public static final int colour_nixieTubeText = 0xff9900;
-	
-	public static String DMG_RevolverCasull="ieRevolver_casull";
-	public static String DMG_RevolverAP="ieRevolver_armorPiercing";
-	public static String DMG_RevolverBuck="ieRevolver_buckshot";
-	public static String DMG_RevolverDragon="ieRevolver_dragonsbreath";
-	public static String DMG_RevolverHoming="ieRevolver_homing";
-	public static String DMG_RevolverWolfpack="ieRevolver_wolfpack";
-	public static String DMG_RevolverSilver = "ieRevolver_silver";
-	public static String DMG_RevolverPotion = "ieRevolver_potion";
+
 	public static String DMG_Crusher="ieCrushed";
 	public static String DMG_Acid="ieAcid";
 

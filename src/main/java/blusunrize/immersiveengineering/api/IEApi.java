@@ -27,10 +27,7 @@ public class IEApi
 	 */
 	public static HashMap<String, ItemStack> oreOutputPreference = new HashMap<String, ItemStack>();
 
-	/**
-	 * The TextureSheet id for the revolver's icons
-	 */
-	public static int revolverTextureSheetID;
+
 
 	/**
 	 * This map stores a list of OreDict prefixes (ingot, plate, gear, nugget) and their ingot relation (ingot:component) <br>

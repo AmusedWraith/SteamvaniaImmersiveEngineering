@@ -24,11 +24,11 @@ import blusunrize.immersiveengineering.common.gui.ContainerCrate;
 import blusunrize.immersiveengineering.common.gui.ContainerFermenter;
 import blusunrize.immersiveengineering.common.gui.ContainerModWorkbench;
 import blusunrize.immersiveengineering.common.gui.ContainerRefinery;
-import blusunrize.immersiveengineering.common.gui.ContainerRevolver;
+
 import blusunrize.immersiveengineering.common.gui.ContainerSorter;
 import blusunrize.immersiveengineering.common.gui.ContainerSqueezer;
 import blusunrize.immersiveengineering.common.gui.ContainerToolbox;
-import blusunrize.immersiveengineering.common.items.ItemRevolver;
+
 import blusunrize.immersiveengineering.common.items.ItemToolbox;
 import blusunrize.immersiveengineering.common.util.Lib;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -50,8 +50,7 @@ public class CommonProxy implements IGuiHandler
 			return new ContainerCokeOven(player.inventory, (TileEntityCokeOven) te);
 		if(ID==Lib.GUIID_BlastFurnace && te instanceof TileEntityBlastFurnace)
 			return new ContainerBlastFurnace(player.inventory, (TileEntityBlastFurnace) te);
-		if(ID==Lib.GUIID_Revolver && player.getCurrentEquippedItem()!=null && player.getCurrentEquippedItem().getItem() instanceof ItemRevolver)
-			return new ContainerRevolver(player.inventory, world);
+
 		if(ID==Lib.GUIID_WoodenCrate && te instanceof TileEntityWoodenCrate)
 			return new ContainerCrate(player.inventory, (TileEntityWoodenCrate) te);
 		if(ID==Lib.GUIID_Squeezer && te instanceof TileEntitySqueezer)

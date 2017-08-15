@@ -20,7 +20,7 @@ import blusunrize.immersiveengineering.common.IEContent;
 import blusunrize.immersiveengineering.common.IESaveData;
 import blusunrize.immersiveengineering.common.IEVillagerTradeHandler;
 import blusunrize.immersiveengineering.common.crafting.ArcRecyclingThreadHandler;
-import blusunrize.immersiveengineering.common.items.ItemRevolver;
+
 import blusunrize.immersiveengineering.common.util.IELogger;
 import blusunrize.immersiveengineering.common.util.Lib;
 import blusunrize.immersiveengineering.common.util.commands.CommandHandler;
@@ -30,7 +30,7 @@ import blusunrize.immersiveengineering.common.util.network.MessageMinecartShader
 import blusunrize.immersiveengineering.common.util.network.MessageMineralListSync;
 import blusunrize.immersiveengineering.common.util.network.MessageRequestBlockUpdate;
 import blusunrize.immersiveengineering.common.util.network.MessageSkyhookSync;
-import blusunrize.immersiveengineering.common.util.network.MessageSpeedloaderSync;
+
 import blusunrize.immersiveengineering.common.util.network.MessageTileSync;
 import blusunrize.immersiveengineering.common.world.IEWorldGen;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -113,7 +113,7 @@ public class ImmersiveEngineering
 		int messageId = 0;
 		packetHandler.registerMessage(MessageMineralListSync.Handler.class, MessageMineralListSync.class, messageId++, Side.CLIENT);
 		packetHandler.registerMessage(MessageTileSync.Handler.class, MessageTileSync.class, messageId++, Side.SERVER);
-		packetHandler.registerMessage(MessageSpeedloaderSync.Handler.class, MessageSpeedloaderSync.class, messageId++, Side.CLIENT);
+		
 		packetHandler.registerMessage(MessageSkyhookSync.Handler.class, MessageSkyhookSync.class, messageId++, Side.CLIENT);
 		packetHandler.registerMessage(MessageMinecartShaderSync.HandlerServer.class, MessageMinecartShaderSync.class, messageId++, Side.SERVER);
 		packetHandler.registerMessage(MessageMinecartShaderSync.HandlerClient.class, MessageMinecartShaderSync.class, messageId++, Side.CLIENT);
@@ -196,35 +196,6 @@ public class ImmersiveEngineering
 			activeThread = this;
 		}
 
-		@Override
-		public void run()
-		{
-			Gson gson = new Gson();
-			try {
-				IELogger.info("Attempting to download special revolvers from GitHub");
-				URL url = new URL("https://raw.githubusercontent.com/BluSunrize/ImmersiveEngineering/master/contributorRevolvers.json");
-				JsonStreamParser parser = new JsonStreamParser(new InputStreamReader(url.openStream()));
-				while(parser.hasNext())
-				{
-					try{
-						JsonElement je = parser.next();
-						ItemRevolver.SpecialRevolver revolver = gson.fromJson(je, ItemRevolver.SpecialRevolver.class);
-						if(revolver!=null)
-						{
-							if(revolver.uuid!=null)
-								for(String uuid : revolver.uuid)
-									ItemRevolver.specialRevolvers.put(uuid, revolver);
-							ItemRevolver.specialRevolversByTag.put(!revolver.tag.isEmpty()?revolver.tag:revolver.flavour, revolver);
-						}
-					}catch(Exception excepParse)
-					{
-						IELogger.warn("Error on parsing a SpecialRevolver");
-					}
-				}
-			} catch(Exception e) {
-				IELogger.info("Could not load contributor+special revolver list.");
-				e.printStackTrace();
-			}
-		}
+		
 	}
 }

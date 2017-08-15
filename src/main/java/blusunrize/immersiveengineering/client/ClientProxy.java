@@ -29,7 +29,7 @@ import blusunrize.immersiveengineering.client.gui.GuiCrate;
 import blusunrize.immersiveengineering.client.gui.GuiFermenter;
 import blusunrize.immersiveengineering.client.gui.GuiModWorkbench;
 import blusunrize.immersiveengineering.client.gui.GuiRefinery;
-import blusunrize.immersiveengineering.client.gui.GuiRevolver;
+
 import blusunrize.immersiveengineering.client.gui.GuiSorter;
 import blusunrize.immersiveengineering.client.gui.GuiSqueezer;
 import blusunrize.immersiveengineering.client.gui.GuiToolbox;
@@ -44,11 +44,11 @@ import blusunrize.immersiveengineering.client.render.BlockRenderWoodenDevices;
 import blusunrize.immersiveengineering.client.render.EntityRenderChemthrowerShot;
 import blusunrize.immersiveengineering.client.render.EntityRenderNone;
 
-import blusunrize.immersiveengineering.client.render.EntityRenderRevolvershot;
+
 import blusunrize.immersiveengineering.client.render.ItemRenderChemthrower;
 import blusunrize.immersiveengineering.client.render.ItemRenderDrill;
 
-import blusunrize.immersiveengineering.client.render.ItemRenderRevolver;
+
 import blusunrize.immersiveengineering.client.render.ItemRenderToolbox;
 import blusunrize.immersiveengineering.client.render.ItemRenderVoltmeter;
 import blusunrize.immersiveengineering.client.render.TileRenderArcFurnace;
@@ -148,10 +148,10 @@ import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWoodenCrat
 import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWoodenPost;
 import blusunrize.immersiveengineering.common.entities.EntityChemthrowerShot;
 
-import blusunrize.immersiveengineering.common.entities.EntityRevolvershot;
+
 
 import blusunrize.immersiveengineering.common.entities.EntitySkylineHook;
-import blusunrize.immersiveengineering.common.items.ItemRevolver;
+
 import blusunrize.immersiveengineering.common.items.ItemToolbox;
 import blusunrize.immersiveengineering.common.util.IESound;
 import blusunrize.immersiveengineering.common.util.Lib;
@@ -189,8 +189,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class ClientProxy extends CommonProxy
 {
-	public static TextureMap revolverTextureMap;
-	public static final ResourceLocation revolverTextureResource = new ResourceLocation("textures/atlas/immersiveengineering/revolvers.png");
+	
 	public static FontRenderer nixieFontOptional;
 	public static IENixieFontRender nixieFont;
 
@@ -243,12 +242,6 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerBlockHandler(new BlockRenderStoneDevices());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBlastFurnaceAdvanced.class, new TileRenderBlastFurnaceAdvanced());
 
-
-		//REVOLVER
-		revolverTextureMap = new TextureMap(Config.getInt("revolverSheetID"), "textures/revolvers");
-		ClientUtils.mc().renderEngine.loadTextureMap(revolverTextureResource, revolverTextureMap);
-		MinecraftForgeClient.registerItemRenderer(IEContent.itemRevolver, new ItemRenderRevolver());
-		RenderingRegistry.registerEntityRenderingHandler(EntityRevolvershot.class, new EntityRenderRevolvershot());
 		//DRILL
 		MinecraftForgeClient.registerItemRenderer(IEContent.itemDrill, new ItemRenderDrill());
 		//ZIPLINE
@@ -440,15 +433,7 @@ public class ClientProxy extends CommonProxy
 				new ManualPages.Crafting(ManualHelper.getManual(), "drill4", new ItemStack(IEContent.itemToolUpgrades,1,2)),
 				new ManualPages.Crafting(ManualHelper.getManual(), "drill5", new ItemStack(IEContent.itemToolUpgrades,1,3)));
 		int blueprint_bullet = BlueprintCraftingRecipe.blueprintCategories.indexOf("bullet");
-		ManualHelper.addEntry("revolver", ManualHelper.CAT_MACHINES,
-				new ManualPages.CraftingMulti(ManualHelper.getManual(), "revolver0", new ItemStack(IEContent.itemRevolver,1,0), new ItemStack(IEContent.itemMaterial,1,7),new ItemStack(IEContent.itemMaterial,1,8),new ItemStack(IEContent.itemMaterial,1,9),new ItemStack(IEContent.itemMaterial,1,10)),
-				new ManualPages.CraftingMulti(ManualHelper.getManual(), "revolver1", new ItemStack(IEContent.itemRevolver,1,1)),
-				//				new ManualPages.CraftingMulti(ManualHelper.getManual(), "revolver2", new ItemStack(IEContent.itemBlueprint,1,blueprint_bullet)),
-				//				new ManualPages.Text(ManualHelper.getManual(), "revolver3"),
-				//				new ManualPages.Text(ManualHelper.getManual(), "revolver4"),
-				new ManualPages.Crafting(ManualHelper.getManual(), "revolver2", new ItemStack(IEContent.itemToolUpgrades,1,4)),
-				new ManualPages.Crafting(ManualHelper.getManual(), "revolver3", new ItemStack(IEContent.itemToolUpgrades,1,5)),
-				new ManualPages.Crafting(ManualHelper.getManual(), "revolver4", new ItemStack(IEContent.itemToolUpgrades,1,6)));
+
 		ArrayList<IManualPage> pages = new ArrayList<IManualPage>();
 		pages.add(new ManualPages.CraftingMulti(ManualHelper.getManual(), "bullets0", new ItemStack(IEContent.itemBlueprint,1,blueprint_bullet), new ItemStack(IEContent.itemBullet,1,0),new ItemStack(IEContent.itemBullet,1,1)));
 		pages.add(new ManualPages.ItemDisplay(ManualHelper.getManual(), "bullets1", new ItemStack(IEContent.itemBullet,1,2)));
@@ -543,8 +528,6 @@ public class ClientProxy extends CommonProxy
 			return new GuiCokeOven(player.inventory, (TileEntityCokeOven) te);
 		if(ID==Lib.GUIID_BlastFurnace && te instanceof TileEntityBlastFurnace)
 			return new GuiBlastFurnace(player.inventory, (TileEntityBlastFurnace) te);
-		if(ID==Lib.GUIID_Revolver && player.getCurrentEquippedItem()!=null && player.getCurrentEquippedItem().getItem() instanceof ItemRevolver)
-			return new GuiRevolver(player.inventory, world);
 		if(ID==Lib.GUIID_Manual && ManualHelper.getManual()!=null && player.getCurrentEquippedItem()!=null && OreDictionary.itemMatches(new ItemStack(IEContent.itemTool,1,3), player.getCurrentEquippedItem(), false))
 			return ManualHelper.getManual().getGui();
 		if(ID==Lib.GUIID_WoodenCrate && te instanceof TileEntityWoodenCrate)

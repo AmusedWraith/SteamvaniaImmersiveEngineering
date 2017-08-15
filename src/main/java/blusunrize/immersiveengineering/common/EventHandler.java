@@ -171,8 +171,7 @@ public class EventHandler
 	@SubscribeEvent
 	public void onEntityInteract(EntityInteractEvent event)
 	{
-		if(event.target instanceof EntityLivingBase && OreDictionary.itemMatches(new ItemStack(IEContent.itemRevolver,1,OreDictionary.WILDCARD_VALUE), event.entityPlayer.getCurrentEquippedItem(), false))
-			event.setCanceled(true);
+
 		if(!event.entityPlayer.worldObj.isRemote && event.target instanceof EntityMinecart && event.entityPlayer.getCurrentEquippedItem()!=null && event.entityPlayer.getCurrentEquippedItem().getItem() instanceof IShaderItem)
 		{
 			EntityPropertiesShaderCart properties = (EntityPropertiesShaderCart)event.target.getExtendedProperties(EntityPropertiesShaderCart.PROPERTY_NAME);

@@ -8,7 +8,7 @@ import net.minecraft.util.IIcon;
  * @author BluSunrize - 29.10.2015
  *
  * To be implemented into new ShaderCases for new items<br>
- * Pre-configured ones exist (ShaderCaseRevolver.class) but when a new, shader-ready item is implemented, it'll need a shadercase.
+ * Pre-configured ones exist  but when a new, shader-ready item is implemented, it'll need a shadercase.
  */
 public abstract class ShaderCase
 {
@@ -62,7 +62,7 @@ public abstract class ShaderCase
 	}
 	
 	/**
-	 * @return A string representing which item this shader case applies to. e.g.: "revolver"
+	 * @return A string representing which item this shader case applies to. e.g.: "drill"
 	 */
 	public abstract String getShaderType();
 	
@@ -72,13 +72,13 @@ public abstract class ShaderCase
 	public abstract int getPasses(ItemStack shader, ItemStack item, String modelPart);
 	
 	/**
-	 * @return which icon is to be used for the given pass and model part. These obviously need to be stitched on the given sheet (mind the revolvers!)
+	 * @return which icon is to be used for the given pass and model part. These obviously need to be stitched on the given sheet
 	 */
 	public abstract IIcon getReplacementIcon(ItemStack shader, ItemStack item, String modelPart, int pass);
 	
 	/**
 	 * Called upon texutre stitching. Replacement icons are stitched from this method.<br>
-	 * Make sure to compare against the sheetID, the revolver sheet ID can be found in IEApi.class
+	 * Make sure to compare against the sheetID, the sheet ID can be found in IEApi.class
 	 */
 	public abstract void stichTextures(IIconRegister ir, int sheetID);
 	

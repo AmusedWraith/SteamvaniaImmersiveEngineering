@@ -73,17 +73,7 @@ public class ContainerDrill extends Container
 			}
 			else
 			{
-//				boolean b = true;
-//				for(int i=0;i<revolverSlots;i++)
-//					if(this.getSlot(i).isItemValid(stackInSlot))
-//						if(this.mergeItemStack(Utils.copyStackWithAmount(stackInSlot,1), i,i+1, false))
-//						{
-//							stackInSlot.stackSize--;
-//							stack.stackSize--;
-//							b=false;
-//							break;
-//						}
-//				if(b)
+
 					return null;
 			}
 

@@ -7,7 +7,7 @@ import blusunrize.immersiveengineering.api.crafting.BlastFurnaceRecipe;
 import blusunrize.immersiveengineering.api.crafting.BlueprintCraftingRecipe;
 import blusunrize.immersiveengineering.api.shader.IShaderEquipableItem;
 import blusunrize.immersiveengineering.api.shader.IShaderItem;
-import blusunrize.immersiveengineering.api.tool.IBullet;
+
 import blusunrize.immersiveengineering.api.tool.IDrillHead;
 import blusunrize.immersiveengineering.api.tool.IUpgrade;
 import blusunrize.immersiveengineering.api.tool.IUpgradeableTool;
@@ -88,27 +88,7 @@ public abstract class IESlot extends Slot
 			return BlastFurnaceRecipe.isValidBlastFuel(itemStack);
 		}
 	}
-	public static class Bullet extends IESlot
-	{
-		int limit;
-		public Bullet(Container container, IInventory inv, int id, int x, int y, int limit)
-		{
-			super(container, inv, id, x, y);
-			this.limit=limit;
-		}
-		@Override
-		public boolean isItemValid(ItemStack itemStack)
-		{
-			//			return true;
-			return itemStack!=null && itemStack.getItem() instanceof IBullet;
-			//itemStack!=null && itemStack.getItem().equals(IEContent.itemBullet);
-		}
-		@Override
-		public int getSlotStackLimit()
-		{
-			return limit;
-		}
-	}
+
 	public static class DrillHead extends IESlot
 	{
 		public DrillHead(Container container, IInventory inv, int id, int x, int y)

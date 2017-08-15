@@ -17,7 +17,7 @@ import blusunrize.immersiveengineering.common.Config;
 import blusunrize.immersiveengineering.common.IEContent;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalMultiblocks;
 import blusunrize.immersiveengineering.common.items.ItemDrill;
-import blusunrize.immersiveengineering.common.items.ItemRevolver;
+
 import cpw.mods.fml.common.Loader;
 
 public class IEAchievements
@@ -37,8 +37,7 @@ public class IEAchievements
 
 	
 	public static Achievement craftWorkbench;
-	public static Achievement craftRevolver;
-	public static Achievement upgradeRevolver;
+
 	public static Achievement craftDrill;
 	public static Achievement upgradeDrill;
 	public static Achievement craftSkyhook;
@@ -80,22 +79,11 @@ public class IEAchievements
 		mbArcFurnace = new AchievementIE("mbArcFurnace", 6, 1, new ItemStack(IEContent.blockMetalMultiblocks,1,BlockMetalMultiblocks.META_arcFurnace), craftHammer).setSpecial();
 		
 		craftWorkbench = new AchievementIE("craftWorkbench", 2, -4, new ItemStack(IEContent.blockWoodenDevice,1,5), makeSteel).setNormalCrafting();
-		
-		craftRevolver = new AchievementIE("craftRevolver", 3, -7, IEContent.itemRevolver, craftWorkbench).setNormalCrafting();
-		ItemStack[] upgrades = new ItemStack[20];
-		upgrades[18]=new ItemStack(IEContent.itemToolUpgrades,1,5);
-		upgrades[19]=new ItemStack(IEContent.itemToolUpgrades,1,6);
-		ItemStack revolver = new ItemStack(IEContent.itemRevolver);
-		((ItemRevolver)IEContent.itemRevolver).setContainedItems(revolver, upgrades);
-		((ItemRevolver)IEContent.itemRevolver).recalculateUpgrades(revolver);
-		upgradeRevolver = new AchievementIE("upgradeRevolver", 4, -6, revolver, craftRevolver);
-		if(Loader.isModLoaded("Botania")&&Config.getBoolean("compat_Botania"))
-			craftWolfPack = new AchievementIE("craftWolfPack", 6, -7, new ItemStack(IEContent.itemBullet,1,8), craftRevolver).setNormalCrafting().setSpecial();
-		
+	
 		ItemStack drill = new ItemStack(IEContent.itemDrill);
 		((ItemDrill)IEContent.itemDrill).setHead(drill, new ItemStack(IEContent.itemDrillhead));
 		craftDrill = new AchievementIE("craftDrill", 1, -7, drill, craftWorkbench).setNormalCrafting();
-		upgrades = new ItemStack[4];
+		ItemStack[] upgrades = new ItemStack[4];
 		upgrades[0]=new ItemStack(IEContent.itemDrillhead);
 		upgrades[1]=new ItemStack(IEContent.itemToolUpgrades,1,0);
 		upgrades[2]=new ItemStack(IEContent.itemToolUpgrades,1,1);

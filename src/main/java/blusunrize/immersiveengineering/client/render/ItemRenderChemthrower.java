@@ -91,7 +91,7 @@ public class ItemRenderChemthrower implements IItemRenderer
 			GL11.glScalef(.625f,.625f,.625f);
 		}
 
-		//		ClientUtils.mc().renderEngine.bindTexture(ClientProxy.revolverTextureResource);
+
 		GL11.glColor4f(1, 1, 1, 1);
 		GL11.glEnable(3042);
 		OpenGlHelper.glBlendFunc(770, 771, 0, 1);

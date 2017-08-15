@@ -88,8 +88,7 @@ public class Config
 			cableProperty.set(new int[]{16,16,32,32,32});
 		setIntArray("cableLength", cableProperty.getIntList());
 
-		setInt("revolverSheetID", config.get("general", "TextureSheet: Revolvers", 94, "The ID of the texture sheet used for revolvers. This should probably never conflict since not many mods do custom sheets.").getInt());
-		IEApi.revolverTextureSheetID = getInt("revolverSheetID");
+
 		setBoolean("increasedRenderboxes", config.get("general", "Increased Renderboxes", true, "By default all devices that accept cables have increased renderbounds to show cables even if the block itself is not in view. Disabling this reduces them to their minimum sizes, which might improve FPS on low-power PCs").getBoolean());
 		setBoolean("colourblindSupport", config.get("general", "ColourblindSupport", false, "Support for colourblind people, gives a text-based output on capacitor sides").getBoolean());
 		setBoolean("nixietubeFont", config.get("general", "NixietubeFont", true, "Set this to false to disable the super awesome looking nixie tube front for the voltmeter and other things").getBoolean());

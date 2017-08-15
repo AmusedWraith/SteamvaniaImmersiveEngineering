@@ -108,12 +108,10 @@ import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWoodenPost
 import blusunrize.immersiveengineering.common.crafting.IEFuelHandler;
 import blusunrize.immersiveengineering.common.entities.EntityChemthrowerShot;
 
-import blusunrize.immersiveengineering.common.entities.EntityRevolvershot;
-import blusunrize.immersiveengineering.common.entities.EntityRevolvershotHoming;
+
 
 import blusunrize.immersiveengineering.common.entities.EntitySkylineHook;
-import blusunrize.immersiveengineering.common.entities.EntityWolfpackShot;
-import blusunrize.immersiveengineering.common.items.ItemBullet;
+
 import blusunrize.immersiveengineering.common.items.ItemChemthrower;
 import blusunrize.immersiveengineering.common.items.ItemDrill;
 import blusunrize.immersiveengineering.common.items.ItemDrillhead;
@@ -124,7 +122,6 @@ import blusunrize.immersiveengineering.common.items.ItemIESeed;
 import blusunrize.immersiveengineering.common.items.ItemIETool;
 import blusunrize.immersiveengineering.common.items.ItemJerrycan;
 
-import blusunrize.immersiveengineering.common.items.ItemRevolver;
 import blusunrize.immersiveengineering.common.items.ItemShader;
 import blusunrize.immersiveengineering.common.items.ItemShaderBag;
 import blusunrize.immersiveengineering.common.items.ItemSkyhook;
@@ -189,7 +186,7 @@ public class IEContent
 	public static ItemIEBase itemSeeds;
 	public static ItemIEBase itemTool;
 	public static ItemIEBase itemToolbox;
-	public static ItemIEBase itemRevolver;
+
 	public static ItemIEBase itemBullet;
 	public static ItemIEBase itemFluidContainers;
 	public static ItemIEBase itemDrill;
@@ -257,8 +254,7 @@ public class IEContent
 
 		itemTool = new ItemIETool();
 		itemToolbox = new ItemToolbox();
-		itemRevolver = new ItemRevolver();
-		itemBullet = new ItemBullet();
+
 		itemFluidContainers = new ItemIEBase("fluidContainers", 64, "bottleCreosote","bucketCreosote",  "bottlePlantoil","bucketPlantoil",  "bottleEthanol","bucketEthanol", "bottleBiodiesel","bucketBiodiesel")
 		{
 			@Override
@@ -461,11 +457,10 @@ public class IEContent
 
 
 		/**ENTITIES*/
-		EntityRegistry.registerModEntity(EntityRevolvershot.class, "revolverShot", 0, ImmersiveEngineering.instance, 64, 1, true);
+
 		EntityRegistry.registerModEntity(EntitySkylineHook.class, "skylineHook", 1, ImmersiveEngineering.instance, 64, 1, true);
 
-		EntityRegistry.registerModEntity(EntityRevolvershotHoming.class, "revolverShotHoming", 3, ImmersiveEngineering.instance, 64, 1, true);
-		EntityRegistry.registerModEntity(EntityWolfpackShot.class, "revolverShotWolfpack", 4, ImmersiveEngineering.instance, 64, 1, true);		
+	
 		EntityRegistry.registerModEntity(EntityChemthrowerShot.class, "chemthrowerShot", 5, ImmersiveEngineering.instance, 64, 1, true);
 
 		int villagerId = Config.getInt("villager_engineer");

@@ -97,11 +97,7 @@ public class ItemShader extends ItemIEBase implements IShaderItem
 		if(colourOverlay!=null)
 			for(ShaderCase sCase : entry.cases.values())
 				sCase.setOverlayColour(colourOverlay);
-		//		ShaderCaseRevolver revolver = IEApi.registerShader_Revolver(name, overlayType, colour0, colour1, colour2, colour3, additionalTexture);
-		//		revolver.glowLayer = revolver_glow;
-		//		IEApi.registerShader_Chemthrower(name, overlayType, colour0, colour1, colour2, true,false, additionalTexture);
-		//		IEApi.registerShader_Minecart(name, overlayType, colour1, colour2, additionalTexture);
-
+	
 	}
 
 	public String getShaderName(ItemStack stack)
