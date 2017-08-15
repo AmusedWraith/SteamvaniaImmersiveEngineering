@@ -83,22 +83,15 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list)
 	{
-		list.add(new ItemStack(item, 1, 0));
-		list.add(new ItemStack(item, 1, 2));
-		list.add(new ItemStack(item, 1, 3));
-		list.add(new ItemStack(item, 1, 4));
-		list.add(new ItemStack(item, 1, 5));
-		list.add(new ItemStack(item, 1, 6));
-		list.add(new ItemStack(item, 1, 7));
-		list.add(new ItemStack(item, 1, 8));
-		list.add(new ItemStack(item, 1, 9));
-		list.add(new ItemStack(item, 1,10));
-		list.add(new ItemStack(item, 1,11));
+		list.add(new ItemStack(item, 1, META_energyMeter));
+		list.add(new ItemStack(item, 1, META_fluidPipe));
+		list.add(new ItemStack(item, 1, META_fluidPump));
+		list.add(new ItemStack(item, 1, META_barrel));
+		list.add(new ItemStack(item, 1, META_chargingStation));
+		list.add(new ItemStack(item, 1, META_blastFurnacePreheater));
+		
 
-		//		for(int i=0; i<subNames.length; i++)
-		//		{
-		//			list.add(new ItemStack(item, 1, i));
-		//		}
+	
 	}
 
 	@Override
