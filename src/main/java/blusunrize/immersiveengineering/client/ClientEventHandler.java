@@ -37,7 +37,7 @@ import blusunrize.immersiveengineering.common.util.ItemNBTHelper;
 import blusunrize.immersiveengineering.common.util.Lib;
 import blusunrize.immersiveengineering.common.util.SkylineHelper;
 import blusunrize.immersiveengineering.common.util.Utils;
-import blusunrize.immersiveengineering.common.util.compat.GregTechHelper;
+
 import blusunrize.immersiveengineering.common.util.network.MessageRequestBlockUpdate;
 import cofh.api.energy.IEnergyReceiver;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -507,12 +507,7 @@ public class ClientEventHandler
 							if(maxStorage>0)
 								text = StatCollector.translateToLocalFormatted(Lib.DESC_INFO+"energyStored","<br>"+Utils.toScientificNotation(storage,"0##",100000)+" / "+Utils.toScientificNotation(maxStorage,"0##",100000)).split("<br>");
 						}
-						else if(Lib.GREG && GregTechHelper.gregtech_isValidEnergyOutput(tileEntity))
-						{
-							String gregStored = GregTechHelper.gregtech_getEnergyStored(tileEntity);
-							if(gregStored!=null)
-								text = StatCollector.translateToLocalFormatted(Lib.DESC_INFO+"energyStored","<br>"+gregStored).split("<br>");
-						}
+						
 						else if(mop.entityHit instanceof IEnergyReceiver)
 						{
 							int maxStorage = ((IEnergyReceiver)mop.entityHit).getMaxEnergyStored(ForgeDirection.UNKNOWN);

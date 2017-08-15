@@ -187,7 +187,7 @@ public class IEContent
 	public static ItemIEBase itemTool;
 	public static ItemIEBase itemToolbox;
 
-	public static ItemIEBase itemBullet;
+
 	public static ItemIEBase itemFluidContainers;
 	public static ItemIEBase itemDrill;
 	public static ItemIEBase itemDrillhead;
@@ -623,8 +623,7 @@ public class IEContent
 		ChestGenHooks.getInfo(crate).addItem(new WeightedRandomChestContent(IEContent.itemMetal,1, 1,4, 10));
 		ChestGenHooks.getInfo(crate).addItem(new WeightedRandomChestContent(IEContent.itemMetal,2, 1,4, 10));
 		ChestGenHooks.getInfo(crate).addItem(new WeightedRandomChestContent(IEContent.itemMetal,7, 1,4, 8));
-		ChestGenHooks.getInfo(crate).addItem(new WeightedRandomChestContent(IEContent.itemBlueprint,BlueprintCraftingRecipe.blueprintCategories.indexOf("bullet"), 1,1, 5));
-		ChestGenHooks.getInfo(crate).addItem(new WeightedRandomChestContent(IEContent.itemBlueprint,BlueprintCraftingRecipe.blueprintCategories.indexOf("specialBullet"), 1,1, 2));
+
 		ChestGenHooks.getInfo(crate).addItem(new WeightedRandomChestContent(IEContent.itemBlueprint,BlueprintCraftingRecipe.blueprintCategories.indexOf("electrode"), 1,1, 1));
 		ChestGenHooks.getInfo(crate).addItem(new WeightedRandomChestContent(IEContent.itemShader,0, 1,1, 5));
 		VillageEngineersHouse.crateContents = ChestGenHooks.getInfo(crate);

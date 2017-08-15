@@ -26,12 +26,12 @@ public abstract class IECompatModule
 		moduleClasses.put("MineFactoryReloaded", MFRHelper.class);
 		moduleClasses.put("MineTweaker3", MTHelper.class);
 		moduleClasses.put("denseores", DenseOresHelper.class);
-		moduleClasses.put("EE3", EE3Helper.class);
+
 		moduleClasses.put("ForgeMicroblock", FMPHelper.class);
 		moduleClasses.put("Forestry", ForestryHelper.class);
 		moduleClasses.put("BackTools", BacktoolsHelper.class);
 		moduleClasses.put("Waila", WailaHelper.class);
-		moduleClasses.put("gregtech", GregTechHelper.class);
+
 		moduleClasses.put("HydCraft", HydCraftHelper.class);
 		moduleClasses.put("ThermalExpansion", ThermalExpansionHelper.class);
 		moduleClasses.put("ThermalFoundation", ThermalFoundationHelper.class);

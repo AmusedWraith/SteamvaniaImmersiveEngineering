@@ -45,19 +45,7 @@ public class Config
 				config.getCategory("general").remove("Cable transfer rates");
 				config.getCategory("general").remove("Cable loss");
 			}
-			if(lastVersion<.61)
-			{
-				IELogger.info("The config on bullet damage will be reset to the default.");
-				config.getCategory("tools").remove("BulletDamage-Casull");
-				config.getCategory("tools").remove("BulletDamage-AP");
-				config.getCategory("tools").remove("BulletDamage-Buck");
-				config.getCategory("tools").remove("BulletDamage-Dragon");
-				config.getCategory("tools").remove("BulletDamage-Homing");
-				config.getCategory("tools").remove("BulletDamage-Wolfpack");
-				config.getCategory("tools").remove("BulletDamage-WolfpackPart");
-				config.getCategory("tools").remove("BulletDamage-Silver");
-				config.getCategory("tools").remove("BulletDamage-Potion");
-			}
+
 			config.getCategory("general").remove("Show Update News");
 		}
 
@@ -173,16 +161,6 @@ public class Config
 		setIntArray("ore_nickel", config.get("oregen", "Nickel", new int[]{6,  8,24, 2,100}, "Generation config for Nickel Ore. Parameters: Blocks per vein, lowest possible Y, highest possible Y, veins per chunk, chance for vein to spawn (out of 100). Set vein size to 0 to disable the generation").getIntList());
 		setIntArray("oreDimBlacklist", config.get("oregen", "DimensionBlacklist", new int[]{-1,1}, "A blacklist of dimensions in which IE ores won't spawn. By default this is Nether (-1) and End (1)").getIntList());
 
-		setBoolean("hardmodeBulletRecipes", config.get("tools", "Bullets: Hardmode Recipes", false, "Enable this to use the old, harder bullet recipes(require one ingot per bullet)").getBoolean());
-		setDouble("BulletDamage-Casull", config.get("tools", "BulletDamage-Casull", 10d, "The amount of base damage a Casull Cartridge inflicts").getDouble());
-		setDouble("BulletDamage-AP", config.get("tools", "BulletDamage-AP", 10d, "The amount of base damage an ArmorPiercing Cartridge inflicts").getDouble());
-		setDouble("BulletDamage-Buck", config.get("tools", "BulletDamage-Buck", 2d, "The amount of base damage a single part of Buckshot inflicts").getDouble());
-		setDouble("BulletDamage-Dragon", config.get("tools", "BulletDamage-Dragon", 3d, "The amount of base damage a DragonsBreath Cartridge inflicts").getDouble());
-		setDouble("BulletDamage-Homing", config.get("tools", "BulletDamage-Homing", 10d, "The amount of base damage a Homing Cartridge inflicts").getDouble());
-		setDouble("BulletDamage-Wolfpack", config.get("tools", "BulletDamage-Wolfpack", 6d, "The amount of base damage a Wolfpack Cartridge inflicts").getDouble());
-		setDouble("BulletDamage-WolfpackPart", config.get("tools", "BulletDamage-WolfpackPart", 4d, "The amount of damage the sub-projectiles of the Wolfpack Cartridge inflict").getDouble());
-		setDouble("BulletDamage-Silver", config.get("tools", "BulletDamage-Silver", 10d, "The amount of damage a silver bullet inflicts").getDouble());
-		setDouble("BulletDamage-Potion", config.get("tools", "BulletDamage-Potion", 1d, "The amount of base damage a Phial Cartridge inflicts").getDouble());
 		
 		setInt("chemthrower_consumption", config.get("tools", "ChemThrower: Consumed", 10, "The mb of fluid the Chemical Thrower will consume per tick of usage").getInt());
 		

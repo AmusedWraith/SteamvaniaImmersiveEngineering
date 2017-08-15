@@ -432,25 +432,9 @@ public class ClientProxy extends CommonProxy
 				new ManualPages.Crafting(ManualHelper.getManual(), "drill3", new ItemStack(IEContent.itemToolUpgrades,1,1)),
 				new ManualPages.Crafting(ManualHelper.getManual(), "drill4", new ItemStack(IEContent.itemToolUpgrades,1,2)),
 				new ManualPages.Crafting(ManualHelper.getManual(), "drill5", new ItemStack(IEContent.itemToolUpgrades,1,3)));
-		int blueprint_bullet = BlueprintCraftingRecipe.blueprintCategories.indexOf("bullet");
+	
 
 		ArrayList<IManualPage> pages = new ArrayList<IManualPage>();
-		pages.add(new ManualPages.CraftingMulti(ManualHelper.getManual(), "bullets0", new ItemStack(IEContent.itemBlueprint,1,blueprint_bullet), new ItemStack(IEContent.itemBullet,1,0),new ItemStack(IEContent.itemBullet,1,1)));
-		pages.add(new ManualPages.ItemDisplay(ManualHelper.getManual(), "bullets1", new ItemStack(IEContent.itemBullet,1,2)));
-		pages.add(new ManualPages.ItemDisplay(ManualHelper.getManual(), "bullets2", new ItemStack(IEContent.itemBullet,1,3)));
-		pages.add(new ManualPages.ItemDisplay(ManualHelper.getManual(), "bullets3", new ItemStack(IEContent.itemBullet,1,4)));
-		pages.add(new ManualPages.ItemDisplay(ManualHelper.getManual(), "bullets4", new ItemStack(IEContent.itemBullet,1,5)));
-		pages.add(new ManualPages.ItemDisplay(ManualHelper.getManual(), "bullets5", new ItemStack(IEContent.itemBullet,1,9)));
-		pages.add(new ManualPages.ItemDisplay(ManualHelper.getManual(), "bullets6", new ItemStack(IEContent.itemBullet,1,6)));
-		pages.add(new ManualPages.ItemDisplay(ManualHelper.getManual(), "bullets7", new ItemStack(IEContent.itemBullet,1,10)));
-		if(Config.getBoolean("botaniaBullets"))
-		{
-			pages.add(new ManualPages.ItemDisplay(ManualHelper.getManual(), "bulletsBotania0", new ItemStack(IEContent.itemBullet,1,7)));
-			pages.add(new ManualPages.ItemDisplay(ManualHelper.getManual(), "bulletsBotania1", new ItemStack(IEContent.itemBullet,1,8)));
-		}
-		ManualHelper.addEntry("bullets", ManualHelper.CAT_MACHINES, pages.toArray(new IManualPage[pages.size()]));
-
-		pages = new ArrayList<IManualPage>();
 
 		pages.add(new ManualPages.Crafting(ManualHelper.getManual(), "fluidPipes0", new ItemStack(IEContent.blockMetalDevice2,1,BlockMetalDevices2.META_fluidPipe)));
 		pages.add(new ManualPages.Text(ManualHelper.getManual(), "fluidPipes1"));

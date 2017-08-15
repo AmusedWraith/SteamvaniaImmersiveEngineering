@@ -55,8 +55,7 @@ public class ItemToolUpgrade extends ItemIEBase implements IUpgrade {
 	@Override
 	public boolean canApplyUpgrades(ItemStack target, ItemStack upgrade)
 	{
-		if(upgrade.getItemDamage()==5 && target.getItem() instanceof IUpgradeableTool)
-			return !((IUpgradeableTool)target.getItem()).getUpgrades(target).hasKey("bullets");
+		
 		return true;
 	}
 
@@ -85,10 +84,7 @@ public class ItemToolUpgrade extends ItemIEBase implements IUpgrade {
 			Float melee = (Float)modifications.get("melee");
 			modifications.put("melee", (melee==null?0:melee)+6f);
 			break;
-		case 5:
-			mod = (Integer)modifications.get("bullets");
-			modifications.put("bullets", (mod==null?0:mod)+6);
-			break;
+
 		case 6:
 			modifications.put("electro", true);
 			break;

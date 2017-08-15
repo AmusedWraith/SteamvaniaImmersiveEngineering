@@ -45,12 +45,7 @@ public class EtFuturumHelper extends IECompatModule
 	@Override
 	public void init()
 	{
-		Config.setBoolean("etfuturumBullets", true);
-		try{
-			c_EntityLingeringEffect = Class.forName("ganymedes01.etfuturum.entities.EntityLingeringEffect");
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+		
 	}
 	@Override
 	public void postInit()
