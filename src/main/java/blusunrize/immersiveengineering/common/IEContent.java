@@ -19,7 +19,7 @@ import blusunrize.immersiveengineering.api.tool.ChemthrowerHandler.ChemthrowerEf
 import blusunrize.immersiveengineering.api.tool.ChemthrowerHandler.ChemthrowerEffect_Potion;
 import blusunrize.immersiveengineering.api.tool.ExcavatorHandler;
 import blusunrize.immersiveengineering.api.tool.ExternalHeaterHandler;
-import blusunrize.immersiveengineering.api.tool.RailgunHandler;
+
 
 import blusunrize.immersiveengineering.common.blocks.BlockIEBase;
 import blusunrize.immersiveengineering.common.blocks.BlockIEBase.BlockIESimple;
@@ -107,7 +107,7 @@ import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWoodenCrat
 import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWoodenPost;
 import blusunrize.immersiveengineering.common.crafting.IEFuelHandler;
 import blusunrize.immersiveengineering.common.entities.EntityChemthrowerShot;
-import blusunrize.immersiveengineering.common.entities.EntityRailgunShot;
+
 import blusunrize.immersiveengineering.common.entities.EntityRevolvershot;
 import blusunrize.immersiveengineering.common.entities.EntityRevolvershotHoming;
 
@@ -123,7 +123,7 @@ import blusunrize.immersiveengineering.common.items.ItemIEBase;
 import blusunrize.immersiveengineering.common.items.ItemIESeed;
 import blusunrize.immersiveengineering.common.items.ItemIETool;
 import blusunrize.immersiveengineering.common.items.ItemJerrycan;
-import blusunrize.immersiveengineering.common.items.ItemRailgun;
+
 import blusunrize.immersiveengineering.common.items.ItemRevolver;
 import blusunrize.immersiveengineering.common.items.ItemShader;
 import blusunrize.immersiveengineering.common.items.ItemShaderBag;
@@ -203,7 +203,7 @@ public class IEContent
 	public static ItemIEBase itemFakeIcons;
 	public static ItemIEBase itemJerrycan;
 	public static ItemIEBase itemChemthrower;
-	public static ItemIEBase itemRailgun;
+
 	public static ItemIEBase itemMold;
 	public static Fluid fluidCreosote;
 	public static boolean IECreosote=false;
@@ -299,7 +299,7 @@ public class IEContent
 		};
 		itemJerrycan = new ItemJerrycan();
 		itemChemthrower = new ItemChemthrower();
-		itemRailgun= new ItemRailgun();
+
 		itemMold = new ItemIEBase("mold", 1, "plate","gear","rod").setMetaHidden(1);
 
 		fluidCreosote = FluidRegistry.getFluid("creosote");
@@ -467,7 +467,7 @@ public class IEContent
 		EntityRegistry.registerModEntity(EntityRevolvershotHoming.class, "revolverShotHoming", 3, ImmersiveEngineering.instance, 64, 1, true);
 		EntityRegistry.registerModEntity(EntityWolfpackShot.class, "revolverShotWolfpack", 4, ImmersiveEngineering.instance, 64, 1, true);		
 		EntityRegistry.registerModEntity(EntityChemthrowerShot.class, "chemthrowerShot", 5, ImmersiveEngineering.instance, 64, 1, true);
-		EntityRegistry.registerModEntity(EntityRailgunShot.class, "railgunShot", 6, ImmersiveEngineering.instance, 64, 5, true);
+
 		int villagerId = Config.getInt("villager_engineer");
 		VillagerRegistry.instance().registerVillagerId(villagerId);
 		if (Config.getBoolean("buildVillage"))
@@ -549,11 +549,7 @@ public class IEContent
 		ChemthrowerHandler.registerEffect("rocket_fuel", new ChemthrowerEffect_Potion(null,0, IEPotions.flammable,60,2));
 		ChemthrowerHandler.registerFlammable("rocket_fuel");
 
-		RailgunHandler.registerProjectileProperties(new ComparableItemStack("stickIron"), 7, 1.25).setColourMap(new int[][]{{0xd8d8d8,0xd8d8d8,0xd8d8d8,0xa8a8a8,0x686868,0x686868}});
-		RailgunHandler.registerProjectileProperties(new ComparableItemStack("stickSteel"), 9, 1.25).setColourMap(new int[][]{{0xb4b4b4,0xb4b4b4,0xb4b4b4,0x7a7a7a,0x555555,0x555555}});
-		RailgunHandler.registerProjectileProperties(new ComparableItemStack("stickAluminum"), 6, 1.0625).setColourMap(new int[][]{{0xd9ecea,0xd9ecea,0xd9ecea,0xaebebc,0x9aa7a6,0x9aa7a6}});
-		RailgunHandler.registerProjectileProperties(new ComparableItemStack(new ItemStack(itemGraphiteElectrode)), 12, .9).setColourMap(new int[][]{{0x242424,0x242424,0x242424,0x171717,0x171717,0x0a0a0a}});
-
+	
 		ExternalHeaterHandler.defaultFurnaceEnergyCost = Config.getInt("heater_consumption");
 		ExternalHeaterHandler.defaultFurnaceSpeedupCost= Config.getInt("heater_speedupConsumption");
 		ExternalHeaterHandler.registerHeatableAdapter(TileEntityFurnace.class, new ExternalHeaterHandler.DefaultFurnaceAdapter());

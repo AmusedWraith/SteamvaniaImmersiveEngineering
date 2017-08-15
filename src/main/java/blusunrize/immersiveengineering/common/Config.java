@@ -187,8 +187,6 @@ public class Config
 		
 		setInt("chemthrower_consumption", config.get("tools", "ChemThrower: Consumed", 10, "The mb of fluid the Chemical Thrower will consume per tick of usage").getInt());
 		
-		setInt("railgun_consumption", config.get("tools", "Railgun: Consumed", 800, "The base amount of RF consumed per shot by the Railgun").getInt());
-		setDouble("railgun_damage_multiplier", config.get("tools", "Railgun: Damage multiplier", 1D, "When something is hurt by a railgun, the default damage for the used projectile is multiplied by this value").getDouble());
 		
 		ItemJerrycan.blacklist = Sets.newHashSet(config.get("tools", "Jerrycan Blacklist", new String[]{}, "Using their fluid registry names, fluids can be specified here that won't be allowed in the jerrycan").getStringList());
 		

@@ -20,7 +20,7 @@ public class ItemToolUpgrade extends ItemIEBase implements IUpgrade {
 	{
 		super("toolupgrade", 1, "drillWaterproof","drillSpeed","drillDamage","drillCapacity",
 				"revolverBayonet","revolverMagazine","revolverElectro",
-				"chemthrowerFocus","railgunScope","railgunCapacitors");
+				"chemthrowerFocus");
 	}
 
 	@Override
@@ -50,10 +50,9 @@ public class ItemToolUpgrade extends ItemIEBase implements IUpgrade {
 			return ImmutableSet.of("DRILL","CHEMTHROWER");
 		else if(upgrade.getItemDamage()<=6)
 			return ImmutableSet.of("REVOLVER");
-		else if(upgrade.getItemDamage()==7)
+		else 
 			return ImmutableSet.of("CHEMTHROWER");
-		else
-			return ImmutableSet.of("RAILGUN");
+		
 	}
 
 	@Override

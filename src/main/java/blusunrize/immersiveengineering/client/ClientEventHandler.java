@@ -559,29 +559,7 @@ public class ClientEventHandler
 					}
 					GL11.glPopMatrix();
 				}
-				//				else if(equipped.getItem() instanceof ItemRailgun)
-				//				{
-				//					float dx = event.resolution.getScaledWidth()-32-48;
-				//					float dy = event.resolution.getScaledHeight()-40;
-				//					ClientUtils.bindTexture("immersiveengineering:textures/gui/hudElements.png");
-				//					GL11.glColor4f(1, 1, 1, 1);
-				//					GL11.glPushMatrix();
-				//					GL11.glEnable(GL11.GL_BLEND);
-				//					GL11.glTranslated(dx, dy, 0);
-				//
-				//					int duration = player.getItemInUseDuration();
-				//					int chargeTime = ((ItemRailgun)equipped.getItem()).getChargeTime(equipped);
-				//					int chargeLevel = Math.min(99, (int)(duration/(float)chargeTime*100));
-				//					//					ClientUtils.drawTexturedRect(0,0, 64,32, 0/256f,64/256f, 96/256f,128/256f);
-				//
-				//					GL11.glScalef(1.5f,1.5f,1.5f);
-				//					int col = Config.getBoolean("nixietubeFont")?Lib.colour_nixieTubeText:0xffffff;
-				//					ClientProxy.nixieFont.setDrawTubeFlag(false);
-				//					//					ClientProxy.nixieFont.drawString((chargeLevel<10?"0"+chargeLevel:""+chargeLevel), 19,3, col);
-				//					ClientProxy.nixieFont.setDrawTubeFlag(true);
-				//
-				//					GL11.glPopMatrix();
-				//				}
+	
 
 				MovingObjectPosition mop = ClientUtils.mc().objectMouseOver;
 				if(mop!=null)
@@ -883,12 +861,7 @@ public class ClientEventHandler
 			else if(model instanceof ModelVillager)
 				((ModelVillager)model).villagerHead.showModel=false;
 		}
-		//		if(OreDictionary.itemMatches(new ItemStack(IEContent.itemRailgun),event.entity.getEquipmentInSlot(0),true))
-		//		{
-		//			ModelBase model = event.renderer.mainModel;
-		//			if(model instanceof ModelBiped)
-		//				((ModelBiped)model).bipedLeftArm.rotateAngleX=.9f;
-		//		}
+	
 	}
 	@SubscribeEvent()
 	public void onRenderLivingPost(RenderLivingEvent.Post event)

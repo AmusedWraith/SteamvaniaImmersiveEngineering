@@ -43,11 +43,11 @@ import blusunrize.immersiveengineering.client.render.BlockRenderWoodenDecoration
 import blusunrize.immersiveengineering.client.render.BlockRenderWoodenDevices;
 import blusunrize.immersiveengineering.client.render.EntityRenderChemthrowerShot;
 import blusunrize.immersiveengineering.client.render.EntityRenderNone;
-import blusunrize.immersiveengineering.client.render.EntityRenderRailgunShot;
+
 import blusunrize.immersiveengineering.client.render.EntityRenderRevolvershot;
 import blusunrize.immersiveengineering.client.render.ItemRenderChemthrower;
 import blusunrize.immersiveengineering.client.render.ItemRenderDrill;
-import blusunrize.immersiveengineering.client.render.ItemRenderRailgun;
+
 import blusunrize.immersiveengineering.client.render.ItemRenderRevolver;
 import blusunrize.immersiveengineering.client.render.ItemRenderToolbox;
 import blusunrize.immersiveengineering.client.render.ItemRenderVoltmeter;
@@ -147,7 +147,7 @@ import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWindmillAd
 import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWoodenCrate;
 import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWoodenPost;
 import blusunrize.immersiveengineering.common.entities.EntityChemthrowerShot;
-import blusunrize.immersiveengineering.common.entities.EntityRailgunShot;
+
 import blusunrize.immersiveengineering.common.entities.EntityRevolvershot;
 
 import blusunrize.immersiveengineering.common.entities.EntitySkylineHook;
@@ -261,12 +261,8 @@ public class ClientProxy extends CommonProxy
 		MinecraftForgeClient.registerItemRenderer(IEContent.itemTool, new ItemRenderVoltmeter());
 		//TOOLBOX
 		MinecraftForgeClient.registerItemRenderer(IEContent.itemToolbox, new ItemRenderToolbox());
-		//RAILGUN
-		MinecraftForgeClient.registerItemRenderer(IEContent.itemRailgun, new ItemRenderRailgun());
-		RenderingRegistry.registerEntityRenderingHandler(EntityRailgunShot.class, new EntityRenderRailgunShot());
-		/** TODO when there is an actual model for it =P
-		MinecraftForgeClient.registerItemRenderer(IEContent.itemSkyhook, new ItemRenderSkyhook());
-		 */
+
+
 
 		int villagerId = Config.getInt("villager_engineer");
 		VillagerRegistry.instance().registerVillagerSkin(villagerId, new ResourceLocation("immersiveengineering:textures/models/villager_engineer.png"));
@@ -485,11 +481,7 @@ public class ClientProxy extends CommonProxy
 				new ManualPages.CraftingMulti(ManualHelper.getManual(), "chemthrower0", new ItemStack(IEContent.itemChemthrower,1,0), new ItemStack(IEContent.itemMaterial,1,9), new ItemStack(IEContent.itemToolUpgrades,1,0)),
 				new ManualPages.Crafting(ManualHelper.getManual(), "chemthrower1", new ItemStack(IEContent.itemToolUpgrades,1,3)),
 				new ManualPages.Crafting(ManualHelper.getManual(), "chemthrower2", new ItemStack(IEContent.itemToolUpgrades,1,7)));
-		ManualHelper.addEntry("railgun", ManualHelper.CAT_MACHINES,
-				new ManualPages.CraftingMulti(ManualHelper.getManual(), "railgun0", new ItemStack(IEContent.itemRailgun,1,0), new ItemStack(IEContent.itemMaterial,1,9)),
-				new ManualPages.Text(ManualHelper.getManual(), "railgun1"),
-				new ManualPages.Crafting(ManualHelper.getManual(), "railgun2", new ItemStack(IEContent.itemToolUpgrades,1,9)),
-				new ManualPages.Crafting(ManualHelper.getManual(), "railgun3", new ItemStack(IEContent.itemToolUpgrades,1,8)));
+
 
 		ManualHelper.addEntry("improvedBlastfurnace", ManualHelper.CAT_HEAVYMACHINES,
 				new ManualPages.Crafting(ManualHelper.getManual(), "improvedBlastfurnace0", new ItemStack(IEContent.blockStoneDecoration,1,6)),

@@ -44,7 +44,7 @@ public class IEAchievements
 	public static Achievement craftSkyhook;
 	public static Achievement skyhookPro;
 	public static Achievement craftChemthrower;
-	public static Achievement craftRailgun;
+
 	public static Achievement craftWolfPack;
 
 	public static Achievement mbImprovedBlastFurnace;
@@ -112,7 +112,6 @@ public class IEAchievements
 		
 		craftChemthrower = new AchievementIE("craftChemthrower", 3, -5, IEContent.itemChemthrower, craftWorkbench).setNormalCrafting();
 		
-		craftRailgun = new AchievementIE("craftRailgun", 1, -5, IEContent.itemRailgun, craftWorkbench).setNormalCrafting();
 		
 		secret_birthdayParty = new AchievementIE("secret_birthdayParty", -4,-2, new ItemStack(IEContent.itemFakeIcons,1,0), null).setSpecial();
 		secret_luckOfTheDraw = new AchievementIE("secret_luckOfTheDraw", -4, 0, new ItemStack(IEContent.itemFakeIcons,1,1), null).setSpecial();

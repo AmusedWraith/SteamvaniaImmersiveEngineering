@@ -51,7 +51,6 @@ public abstract class IECompatModule
 		moduleClasses.put("Mekanism", MekanismHelper.class);
 		moduleClasses.put("cuttingedge", CuttingEdgeHelper.class);
 		moduleClasses.put("Railcraft", RailcraftHelper.class);
-		moduleClasses.put("Avaritia", AvaritiaHelper.class);
 		moduleClasses.put("ComputerCraft", ComputercraftHelper.class);
 		moduleClasses.put("OpenComputers", OCHelper.class);
 	}
