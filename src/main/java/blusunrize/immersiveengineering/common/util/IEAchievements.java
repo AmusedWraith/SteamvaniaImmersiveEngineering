@@ -50,7 +50,7 @@ public class IEAchievements
 	public static Achievement mbImprovedBlastFurnace;
 	public static Achievement mbSilo;
 	public static Achievement mbCrusher;
-	public static Achievement mbDieselGen;
+
 	public static Achievement mbExcavator;
 	public static Achievement mbArcFurnace;
 
@@ -76,8 +76,6 @@ public class IEAchievements
 		mbImprovedBlastFurnace = new AchievementIE("mbImprovedBlastFurnace", 6, -4, new ItemStack(IEContent.blockStoneDevice,1,5), makeSteel).setSpecial();
 		mbSilo = new AchievementIE("mbSilo", 6, -3, new ItemStack(IEContent.blockMetalMultiblocks,1,BlockMetalMultiblocks.META_silo), craftHammer).setSpecial();
 		mbCrusher = new AchievementIE("mbCrusher", 6, -2, new ItemStack(IEContent.blockMetalMultiblocks,1,BlockMetalMultiblocks.META_crusher), craftHammer).setSpecial();
-		//LKM
-		//mbDieselGen = new AchievementIE("mbDieselGen", 6, -1, new ItemStack(IEContent.blockMetalMultiblocks,1,BlockMetalMultiblocks.META_dieselGenerator), craftHammer).setSpecial();
 		mbExcavator = new AchievementIE("mbExcavator", 6, 0, new ItemStack(IEContent.blockMetalMultiblocks,1,BlockMetalMultiblocks.META_excavator), craftHammer).setSpecial();
 		mbArcFurnace = new AchievementIE("mbArcFurnace", 6, 1, new ItemStack(IEContent.blockMetalMultiblocks,1,BlockMetalMultiblocks.META_arcFurnace), craftHammer).setSpecial();
 		

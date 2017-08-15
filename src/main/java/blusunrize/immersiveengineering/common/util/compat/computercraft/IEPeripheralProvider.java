@@ -9,8 +9,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCapacitorHV
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCapacitorLV;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCapacitorMV;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
-//LKM
-//import blusunrize.immersiveengineering.common.blocks.metal.TileEntityDieselGenerator;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityEnergyMeter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityExcavator;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFermenter;
@@ -68,19 +67,7 @@ public class IEPeripheralProvider implements IPeripheralProvider
 				else
 					return null;
 			}
-			//LKM
-			/*
-			if (te instanceof TileEntityDieselGenerator)
-			{
-				TileEntityDieselGenerator gen = (TileEntityDieselGenerator) te;
-				TileEntityDieselGenerator master = gen.master();
-				if (master==null)
-					return null;
-				if (((gen.pos==21 && !master.mirrored) || (gen.pos==23 && master.mirrored)))
-					return new PeripheralDieselGenerator(world, x-gen.offset[0], y-gen.offset[1], z-gen.offset[2]);
-				else
-					return null;
-			}*/
+
 
 
 			if (te instanceof TileEntityFermenter)

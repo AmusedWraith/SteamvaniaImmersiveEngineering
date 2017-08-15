@@ -8,8 +8,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityArcFurnace;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityAssembler;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBottlingMachine;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
-//LKM
-//import blusunrize.immersiveengineering.common.blocks.metal.TileEntityDieselGenerator;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityExcavator;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFermenter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityLightningRod;
@@ -19,8 +18,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySqueezer;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockArcFurnace;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockBucketWheel;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockCrusher;
-//LKM
-//import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockDieselGenerator;
+
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockExcavatorDemo;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockMetalPress;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockRefinery;
@@ -109,15 +107,7 @@ public class BlockRenderMetalMultiblocks implements ISimpleBlockRenderingHandler
 				tes.addVertexWithUV(1, 0, 0, iSide.getMinU()+w, iSide.getMinV());
 				tes.draw();
 			}
-			//LKM
-			/*
-			else if(metadata==BlockMetalMultiblocks.META_dieselGenerator)
-			{
-				GL11.glTranslatef(1f, 1F, 1.1875f);
-				GL11.glScalef(.3125f, .3125f, .3125f);
-				MultiblockDieselGenerator.instance.renderFormedStructure();
-				GL11.glEnable(32826);
-			}*/
+
 			else if(metadata==BlockMetalMultiblocks.META_squeezer)
 			{
 				block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -260,12 +250,7 @@ public class BlockRenderMetalMultiblocks implements ISimpleBlockRenderingHandler
 				renderer.setRenderBounds(0,0,0, 1,1,1);
 			return renderer.renderStandardBlock(block, x, y, z);
 		}
-		/*
-		else if(te instanceof TileEntityDieselGenerator && ((TileEntityDieselGenerator)te).pos==31)
-		{
-			ClientUtils.handleStaticTileRenderer(te);
-			return true;
-		}*/
+
 		else if(te instanceof TileEntityRefinery && ((TileEntityRefinery)te).pos==17)
 		{
 			ClientUtils.handleStaticTileRenderer(te);

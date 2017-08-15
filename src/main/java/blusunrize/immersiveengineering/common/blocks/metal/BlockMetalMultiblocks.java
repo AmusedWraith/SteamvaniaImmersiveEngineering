@@ -38,20 +38,7 @@ import net.minecraftforge.fluids.IFluidContainerItem;
 public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundingboxes
 {
 	public static final int META_lightningRod=0;
-	//LKM
-	/*public static final int META_dieselGenerator=1;
-	public static final int META_squeezer=2;
-	public static final int META_fermenter=3;
-	public static final int META_refinery=4;
-	public static final int META_crusher=5;
-	public static final int META_bucketWheel=6;
-	public static final int META_excavator=7;
-	public static final int META_arcFurnace=8;
-	public static final int META_tank=9;
-	public static final int META_silo=10;
-	public static final int META_assembler=11;
-	public static final int META_bottlingMachine=12;
-	public static final int META_metalPress=13;*/
+
 	public static final int META_squeezer=1;
 	public static final int META_fermenter=2;
 	public static final int META_refinery=3;
@@ -69,7 +56,6 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 	public BlockMetalMultiblocks()
 	{
 		super("metalMultiblock", Material.iron, 4, ItemBlockIEBase.class,
-			//	"lightningRod","dieselGenerator",
 				"lightningRod",
 				"industrialSqueezer","fermenter","refinery",
 				"crusher","bucketWheel","excavator","arcFurnace",
@@ -114,8 +100,6 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 		icons[META_fermenter][2] = iconRegister.registerIcon("immersiveengineering:metal_multiblockFermenter0");
 		icons[META_fermenter][3] = iconRegister.registerIcon("immersiveengineering:metal_multiblockFermenter1");
 		//all others
-		//LKM
-		//icons[META_dieselGenerator][0] = iconRegister.registerIcon("immersiveengineering:metal_multiblock_dieselGenerator");
 		icons[META_refinery][0] = iconRegister.registerIcon("immersiveengineering:metal_multiblock_refinery");
 		icons[META_crusher][0] = iconRegister.registerIcon("immersiveengineering:metal_multiblock_crusher");
 		icons[META_excavator][0] = iconRegister.registerIcon("immersiveengineering:metal_multiblock_excavator");
@@ -269,52 +253,7 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 				return true;
 			}
 		}
-		//LKM
-		/*else if(curr instanceof TileEntityDieselGenerator)
-		{
-			TileEntityDieselGenerator master = ((TileEntityDieselGenerator)curr).master();
-			if(master==null)
-				master = ((TileEntityDieselGenerator)curr);
-			if(((TileEntityDieselGenerator)curr).pos==40 && Utils.isHammer(player.getCurrentEquippedItem()))
-			{
-				master.mirrored = !master.mirrored;
-				master.mirror();
-				int axis;
-				ForgeDirection dir = ForgeDirection.getOrientation(master.facing);
-				if (dir==ForgeDirection.EAST||dir==ForgeDirection.WEST)
-					axis = 2;
-				else
-					axis = 0;
-				ChunkCoordinates gen = new ChunkCoordinates(master.xCoord+(axis==0?1:-dir.offsetX), master.yCoord, master.zCoord+(axis==2?1:-dir.offsetZ));
-				ChunkCoordinates adapter = new ChunkCoordinates(master.xCoord+(axis==0?2:-dir.offsetX), master.yCoord, master.zCoord+(axis==2?2:-dir.offsetZ));
-				Block b = world.getBlock(adapter.posX, adapter.posY, adapter.posZ);
-				if (b!=null)
-					b.onNeighborChange(world, adapter.posX, adapter.posY, adapter.posZ, gen.posX, gen.posY, gen.posZ);
-				gen = new ChunkCoordinates(master.xCoord-(axis==0?1:-dir.offsetX), master.yCoord, master.zCoord-(axis==2?1:dir.offsetZ));
-				adapter = new ChunkCoordinates(master.xCoord-(axis==0?2:-dir.offsetX), master.yCoord, master.zCoord-(axis==2?2:dir.offsetZ));
-				b = world.getBlock(adapter.posX, adapter.posY, adapter.posZ);
-				if (b!=null)
-					b.onNeighborChange(world, adapter.posX, adapter.posY, adapter.posZ, gen.posX, gen.posY, gen.posZ);
-
-				master.markDirty();
-				world.markBlockForUpdate(master.xCoord, master.yCoord, master.zCoord);
-			}
-			else if(!world.isRemote && (((TileEntityDieselGenerator)curr).pos==36 || ((TileEntityDieselGenerator)curr).pos==38))
-			{
-				if(Utils.fillFluidHandlerWithPlayerItem(world, master, player))
-				{
-					master.markDirty();
-					world.markBlockForUpdate(master.xCoord,master.yCoord,master.zCoord);
-					return true;
-				}
-				if(player.getCurrentEquippedItem()!=null && player.getCurrentEquippedItem().getItem() instanceof IFluidContainerItem)
-				{
-					master.markDirty();
-					world.markBlockForUpdate(master.xCoord,master.yCoord,master.zCoord);
-					return true;
-				}
-			}
-		}*/
+		
 		else if(curr instanceof TileEntityArcFurnace)
 		{
 			if(!player.isSneaking() && ((TileEntityArcFurnace)curr).formed )
@@ -408,18 +347,7 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 	public boolean isSideSolid(IBlockAccess world, int x, int y, int z, ForgeDirection side)
 	{
 		TileEntity te = world.getTileEntity(x, y, z);
-		//LKM
-		/*if(te instanceof TileEntityDieselGenerator)
-		{
-			TileEntityDieselGenerator tile = (TileEntityDieselGenerator)te;
-			if(tile.pos==39||tile.pos==40||tile.pos==41)
-				return side == ForgeDirection.UP;
-			else if(tile.pos==36||tile.pos==38)
-				return true;
-			else if((tile.pos==21&&!tile.master().mirrored) || (tile.pos==23&&tile.master().mirrored))
-				return true;
-		}
-		else if(te instanceof TileEntityRefinery)*/
+
 		if(te instanceof TileEntityRefinery)
 		{
 			TileEntityRefinery tile = (TileEntityRefinery)te;
@@ -473,9 +401,7 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 	public boolean canConnectRedstone(IBlockAccess world, int x, int y, int z, int side)
 	{
 		TileEntity te = world.getTileEntity(x, y, z);
-		//LKM
-		//if(te instanceof TileEntityDieselGenerator)
-		//	return ((TileEntityDieselGenerator)te).pos==21 || ((TileEntityDieselGenerator)te).pos==23;
+
 		if(te instanceof TileEntityRefinery)
 			return ((TileEntityRefinery)te).pos==9 && side==((TileEntityRefinery)te).facing;
 		if(te instanceof TileEntityCrusher)
@@ -641,9 +567,7 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 		{
 		case META_lightningRod:
 			return new TileEntityLightningRod();
-			//LKM
-		//case META_dieselGenerator:
-		//	return new TileEntityDieselGenerator();
+
 		case META_squeezer:
 			return new TileEntitySqueezer();
 		case META_fermenter:

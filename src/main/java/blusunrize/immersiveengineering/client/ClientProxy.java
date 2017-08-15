@@ -64,7 +64,6 @@ import blusunrize.immersiveengineering.client.render.TileRenderChargingStation;
 
 import blusunrize.immersiveengineering.client.render.TileRenderCrusher;
 
-//import blusunrize.immersiveengineering.client.render.TileRenderDieselGenerator;
 
 import blusunrize.immersiveengineering.client.render.TileRenderEnergyMeter;
 import blusunrize.immersiveengineering.client.render.TileRenderExcavator;
@@ -127,8 +126,7 @@ import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockBottl
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockBucketWheel;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockCokeOven;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockCrusher;
-//LKM
-//import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockDieselGenerator;
+
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockExcavator;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockExcavatorDemo;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockFermenter;

@@ -49,8 +49,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityChargingSta
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConveyorBelt;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConveyorSorter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
-//LKM
-//import blusunrize.immersiveengineering.common.blocks.metal.TileEntityDieselGenerator;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityDynamo;
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityEnergyMeter;
@@ -81,8 +80,7 @@ import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockBottl
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockBucketWheel;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockCokeOven;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockCrusher;
-//LKM
-//import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockDieselGenerator;
+
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockExcavator;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockFermenter;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockLightningRod;
@@ -599,8 +597,7 @@ public class IEContent
 		MultiblockHandler.registerMultiblock(MultiblockCokeOven.instance);
 		MultiblockHandler.registerMultiblock(MultiblockBlastFurnace.instance);
 		MultiblockHandler.registerMultiblock(MultiblockBlastFurnaceAdvanced.instance);
-		//LKM
-		//MultiblockHandler.registerMultiblock(MultiblockDieselGenerator.instance);
+
 		MultiblockHandler.registerMultiblock(MultiblockSqueezer.instance);
 		MultiblockHandler.registerMultiblock(MultiblockFermenter.instance);
 		MultiblockHandler.registerMultiblock(MultiblockRefinery.instance);
