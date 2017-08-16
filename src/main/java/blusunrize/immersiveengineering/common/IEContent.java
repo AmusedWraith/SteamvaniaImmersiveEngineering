@@ -71,7 +71,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySilo;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySqueezer;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityStructuralArm;
 
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityWallmountMetal;
+
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockArcFurnace;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockAssembler;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockBlastFurnace;
@@ -98,7 +98,7 @@ import blusunrize.immersiveengineering.common.blocks.stone.TileEntityCokeOven;
 import blusunrize.immersiveengineering.common.blocks.wooden.BlockWoodenDecoration;
 import blusunrize.immersiveengineering.common.blocks.wooden.BlockWoodenDevices;
 import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityModWorkbench;
-import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWallmount;
+
 import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWatermill;
 import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWindmill;
 import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWindmillAdvanced;
@@ -401,7 +401,7 @@ public class IEContent
 		registerTile(TileEntityWoodenCrate.class);
 		registerTile(TileEntityModWorkbench.class);
 		registerTile(TileEntityWoodenBarrel.class);
-		registerTile(TileEntityWallmount.class);
+
 
 
 		registerTile(TileEntityCapacitorLV.class);
@@ -433,7 +433,7 @@ public class IEContent
 
 		registerTile(TileEntityStructuralArm.class);
 
-		registerTile(TileEntityWallmountMetal.class);
+
 		registerTile(TileEntityLantern.class);
 
 

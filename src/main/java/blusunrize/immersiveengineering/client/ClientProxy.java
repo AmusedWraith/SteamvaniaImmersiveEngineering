@@ -79,7 +79,7 @@ import blusunrize.immersiveengineering.client.render.TileRenderRefinery;
 
 import blusunrize.immersiveengineering.client.render.TileRenderSheetmetalTank;
 import blusunrize.immersiveengineering.client.render.TileRenderSilo;
-import blusunrize.immersiveengineering.client.render.TileRenderWallmount;
+
 import blusunrize.immersiveengineering.client.render.TileRenderWatermill;
 import blusunrize.immersiveengineering.client.render.TileRenderWindmill;
 import blusunrize.immersiveengineering.client.render.TileRenderWindmillAdvanced;
@@ -140,7 +140,7 @@ import blusunrize.immersiveengineering.common.blocks.stone.TileEntityBlastFurnac
 import blusunrize.immersiveengineering.common.blocks.stone.TileEntityBlastFurnaceAdvanced;
 import blusunrize.immersiveengineering.common.blocks.stone.TileEntityCokeOven;
 import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityModWorkbench;
-import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWallmount;
+
 import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWatermill;
 import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWindmill;
 import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWindmillAdvanced;
@@ -235,7 +235,7 @@ public class ClientProxy extends CommonProxy
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWindmill.class, new TileRenderWindmill());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWindmillAdvanced.class, new TileRenderWindmillAdvanced());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityModWorkbench.class, new TileRenderWorkbench());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWallmount.class, new TileRenderWallmount());
+
 
 		RenderingRegistry.registerBlockHandler(new BlockRenderWoodenDecoration());
 		//STONE
@@ -350,8 +350,7 @@ public class ClientProxy extends CommonProxy
 				new ManualPages.Text(ManualHelper.getManual(), "metalconstruction0"),
 				new ManualPages.Crafting(ManualHelper.getManual(), "", storageBlocks,storageSlabs,new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_sheetMetal)),
 				new ManualPages.Text(ManualHelper.getManual(), "metalconstruction1"),
-				new ManualPages.Crafting(ManualHelper.getManual(), "", new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_fence),new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_scaffolding),new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_structuralArm)),
-				new ManualPages.Crafting(ManualHelper.getManual(), "", new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_wallMount)));
+				new ManualPages.Crafting(ManualHelper.getManual(), "", new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_fence),new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_scaffolding),new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_structuralArm)));
 		//		new ManualPages.Crafting(ManualHelper.getManual(), "metalconstruction2", new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_connectorStructural)));
 		ManualHelper.addEntry("concrete", ManualHelper.CAT_CONSTRUCTION, new ManualPages.Crafting(ManualHelper.getManual(), "concrete0", new ItemStack(IEContent.blockStoneDecoration,1,4)),
 				new ManualPages.Crafting(ManualHelper.getManual(), "", new ItemStack(IEContent.blockStoneDecoration,1,5),new ItemStack(IEContent.blockConcreteStair,1,0),new ItemStack(IEContent.blockConcreteTileStair,1,0)));

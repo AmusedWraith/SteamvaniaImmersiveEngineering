@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import blusunrize.immersiveengineering.client.render.BlockRenderMetalDecoration;
 import blusunrize.immersiveengineering.common.blocks.BlockIEBase;
-import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWallmount;
+
 import blusunrize.immersiveengineering.common.util.Utils;
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.relauncher.Side;
@@ -38,20 +38,20 @@ public class BlockMetalDecoration extends BlockIEBase implements blusunrize.aqua
 
 	public static final int META_lightEngineering=6;
 
-	public static final int META_wallMount=7;
-	public static final int META_sheetMetal=8;
+	
+	public static final int META_sheetMetal=7;
 
-	public static final int META_scaffolding2=9;
-	public static final int META_aluminiumFence=10;
-	public static final int META_aluminiumScaffolding=11;
-	public static final int META_aluminiumScaffolding2=12;
-	public static final int META_aluminiumStructuralArm=13;
+	public static final int META_scaffolding2=8;
+	public static final int META_aluminiumFence=9;
+	public static final int META_aluminiumScaffolding=10;
+	public static final int META_aluminiumScaffolding2=11;
+	public static final int META_aluminiumStructuralArm=12;
 
 	public BlockMetalDecoration()
 	{
 		super("metalDecoration", Material.iron,3, ItemBlockMetalDecorations.class, "fence","scaffolding","lantern","structuralArm",
 				"radiator","heavyEngineering","lightEngineering",
-				"wallMount","sheetMetal",
+				"sheetMetal",
 				"scaffolding2","aluminiumFence","aluminiumScaffolding","aluminiumScaffolding2","aluminiumStructuralArm");
 		setHardness(3.0F);
 		setResistance(15.0F);
@@ -149,15 +149,7 @@ public class BlockMetalDecoration extends BlockIEBase implements blusunrize.aqua
 		
 		if(meta==META_radiator||meta==META_heavyEngineering||meta==META_lightEngineering||meta==META_sheetMetal)
 			return true;
-		if(te instanceof TileEntityWallmount)
-		{
-			if(side==UP)
-				return ((TileEntityWallmount)te).inverted;
-			else if(side==DOWN)
-				return !((TileEntityWallmount)te).inverted;
-			else
-				return true;
-		}
+
 		return super.isSideSolid(world, x, y, z, side);
 	}
 
@@ -206,7 +198,7 @@ public class BlockMetalDecoration extends BlockIEBase implements blusunrize.aqua
 			
 			icons[META_lightEngineering][i] = iconRegister.registerIcon("immersiveengineering:metalDeco_electricMachine");
 
-			icons[META_wallMount][i] = iconRegister.registerIcon("immersiveengineering:metalDeco_wallmount");
+
 			icons[META_sheetMetal][i] = iconRegister.registerIcon("immersiveengineering:metalDeco_sheetMetal");
 		}
 
@@ -247,15 +239,7 @@ public class BlockMetalDecoration extends BlockIEBase implements blusunrize.aqua
 				this.setBlockBounds(f==5?0:.25f,0,f==3?0:.25f, f==4?1:.75f,.875f,f==2?1:.75f);
 		}
 
-		else if(tileEntity instanceof TileEntityWallmount)
-		{
-			TileEntityWallmount arm = (TileEntityWallmount)tileEntity;
-			int f = arm.facing;
-			if(arm.sideAttached>0)
-				this.setBlockBounds(f==4?0:f==5?.375f:.3125f,arm.inverted?.3125f:0,f==2?0:f==3?.375f:.3125f, f==5?1:f==4?.625f:.6875f,arm.inverted?1:.6875f,f==3?1:f==2?.625f:.6875f);
-			else
-				this.setBlockBounds(f==5?0:.3125f,arm.inverted?.375f:0,f==3?0:.3125f, f==4?1:.6875f,arm.inverted?1:.625f,f==2?1:.6875f);
-		}
+
 		else
 			this.setBlockBounds(0,0,0,1,1,1);
 	}
@@ -296,7 +280,7 @@ public class BlockMetalDecoration extends BlockIEBase implements blusunrize.aqua
 	@Override
 	public boolean hasTileEntity(int meta)
 	{
-		return meta==META_lantern||meta==META_structuralArm||meta==META_aluminiumStructuralArm||meta==META_wallMount;
+		return meta==META_lantern||meta==META_structuralArm||meta==META_aluminiumStructuralArm;
 	}
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta)
@@ -306,8 +290,7 @@ public class BlockMetalDecoration extends BlockIEBase implements blusunrize.aqua
 		if(meta==META_structuralArm||meta==META_aluminiumStructuralArm)
 			return new TileEntityStructuralArm();
 		
-		if(meta==META_wallMount)
-			return new TileEntityWallmountMetal();
+
 		return null;
 	}
 	@Override
@@ -330,7 +313,7 @@ public class BlockMetalDecoration extends BlockIEBase implements blusunrize.aqua
 		return meta==META_fence
 				|| meta==META_lantern
 		
-				|| meta==META_wallMount
+				
 				|| meta==META_aluminiumFence;
 	}
 
@@ -341,7 +324,7 @@ public class BlockMetalDecoration extends BlockIEBase implements blusunrize.aqua
 		return meta==META_fence
 				|| meta==META_lantern
 			
-				|| meta==META_wallMount
+		
 				|| meta==META_aluminiumFence;
 	}
 }

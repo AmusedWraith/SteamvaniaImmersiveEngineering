@@ -8,7 +8,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import blusunrize.immersiveengineering.common.blocks.ItemBlockIEBase;
-import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWallmount;
+
 
 public class ItemBlockMetalDecorations extends ItemBlockIEBase
 {
@@ -37,15 +37,7 @@ public class ItemBlockMetalDecorations extends ItemBlockIEBase
 			((TileEntityStructuralArm)tileEntity).facing = f;
 			((TileEntityStructuralArm)tileEntity).inverted = side==1?false: side==0?true: hitY>.5;
 		}
-		if(tileEntity instanceof TileEntityWallmount)
-		{
-			int playerViewQuarter = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-			int f = playerViewQuarter==0 ? 2:playerViewQuarter==1 ? 5:playerViewQuarter==2 ? 3: 4;
-			((TileEntityWallmount)tileEntity).facing = f;
-			((TileEntityWallmount)tileEntity).inverted = side==1?false: side==0?true: hitY>.5;
-			if(side<2)
-				((TileEntityWallmount)tileEntity).sideAttached = side+1;
-		}
+
 		return ret;
 	}
 }

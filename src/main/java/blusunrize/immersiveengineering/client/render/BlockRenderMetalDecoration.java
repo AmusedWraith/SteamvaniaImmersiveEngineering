@@ -16,7 +16,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDecoration;
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityLantern;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityStructuralArm;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityWallmountMetal;
+
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -25,7 +25,7 @@ public class BlockRenderMetalDecoration implements ISimpleBlockRenderingHandler
 	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
 	private static final TileEntityLantern lantern = new TileEntityLantern();
 
-	private static final TileEntityWallmountMetal wall = new TileEntityWallmountMetal();
+
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer)
 	{
@@ -112,12 +112,7 @@ public class BlockRenderMetalDecoration implements ISimpleBlockRenderingHandler
 				tes.draw();
 			}
 
-			else if(metadata==BlockMetalDecoration.META_wallMount)
-			{
-				Tessellator.instance.startDrawingQuads();
-				ClientUtils.handleStaticTileRenderer(wall);
-				Tessellator.instance.draw();
-			}
+
 			else
 			{
 				block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -420,12 +415,7 @@ public class BlockRenderMetalDecoration implements ISimpleBlockRenderingHandler
 			return true;
 		}
 
-		else if(meta==BlockMetalDecoration.META_wallMount)
-		{
-			TileEntityWallmountMetal tile = (TileEntityWallmountMetal)world.getTileEntity(x, y, z);
-			ClientUtils.handleStaticTileRenderer(tile);
-			return true;
-		}
+
 		else
 		{
 			renderer.setRenderBounds(0,0,0,1,1,1);

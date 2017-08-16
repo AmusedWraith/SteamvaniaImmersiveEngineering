@@ -34,7 +34,7 @@ public class BlockWoodenDecoration extends BlockIEBase implements blusunrize.aqu
 		super("woodenDecoration", Material.wood,2, ItemBlockWoodenDecoration.class, 
 				"treatedWood","fence",
 				"slab0","slab1","doubleSlab",
-				"scaffolding","wallMount");
+				"scaffolding");
 		this.setHardness(2.0F);
 		this.setResistance(5.0F);
 	}
@@ -82,15 +82,7 @@ public class BlockWoodenDecoration extends BlockIEBase implements blusunrize.aqu
 		if(meta==3)
 			return side==UP;
 		TileEntity te = world.getTileEntity(x, y, z);
-		if(te instanceof TileEntityWallmount)
-		{
-			if(side==UP)
-				return ((TileEntityWallmount)te).inverted;
-			else if(side==DOWN)
-				return !((TileEntityWallmount)te).inverted;
-			else
-				return true;
-		}
+
 		return true;
 	}
 
@@ -122,11 +114,7 @@ public class BlockWoodenDecoration extends BlockIEBase implements blusunrize.aqu
 				icons[i][0] = iconRegister.registerIcon("immersiveengineering:scaffolding_top");
 				icons[i][1] = iconRegister.registerIcon("immersiveengineering:scaffolding_side");
 			}
-			else if(i==6)
-			{
-				icons[i][0] = iconRegister.registerIcon("immersiveengineering:wood_wallmount");
-				icons[i][1] = iconRegister.registerIcon("immersiveengineering:wood_wallmount");
-			}
+
 			else
 			{
 				icons[i][0] = iconRegister.registerIcon("immersiveengineering:treatedWood");
@@ -143,15 +131,7 @@ public class BlockWoodenDecoration extends BlockIEBase implements blusunrize.aqu
 			this.setBlockBounds(0,0,0, 1,.5f,1);
 		else if(world.getBlockMetadata(x, y, z)==3)
 			this.setBlockBounds(0,.5f,0, 1,1,1);
-		else if(world.getTileEntity(x, y, z) instanceof TileEntityWallmount)
-		{
-			TileEntityWallmount arm = (TileEntityWallmount)world.getTileEntity(x, y, z);
-			int f = arm.facing;
-			if(arm.sideAttached>0)
-				this.setBlockBounds(f==4?0:f==5?.375f:.3125f,arm.inverted?.3125f:0,f==2?0:f==3?.375f:.3125f, f==5?1:f==4?.625f:.6875f,arm.inverted?1:.6875f,f==3?1:f==2?.625f:.6875f);
-			else
-				this.setBlockBounds(f==5?0:.3125f,arm.inverted?.375f:0,f==3?0:.3125f, f==4?1:.6875f,arm.inverted?1:.625f,f==2?1:.6875f);
-		}
+
 		else
 			this.setBlockBounds(0,0,0,1,1,1);
 	}
@@ -223,11 +203,7 @@ public class BlockWoodenDecoration extends BlockIEBase implements blusunrize.aqu
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta)
 	{
-		switch(meta)
-		{
-		case 6:
-			return new TileEntityWallmount();
-		}
+		
 		return null;
 	}
 	@Override

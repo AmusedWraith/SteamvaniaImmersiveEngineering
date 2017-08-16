@@ -9,14 +9,14 @@ import org.lwjgl.opengl.GL11;
 
 import blusunrize.immersiveengineering.client.ClientUtils;
 import blusunrize.immersiveengineering.common.blocks.wooden.BlockWoodenDecoration;
-import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWallmount;
+
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class BlockRenderWoodenDecoration implements ISimpleBlockRenderingHandler
 {
 	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
-	private static final TileEntityWallmount wallmount = new TileEntityWallmount();
+
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer)
 	{
@@ -56,7 +56,7 @@ public class BlockRenderWoodenDecoration implements ISimpleBlockRenderingHandler
 			else if(metadata==6)
 			{
 				Tessellator.instance.startDrawingQuads();
-				ClientUtils.handleStaticTileRenderer(wallmount);
+				
 				Tessellator.instance.draw();
 			}
 		}catch(Exception e)
@@ -128,12 +128,7 @@ public class BlockRenderWoodenDecoration implements ISimpleBlockRenderingHandler
 			renderer.renderFromInside=false;
 			return renderer.renderStandardBlock(block, x, y, z);
 		}
-		else if(world.getBlockMetadata(x, y, z)==6)
-		{
-			TileEntityWallmount tile = (TileEntityWallmount)world.getTileEntity(x, y, z);
-			ClientUtils.handleStaticTileRenderer(tile);
-			return true;
-		}
+
 		else
 		{
 			renderer.setRenderBoundsFromBlock(block);
