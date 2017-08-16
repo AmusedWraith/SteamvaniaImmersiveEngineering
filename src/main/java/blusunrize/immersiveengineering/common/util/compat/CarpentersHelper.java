@@ -27,7 +27,7 @@ public class CarpentersHelper extends IECompatModule
 			list.add(new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_radiator).getDisplayName());
 			list.add(new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_heavyEngineering).getDisplayName());
 			
-			list.add(new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_generator).getDisplayName());
+
 			list.add(new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_lightEngineering).getDisplayName());
 			list.add(new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_sheetMetal).getDisplayName());
 			list.add(new ItemStack(IEContent.blockWoodenDecoration,1,5).getDisplayName());

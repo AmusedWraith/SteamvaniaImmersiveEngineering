@@ -29,7 +29,7 @@ public class FMPHelper extends IECompatModule
 		FMLInterModComms.sendMessage("ForgeMicroblock", "microMaterial", new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_radiator));
 		FMLInterModComms.sendMessage("ForgeMicroblock", "microMaterial", new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_heavyEngineering));
 
-		FMLInterModComms.sendMessage("ForgeMicroblock", "microMaterial", new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_generator));
+
 		FMLInterModComms.sendMessage("ForgeMicroblock", "microMaterial", new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_lightEngineering));
 		FMLInterModComms.sendMessage("ForgeMicroblock", "microMaterial", new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_sheetMetal));
 	}
