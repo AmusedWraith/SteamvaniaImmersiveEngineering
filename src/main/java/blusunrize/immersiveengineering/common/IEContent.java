@@ -60,7 +60,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPipe;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPump;
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityLantern;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityLightningRod;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityMetalBarrel;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityMetalPress;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRefinery;
@@ -83,7 +83,7 @@ import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockCrush
 
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockExcavator;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockFermenter;
-import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockLightningRod;
+
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockMetalPress;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockRefinery;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockSheetmetalTank;
@@ -415,9 +415,6 @@ public class IEContent
 
 		registerTile(TileEntityConveyorSorter.class);
 
-
-		registerTile(TileEntityLightningRod.class);
-
 		registerTile(TileEntitySqueezer.class);
 		registerTile(TileEntityFermenter.class);
 		registerTile(TileEntityRefinery.class);
@@ -593,7 +590,7 @@ public class IEContent
 		MultiblockHandler.registerMultiblock(MultiblockFermenter.instance);
 		MultiblockHandler.registerMultiblock(MultiblockRefinery.instance);
 		MultiblockHandler.registerMultiblock(MultiblockCrusher.instance);
-		MultiblockHandler.registerMultiblock(MultiblockLightningRod.instance);
+
 		MultiblockHandler.registerMultiblock(MultiblockExcavator.instance);
 		MultiblockHandler.registerMultiblock(MultiblockBucketWheel.instance);
 		MultiblockHandler.registerMultiblock(MultiblockArcFurnace.instance);

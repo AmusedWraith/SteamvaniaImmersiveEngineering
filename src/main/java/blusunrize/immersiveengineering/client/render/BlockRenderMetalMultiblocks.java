@@ -11,7 +11,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityExcavator;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFermenter;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityLightningRod;
+
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityMetalPress;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRefinery;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySqueezer;
@@ -42,73 +42,7 @@ public class BlockRenderMetalMultiblocks implements ISimpleBlockRenderingHandler
 	{
 		GL11.glPushMatrix();
 		try{
-			if(metadata==BlockMetalMultiblocks.META_lightningRod)
-			{
-				//				block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-				//				renderer.setRenderBoundsFromBlock(block);
-				//				ClientUtils.drawInventoryBlock(block, metadata, renderer);
-
-				Tessellator tes = ClientUtils.tes();
-				IIcon iSide = block.getIcon(2, metadata);
-				IIcon iTop = block.getIcon(0, metadata);
-
-				GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
-				GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-
-				double w = (iTop.getMaxU()-iTop.getMinU())/3f;
-				double h = (iTop.getMaxV()-iTop.getMinV())/3f;
-				tes.startDrawing(6);
-				tes.setNormal(0.0F, -1.0F, 0.0F);
-				tes.addVertexWithUV(1, 0, 1, iTop.getMinU()+w*2, iTop.getMinV()+h*2);
-				tes.addVertexWithUV(1, 0, 0, iTop.getMinU()+w*2, iTop.getMinV()+h);
-				tes.addVertexWithUV(0, 0, 0, iTop.getMinU()+w, iTop.getMinV()+h);
-				tes.addVertexWithUV(0, 0, 1, iTop.getMinU()+w, iTop.getMinV()+h*2);
-				tes.draw();
-				tes.startDrawing(6);
-				tes.setNormal(0.0F, 1.0F, 0.0F);
-				tes.addVertexWithUV(1, 1, 1, iTop.getMinU()+w*2, iTop.getMinV()+h*2);
-				tes.addVertexWithUV(1, 1, 0, iTop.getMinU()+w*2, iTop.getMinV()+h);
-				tes.addVertexWithUV(0, 1, 0, iTop.getMinU()+w, iTop.getMinV()+h);
-				tes.addVertexWithUV(0, 1, 1, iTop.getMinU()+w, iTop.getMinV()+h*2);
-				tes.draw();
-
-
-				w = (iSide.getMaxU()-iSide.getMinU())/3f;
-				h = (iSide.getMaxV()-iSide.getMinV())/3f;
-				tes.startDrawing(6);
-				tes.setNormal(0.0F, 0.0F, -1.0F);
-				tes.addVertexWithUV(0, 1, 0, iSide.getMinU()+w, iSide.getMinV()+h);
-				tes.addVertexWithUV(1, 1, 0, iSide.getMinU()+w*2, iSide.getMinV()+h);
-				tes.addVertexWithUV(1, 0, 0, iSide.getMinU()+w*2, iSide.getMinV());
-				tes.addVertexWithUV(0, 0, 0, iSide.getMinU()+w, iSide.getMinV());
-				tes.draw();
-
-				tes.startDrawing(6);
-				tes.setNormal(0.0F, 0.0F, 1.0F);
-				tes.addVertexWithUV(1, 1, 1, iSide.getMinU()+w*2, iSide.getMinV()+h);
-				tes.addVertexWithUV(0, 1, 1, iSide.getMinU()+w, iSide.getMinV()+h);
-				tes.addVertexWithUV(0, 0, 1, iSide.getMinU()+w, iSide.getMinV());
-				tes.addVertexWithUV(1, 0, 1, iSide.getMinU()+w*2, iSide.getMinV());
-				tes.draw();
-
-				tes.startDrawing(6);
-				tes.setNormal(-1.0F, 0.0F, 0.0F);
-				tes.addVertexWithUV(0, 1, 1, iSide.getMinU()+w*2, iSide.getMinV()+h);
-				tes.addVertexWithUV(0, 1, 0, iSide.getMinU()+w, iSide.getMinV()+h);
-				tes.addVertexWithUV(0, 0, 0, iSide.getMinU()+w, iSide.getMinV());
-				tes.addVertexWithUV(0, 0, 1, iSide.getMinU()+w*2, iSide.getMinV());
-				tes.draw();
-
-				tes.startDrawing(6);
-				tes.setNormal(1.0F, 0.0F, 0.0F);
-				tes.addVertexWithUV(1, 1, 0, iSide.getMinU()+w, iSide.getMinV()+h);
-				tes.addVertexWithUV(1, 1, 1, iSide.getMinU()+w*2, iSide.getMinV()+h);
-				tes.addVertexWithUV(1, 0, 1, iSide.getMinU()+w*2, iSide.getMinV());
-				tes.addVertexWithUV(1, 0, 0, iSide.getMinU()+w, iSide.getMinV());
-				tes.draw();
-			}
-
-			else if(metadata==BlockMetalMultiblocks.META_squeezer)
+			if(metadata==BlockMetalMultiblocks.META_squeezer)
 			{
 				block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 				renderer.setRenderBoundsFromBlock(block);
@@ -199,32 +133,7 @@ public class BlockRenderMetalMultiblocks implements ISimpleBlockRenderingHandler
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
 		TileEntity te = world.getTileEntity(x, y, z);
-		if(metadata==BlockMetalMultiblocks.META_lightningRod)
-		{
-			IIcon iTop = block.getIcon(0, metadata);
-			IIcon iSide = block.getIcon(2, metadata);
-			int pos = 4;
-			if(te instanceof TileEntityLightningRod && ((TileEntityLightningRod)te).formed )
-				pos = ((TileEntityLightningRod)te).pos;
-			double[][] uv = new double[6][4];
-			for(int i=0; i<2; i++)
-			{
-				uv[i][0]=iTop.getMinU()+((iTop.getMaxU()-iTop.getMinU())/3f)*(pos%3);
-				uv[i][1]=iTop.getMinU()+((iTop.getMaxU()-iTop.getMinU())/3f)*(pos%3+1);
-				uv[i][2]=iTop.getMinV()+((iTop.getMaxV()-iTop.getMinV())/3f)*(pos/3);
-				uv[i][3]=iTop.getMinV()+((iTop.getMaxV()-iTop.getMinV())/3f)*(pos/3+1);
-			}
-			for(int i=2; i<6; i++)
-			{
-				int off = pos==1||pos==3||pos==4||pos==5||pos==7?1: i==2||i==3?(pos==0||pos==6?0:2): (pos==0||pos==2?0:2);
-				uv[i][0]=iSide.getMinU()+((iSide.getMaxU()-iSide.getMinU())/3f)*(off);
-				uv[i][1]=iSide.getMinU()+((iSide.getMaxU()-iSide.getMinU())/3f)*(off+1);
-				uv[i][2]=iSide.getMinV();
-				uv[i][3]=iSide.getMinV()+(iSide.getMaxV()-iSide.getMinV())/3f;
-			}
-			return ClientUtils.drawWorldBlock(world, block, x, y, z, uv);
-		}
-		else if(metadata==BlockMetalMultiblocks.META_squeezer)
+		 if(metadata==BlockMetalMultiblocks.META_squeezer)
 		{
 			if(te instanceof TileEntitySqueezer && ((TileEntitySqueezer)te).formed)
 			{

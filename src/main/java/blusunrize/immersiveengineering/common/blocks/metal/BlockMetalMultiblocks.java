@@ -37,26 +37,25 @@ import net.minecraftforge.fluids.IFluidContainerItem;
 
 public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundingboxes
 {
-	public static final int META_lightningRod=0;
+	
 
-	public static final int META_squeezer=1;
-	public static final int META_fermenter=2;
-	public static final int META_refinery=3;
-	public static final int META_crusher=4;
-	public static final int META_bucketWheel=5;
-	public static final int META_excavator=6;
-	public static final int META_arcFurnace=7;
-	public static final int META_tank=8;
-	public static final int META_silo=9;
-	public static final int META_assembler=10;
-	public static final int META_bottlingMachine=11;
-	public static final int META_metalPress=12;
+	public static final int META_squeezer=0;
+	public static final int META_fermenter=1;
+	public static final int META_refinery=2;
+	public static final int META_crusher=3;
+	public static final int META_bucketWheel=4;
+	public static final int META_excavator=5;
+	public static final int META_arcFurnace=6;
+	public static final int META_tank=7;
+	public static final int META_silo=8;
+	public static final int META_assembler=9;
+	public static final int META_bottlingMachine=10;
+	public static final int META_metalPress=11;
 	
 	
 	public BlockMetalMultiblocks()
 	{
 		super("metalMultiblock", Material.iron, 4, ItemBlockIEBase.class,
-				"lightningRod",
 				"industrialSqueezer","fermenter","refinery",
 				"crusher","bucketWheel","excavator","arcFurnace",
 				"tank","silo","assembler","bottlingMachine","metalPress");
@@ -75,7 +74,7 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 	public void getSubBlocks(Item item, CreativeTabs tab, List list)
 	{
 		for(int i=0; i<subNames.length; i++)
-			if(i==META_lightningRod || i==META_squeezer || i==META_fermenter)
+			if( i==META_squeezer || i==META_fermenter)
 				list.add(new ItemStack(item, 1, i));
 	}
 
@@ -83,12 +82,7 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		//0 lightningRod
-		icons[META_lightningRod][0] = iconRegister.registerIcon("immersiveengineering:metal_lightningrod_top");
-		icons[META_lightningRod][1] = iconRegister.registerIcon("immersiveengineering:metal_lightningrod_top");
-		icons[META_lightningRod][2] = iconRegister.registerIcon("immersiveengineering:metal_lightningrod_side");
-		icons[META_lightningRod][3] = iconRegister.registerIcon("immersiveengineering:metal_lightningrod_side");
-
+		
 		//1 industrialSqueezer
 		icons[META_squeezer][0] = iconRegister.registerIcon("immersiveengineering:metal_squeezer");
 		icons[META_squeezer][1] = iconRegister.registerIcon("immersiveengineering:metal_multiblockTop");
@@ -565,9 +559,7 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 	{
 		switch(meta)
 		{
-		case META_lightningRod:
-			return new TileEntityLightningRod();
-
+		
 		case META_squeezer:
 			return new TileEntitySqueezer();
 		case META_fermenter:

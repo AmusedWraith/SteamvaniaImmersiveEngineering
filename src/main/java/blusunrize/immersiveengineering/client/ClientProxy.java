@@ -130,7 +130,7 @@ import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockCrush
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockExcavator;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockExcavatorDemo;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockFermenter;
-import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockLightningRod;
+
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockMetalPress;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockRefinery;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockSheetmetalTank;
@@ -408,10 +408,7 @@ public class ClientProxy extends CommonProxy
 			table[i] = new String[]{sf,am};
 		}
 
-		ManualHelper.addEntry("lightningrod", ManualHelper.CAT_ENERGY,
-				new ManualPages.Crafting(ManualHelper.getManual(), "lightningrod0",  new ItemStack(IEContent.blockMetalMultiblocks,1,BlockMetalMultiblocks.META_lightningRod)),
-				new ManualPageMultiblock(ManualHelper.getManual(), "lightningrod1", MultiblockLightningRod.instance),
-				new ManualPages.Text(ManualHelper.getManual(), "lightningrod2"));
+
 
 		ManualHelper.addEntry("conveyor", ManualHelper.CAT_MACHINES,
 				new ManualPages.Crafting(ManualHelper.getManual(), "conveyor0", new ItemStack(IEContent.blockMetalDevice,1,BlockMetalDevices.META_conveyorBelt)),
