@@ -32,27 +32,27 @@ public class BlockMetalDecoration extends BlockIEBase implements blusunrize.aqua
 	public static final int META_fence=0;
 	public static final int META_scaffolding=1;
 	public static final int META_lantern=2;
-	public static final int META_structuralArm=3;
-	public static final int META_radiator=4;
-	public static final int META_heavyEngineering=5;
 
-	public static final int META_lightEngineering=6;
+	public static final int META_radiator=3;
+	public static final int META_heavyEngineering=4;
+
+	public static final int META_lightEngineering=5;
 
 	
-	public static final int META_sheetMetal=7;
+	public static final int META_sheetMetal=6;
 
-	public static final int META_scaffolding2=8;
-	public static final int META_aluminiumFence=9;
-	public static final int META_aluminiumScaffolding=10;
-	public static final int META_aluminiumScaffolding2=11;
-	public static final int META_aluminiumStructuralArm=12;
+	public static final int META_scaffolding2=7;
+	public static final int META_aluminiumFence=8;
+	public static final int META_aluminiumScaffolding=9;
+	public static final int META_aluminiumScaffolding2=10;
+
 
 	public BlockMetalDecoration()
 	{
-		super("metalDecoration", Material.iron,3, ItemBlockMetalDecorations.class, "fence","scaffolding","lantern","structuralArm",
+		super("metalDecoration", Material.iron,3, ItemBlockMetalDecorations.class, "fence","scaffolding","lantern",
 				"radiator","heavyEngineering","lightEngineering",
 				"sheetMetal",
-				"scaffolding2","aluminiumFence","aluminiumScaffolding","aluminiumScaffolding2","aluminiumStructuralArm");
+				"scaffolding2","aluminiumFence","aluminiumScaffolding","aluminiumScaffolding2");
 		setHardness(3.0F);
 		setResistance(15.0F);
 		this.setMetaLightOpacity(META_radiator, 255);
@@ -137,15 +137,7 @@ public class BlockMetalDecoration extends BlockIEBase implements blusunrize.aqua
 		if(world.getBlockMetadata(x, y, z)==META_scaffolding||world.getBlockMetadata(x, y, z)==META_scaffolding2||world.getBlockMetadata(x, y, z)==META_aluminiumScaffolding||world.getBlockMetadata(x, y, z)==META_aluminiumScaffolding2)
 			return true;
 		TileEntity te = world.getTileEntity(x, y, z);
-		if(te instanceof TileEntityStructuralArm)
-		{
-			if(side==UP)
-				return ((TileEntityStructuralArm)te).inverted;
-			else if(side==DOWN)
-				return !((TileEntityStructuralArm)te).inverted;
-			else
-				return ((TileEntityStructuralArm)te).facing==side.getOpposite().ordinal();
-		}
+
 		
 		if(meta==META_radiator||meta==META_heavyEngineering||meta==META_lightEngineering||meta==META_sheetMetal)
 			return true;
@@ -188,9 +180,7 @@ public class BlockMetalDecoration extends BlockIEBase implements blusunrize.aqua
 		icons[META_lantern][1] = iconRegister.registerIcon("immersiveengineering:metalDeco_lantern_top");
 		icons[META_lantern][2] = iconRegister.registerIcon("immersiveengineering:metalDeco_lantern_side");
 		//Arm
-		icons[META_structuralArm][0] = iconRegister.registerIcon("immersiveengineering:metalDeco_scaffolding_top");
-		icons[META_structuralArm][1] = iconRegister.registerIcon("immersiveengineering:metalDeco_scaffolding_top");
-		icons[META_structuralArm][2] = iconRegister.registerIcon("immersiveengineering:metalDeco_scaffolding_side");
+	
 		for(int i=0;i<3;i++)
 		{
 			icons[META_radiator][i] = iconRegister.registerIcon("immersiveengineering:metalDeco_radiator");
@@ -218,10 +208,7 @@ public class BlockMetalDecoration extends BlockIEBase implements blusunrize.aqua
 		icons[META_aluminiumScaffolding2][0] = iconRegister.registerIcon("immersiveengineering:metalDeco_aluScaffolding_top");
 		icons[META_aluminiumScaffolding2][1] = iconRegister.registerIcon("immersiveengineering:metalDeco_aluScaffolding_top2");
 		icons[META_aluminiumScaffolding2][2] = iconRegister.registerIcon("immersiveengineering:metalDeco_aluScaffolding_side");
-		//Alu Arm
-		icons[META_aluminiumStructuralArm][0] = iconRegister.registerIcon("immersiveengineering:metalDeco_aluScaffolding_top");
-		icons[META_aluminiumStructuralArm][1] = iconRegister.registerIcon("immersiveengineering:metalDeco_aluScaffolding_top");
-		icons[META_aluminiumStructuralArm][2] = iconRegister.registerIcon("immersiveengineering:metalDeco_aluScaffolding_side");
+		
 	}
 
 	@Override
@@ -280,15 +267,14 @@ public class BlockMetalDecoration extends BlockIEBase implements blusunrize.aqua
 	@Override
 	public boolean hasTileEntity(int meta)
 	{
-		return meta==META_lantern||meta==META_structuralArm||meta==META_aluminiumStructuralArm;
+		return meta==META_lantern;
 	}
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta)
 	{
 		if(meta==META_lantern)
 			return new TileEntityLantern();
-		if(meta==META_structuralArm||meta==META_aluminiumStructuralArm)
-			return new TileEntityStructuralArm();
+		
 		
 
 		return null;

@@ -17,7 +17,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDecoration;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDevices;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalMultiblocks;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityAssembler;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityStructuralArm;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -44,10 +44,9 @@ public class MultiblockAssembler implements IMultiblock
 					}
 					else if(h==2)
 					{
-						if(w==1)
+						
 							structure[h][l][w] = new ItemStack(IEContent.blockMetalDecoration,1, BlockMetalDecoration.META_lightEngineering);
-						else
-							structure[h][l][w] = new ItemStack(IEContent.blockMetalDecoration,1, BlockMetalDecoration.META_structuralArm);
+						
 					}
 				}
 	}
@@ -156,10 +155,9 @@ public class MultiblockAssembler implements IMultiblock
 						}
 						else
 						{
-							if(!(world.getBlock(xx, yy, zz).equals(IEContent.blockMetalDecoration) && world.getBlockMetadata(xx, yy, zz)==BlockMetalDecoration.META_structuralArm))
-								return false;
+						
 							TileEntity tile = world.getTileEntity(xx, yy, zz);
-							int f = tile instanceof TileEntityStructuralArm && !((TileEntityStructuralArm)tile).inverted? ((TileEntityStructuralArm)tile).facing : -1;
+							int f =  -1;
 							if(f != ForgeDirection.ROTATION_MATRIX[w==-1?1:0][side])
 								return false;
 						}
@@ -196,7 +194,7 @@ public class MultiblockAssembler implements IMultiblock
 				new ItemStack(IEContent.blockMetalDecoration,9,BlockMetalDecoration.META_scaffolding),
 				new ItemStack(IEContent.blockMetalDecoration,4,BlockMetalDecoration.META_lightEngineering),
 				new ItemStack(IEContent.blockMetalDecoration,6,BlockMetalDecoration.META_sheetMetal),
-				new ItemStack(IEContent.blockMetalDecoration,6,BlockMetalDecoration.META_structuralArm),
+
 				new ItemStack(IEContent.blockMetalDevice,2,BlockMetalDevices.META_conveyorBelt)};
 	}
 }

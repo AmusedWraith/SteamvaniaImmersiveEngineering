@@ -509,8 +509,7 @@ public class TileEntityAssembler extends TileEntityMultiblockPart implements ISi
 								worldObj.setBlock(startX+xx,startY+yy,startZ+zz, Block.getBlockFromItem(s.getItem()), s.getItemDamage(), 0x3);
 							}
 							TileEntity tile = worldObj.getTileEntity(startX+xx,startY+yy,startZ+zz);
-							if(tile instanceof TileEntityStructuralArm)
-								((TileEntityStructuralArm)tile).facing = facing<4?(xx==-1?4:5):(zz==-1?2:3);
+				
 						}
 					}
 		}

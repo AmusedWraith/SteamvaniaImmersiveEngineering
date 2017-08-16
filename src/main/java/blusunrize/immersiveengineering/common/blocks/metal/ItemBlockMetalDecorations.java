@@ -30,13 +30,7 @@ public class ItemBlockMetalDecorations extends ItemBlockIEBase
 
 		if(tileEntity instanceof TileEntityLantern)
 			((TileEntityLantern)tileEntity).facing = side;
-		if(tileEntity instanceof TileEntityStructuralArm)
-		{
-			int playerViewQuarter = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-			int f = playerViewQuarter==0 ? 2:playerViewQuarter==1 ? 5:playerViewQuarter==2 ? 3: 4;
-			((TileEntityStructuralArm)tileEntity).facing = f;
-			((TileEntityStructuralArm)tileEntity).inverted = side==1?false: side==0?true: hitY>.5;
-		}
+
 
 		return ret;
 	}

@@ -68,7 +68,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySheetmetalT
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySilo;
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySqueezer;
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityStructuralArm;
+
 
 
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockArcFurnace;
@@ -426,9 +426,6 @@ public class IEContent
 		registerTile(TileEntityAssembler.class);
 		registerTile(TileEntityBottlingMachine.class);
 		registerTile(TileEntityMetalPress.class);
-
-		registerTile(TileEntityStructuralArm.class);
-
 
 		registerTile(TileEntityLantern.class);
 
