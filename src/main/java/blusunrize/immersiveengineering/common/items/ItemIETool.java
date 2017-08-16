@@ -44,7 +44,7 @@ public class ItemIETool extends ItemIEBase implements cofh.api.item.IToolHammer,
 	static int hammerMaxDamage;
 	public ItemIETool()
 	{
-		super("tool", 1, "hammer","wirecutter","voltmeter","manual");
+		super("tool", 1, "hammer","voltmeter","manual");
 		hammerMaxDamage = Config.getInt("hammerDurabiliy");
 	}
 
@@ -297,7 +297,7 @@ public class ItemIETool extends ItemIEBase implements cofh.api.item.IToolHammer,
 	public Set<String> getToolClasses(ItemStack stack)
 	{
 		int meta = stack.getItemDamage();
-		return meta==0?ImmutableSet.of(Lib.TOOL_HAMMER): meta==1?ImmutableSet.of(Lib.TOOL_WIRECUTTER): new HashSet<String>();
+		return meta==0?ImmutableSet.of(Lib.TOOL_HAMMER):  new HashSet<String>();
 	}
 
 	@Override

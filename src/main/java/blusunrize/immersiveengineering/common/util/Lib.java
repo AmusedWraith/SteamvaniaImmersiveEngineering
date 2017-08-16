@@ -4,7 +4,7 @@ package blusunrize.immersiveengineering.common.util;
 public class Lib
 {
 	public static final String TOOL_HAMMER = "IE_HAMMER";
-	public static final String TOOL_WIRECUTTER = "IE_WIRECUTTER";
+
 	
 	public static final String CHAT = "chat.ImmersiveEngineering.";
 	public static final String CHAT_WARN = CHAT+"warning.";
