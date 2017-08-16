@@ -52,7 +52,6 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityDynamo;
 
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityEnergyMeter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityExcavator;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFermenter;
 
@@ -432,11 +431,6 @@ public class IEContent
 
 
 		registerTile(TileEntityLantern.class);
-
-
-
-		registerTile(TileEntityEnergyMeter.class);
-
 
 		registerTile(TileEntityFluidPipe.class);
 		registerTile(TileEntityFluidPump.class);

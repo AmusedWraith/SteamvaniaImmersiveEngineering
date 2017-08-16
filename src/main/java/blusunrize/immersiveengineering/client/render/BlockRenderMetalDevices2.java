@@ -9,7 +9,6 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBlastFurnac
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityChargingStation;
 
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityEnergyMeter;
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPipe;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPump;
@@ -37,23 +36,14 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 	private static final TileEntityFluidPipe pipe = new TileEntityFluidPipe();
 	private static final TileEntityFluidPump pump = new TileEntityFluidPump();
 
-	private static final TileEntityEnergyMeter meter = new TileEntityEnergyMeter();
+
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer)
 	{
 		GL11.glPushMatrix();
 		try{
 
-			if(metadata==BlockMetalDevices2.META_energyMeter)
-			{
-				GL11.glScalef(.75f,.75f,.75f);
-				GL11.glTranslatef(0,.625f,0);
-				Tessellator.instance.startDrawingQuads();
-				ClientUtils.handleStaticTileRenderer(meter);
-				Tessellator.instance.draw();
-			}
-
-			else if(metadata==BlockMetalDevices2.META_fluidPipe)
+			 if(metadata==BlockMetalDevices2.META_fluidPipe)
 			{
 				Tessellator.instance.startDrawingQuads();
 				ClientUtils.handleStaticTileRenderer(pipe);
@@ -139,18 +129,7 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
 		if(renderPass==0||metadata==BlockMetalDevices2.META_chargingStation)
-			if(metadata==BlockMetalDevices2.META_energyMeter)
-			{
-				TileEntityEnergyMeter tile = (TileEntityEnergyMeter)world.getTileEntity(x, y, z);
-				if(!tile.dummy)
-				{
-					ClientUtils.handleStaticTileRenderer(tile);
-					ClientUtils.renderAttachedConnections(tile);
-					return true;
-				}
-			}
-
-			else if(metadata==BlockMetalDevices2.META_fluidPipe)
+			if(metadata==BlockMetalDevices2.META_fluidPipe)
 			{
 				TileEntityFluidPipe tile = (TileEntityFluidPipe)world.getTileEntity(x, y, z);
 				ClientUtils.handleStaticTileRenderer(tile);

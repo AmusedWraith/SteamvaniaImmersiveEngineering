@@ -10,7 +10,6 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCapacitorLV
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCapacitorMV;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
 
-import blusunrize.immersiveengineering.common.blocks.metal.TileEntityEnergyMeter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityExcavator;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFermenter;
 
@@ -31,10 +30,7 @@ public class IEPeripheralProvider implements IPeripheralProvider
 		TileEntity te = world.getTileEntity(x, y, z);
 		if (te instanceof TileEntityIEBase)
 		{
-			if (te instanceof TileEntityEnergyMeter&&((TileEntityEnergyMeter)te).dummy)
-			{
-				return new PeripheralEnergyMeter(world, x, y, z);
-			}
+
 			if (te instanceof TileEntityCrusher)
 			{
 				TileEntityCrusher crush = (TileEntityCrusher) te;

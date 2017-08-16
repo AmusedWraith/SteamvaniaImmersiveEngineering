@@ -50,15 +50,14 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 {
 
 
-	public static final int META_energyMeter=0;
 
-	public static final int META_fluidPipe=1;
-	public static final int META_fluidPump=2;
-	public static final int META_barrel=3;
-	public static final int META_capacitorCreative=4;
+	public static final int META_fluidPipe=0;
+	public static final int META_fluidPump=1;
+	public static final int META_barrel=2;
+	public static final int META_capacitorCreative=3;
 
-	public static final int META_chargingStation = 5;
-	public static final int META_blastFurnacePreheater = 6;
+	public static final int META_chargingStation = 4;
+	public static final int META_blastFurnacePreheater = 5;
 
 	IIcon[] iconPump = new IIcon[7];
 
@@ -68,7 +67,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	public BlockMetalDevices2()
 	{
 		super("metalDevice2", Material.iron, 1, ItemBlockMetalDevices2.class,
-				"energyMeter","fluidPipe", "fluidPump", "barrel", "capacitorCreative","chargingStation","blastFurnacePreheater");
+				"fluidPipe", "fluidPump", "barrel", "capacitorCreative","chargingStation","blastFurnacePreheater");
 		setHardness(3.0F);
 		setResistance(15.0F);
 		this.setMetaLightOpacity(META_barrel, 255);
@@ -83,7 +82,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list)
 	{
-		list.add(new ItemStack(item, 1, META_energyMeter));
+		
 		list.add(new ItemStack(item, 1, META_fluidPipe));
 		list.add(new ItemStack(item, 1, META_fluidPump));
 		list.add(new ItemStack(item, 1, META_barrel));
@@ -216,29 +215,9 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 			}
 		}
 
-		if(te instanceof TileEntityEnergyMeter)
-		{
-			if(!world.isRemote)
-			{
-				TileEntityEnergyMeter meter = (TileEntityEnergyMeter)te;
-				int transfer = meter.getAveragePower();
-				if (meter.dummy) {
-					TileEntity tmp = world.getTileEntity(meter.xCoord, meter.yCoord+1, meter.zCoord);
-					if (tmp instanceof TileEntityEnergyMeter)
-						meter = (TileEntityEnergyMeter) tmp;
-				}
-				String transferred = "0";
-				if(transfer>0)
-				{
-					transferred = Utils.formatDouble(transfer, "0.###");
-				}
-				player.addChatComponentMessage(new ChatComponentTranslation(Lib.CHAT_INFO+"energyTransfered",meter.lastPackets.size(),transferred));
-			}
-			return true;
 
-		}
 		
-		else if(te instanceof TileEntityFluidPump)
+		if(te instanceof TileEntityFluidPump)
 		{
 			TileEntityFluidPump pump = (TileEntityFluidPump) te;
 			if(!pump.dummy)
@@ -398,12 +377,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	{
 		TileEntity te = world.getTileEntity(x, y, z);
 
-		if (te instanceof TileEntityEnergyMeter && !((TileEntityEnergyMeter)te).dummy)
-		{
-			this.setBlockBounds(.1875f,0,.1875f, .8125f,.875f,.8125f);
-		}
-		
-		else if (te instanceof TileEntityFluidPipe)
+		if (te instanceof TileEntityFluidPipe)
 			this.setBlockBounds(.25f,.25f,.25f,.75f,.75f,.75f);
 		else if (te instanceof TileEntityFluidPump)
 		{
@@ -614,11 +588,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 		}
 		else if(meta==META_fluidPump)
 			return true;
-		else if (meta==META_energyMeter)
-		{
-			TileEntity te = world.getTileEntity(x, y, z);
-			return te instanceof TileEntityEnergyMeter&&((TileEntityEnergyMeter)te).dummy;
-		}
+
 		else if (meta==META_capacitorCreative)
 			return true;
 		return false;
@@ -630,10 +600,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 		switch(meta)
 		{
 
-		case META_energyMeter:
-			return new TileEntityEnergyMeter();
-
-		
+	
 		case META_fluidPipe:
 			return new TileEntityFluidPipe();
 		case META_fluidPump:
@@ -670,13 +637,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	public void breakBlock(World world, int x, int y, int z, Block par5, int par6)
 	{
 		TileEntity te = world.getTileEntity(x, y, z);
-		if(te instanceof TileEntityEnergyMeter)
-		{
-			if(((TileEntityEnergyMeter) te).dummy)
-				world.setBlockToAir(x, y + 1, z);
-			else
-				world.setBlockToAir(x, y - 1, z);
-		}
+
 		
 		if(te instanceof TileEntityFluidPump)
 		{
@@ -908,8 +869,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 		}
 		else if(te instanceof TileEntityChargingStation)
 			return ((TileEntityChargingStation)te).comparatorOutput;
-		else if (te instanceof TileEntityEnergyMeter)
-			return ((TileEntityEnergyMeter)te).compVal;
+		
 		return 0;
 	}
 

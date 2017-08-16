@@ -25,7 +25,7 @@ public class OCHelper extends IECompatModule
 		API.driver.add(new FermenterDriver());
 		API.driver.add(new ExcavatorDriver());
 		API.driver.add(new CapacitorDriver());
-		API.driver.add(new EnergyMeterDriver());
+	
 		
 	}
 

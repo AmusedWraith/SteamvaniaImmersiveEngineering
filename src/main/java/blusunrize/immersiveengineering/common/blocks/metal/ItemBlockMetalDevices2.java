@@ -52,7 +52,7 @@ public class ItemBlockMetalDevices2 extends ItemBlockIEBase
 		int playerViewQuarter = MathHelper.floor_double(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 		int f = playerViewQuarter==0 ? 2:playerViewQuarter==1 ? 5:playerViewQuarter==2 ? 3: 4;
 
-		if(meta==BlockMetalDevices2.META_fluidPump || meta==BlockMetalDevices2.META_energyMeter)
+		if(meta==BlockMetalDevices2.META_fluidPump )
 			if(!world.isAirBlock(x, y+1, z))
 				return false;
 		if(meta==BlockMetalDevices2.META_blastFurnacePreheater)
@@ -62,17 +62,7 @@ public class ItemBlockMetalDevices2 extends ItemBlockIEBase
 		boolean ret = super.placeBlockAt(stack, player, world, x, y, z, side, hitX, hitY, hitZ, meta);
 		if(!ret) return false;
 		TileEntity tileEntity = world.getTileEntity(x, y, z);
-		if(tileEntity instanceof TileEntityEnergyMeter)
-		{
-			((TileEntityEnergyMeter)tileEntity).facing = f;
-			((TileEntityEnergyMeter)tileEntity).dummy = true;
-			world.setBlock(x, y+1, z, IEContent.blockMetalDevice2, BlockMetalDevices2.META_energyMeter, 3);
-			TileEntity tileEntityOther = world.getTileEntity(x,y+1,z);
-			if(tileEntityOther instanceof TileEntityEnergyMeter)
-				((TileEntityEnergyMeter)tileEntityOther).facing = f;
-		}
-
-		else if(tileEntity instanceof TileEntityFluidPump)
+		if(tileEntity instanceof TileEntityFluidPump)
 		{
 			((TileEntityFluidPump)tileEntity).dummy = false;
 			world.setBlock(x, y+1, z, IEContent.blockMetalDevice2, BlockMetalDevices2.META_fluidPump, 3);

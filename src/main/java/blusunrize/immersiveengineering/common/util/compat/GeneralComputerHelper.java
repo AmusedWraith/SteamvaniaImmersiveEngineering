@@ -26,7 +26,7 @@ public class GeneralComputerHelper {
 			ManualHelper.getManual().addEntry("computer.crusher", "computers", new ManualPages.Text(ManualHelper.getManual(), "computer.crusher0"),
 					new ManualPages.Text(ManualHelper.getManual(), "computer.crusher1"));
 
-			ManualHelper.getManual().addEntry("computer.energymeter", "computers", new ManualPages.Text(ManualHelper.getManual(), "computer.energymeter0"));
+
 			ManualHelper.getManual().addEntry("computer.excavator", "computers", new ManualPages.Text(ManualHelper.getManual(), "computer.excavator0"));
 			ManualHelper.getManual().addEntry("computer.squeezerAndFermenter", "computers", new ManualPages.Text(ManualHelper.getManual(), "computer.squeezerAndFermenter0"),
 					new ManualPages.Text(ManualHelper.getManual(), "computer.squeezerAndFermenter1"),

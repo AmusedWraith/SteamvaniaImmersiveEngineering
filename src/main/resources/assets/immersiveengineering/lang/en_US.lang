@@ -224,7 +224,7 @@ item.ImmersiveEngineering.coil.rope.name=Hemp Rope Coil
 item.ImmersiveEngineering.coil.structural.name=Steel Cable Coil
 item.ImmersiveEngineering.tool.hammer.name=Engineer's Hammer
 item.ImmersiveEngineering.tool.wirecutter.name=Engineer's Wire Cutters
-item.ImmersiveEngineering.tool.voltmeter.name=Engineer's Voltmeter
+item.ImmersiveEngineering.tool.voltmeter.name=Engineer's Tensionmeter
 item.ImmersiveEngineering.tool.manual.name=Engineer's Manual
 
 item.ImmersiveEngineering.revolver.normal.name=Revolver
