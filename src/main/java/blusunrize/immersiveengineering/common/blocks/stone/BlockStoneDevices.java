@@ -35,7 +35,7 @@ public class BlockStoneDevices extends BlockIEBase
 
 	public BlockStoneDevices()
 	{
-		super("stoneDevice", Material.rock, 1, ItemBlockStoneDevices.class, "hempcrete","cokeOven","blastFurnace","coalCoke","insulatorGlass","blastFurnaceAdvanced");
+		super("stoneDevice", Material.rock, 1, ItemBlockStoneDevices.class, "hempcrete","cokeOven","blastFurnace","insulatorGlass","blastFurnaceAdvanced");
 		setHardness(2.0F);
 		setResistance(20f);
 	}

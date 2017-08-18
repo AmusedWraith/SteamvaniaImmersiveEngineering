@@ -242,8 +242,7 @@ public class IEContent
 
 		itemMaterial = new ItemIEBase("material", 64,
 				"treatedStick","waterwheelSegment","windmillBlade","hempFiber","fabric","windmillBladeAdvanced",
-				"coalCoke",
-				"gunpartBarrel","gunpartDrum","gunpartGrip","gunpartHammer",
+
 				"componentIron","componentSteel","slag", "stickIron","stickSteel","stickAluminum");
 
 		itemSeeds = new ItemIESeed(blockCrop,"hemp");
