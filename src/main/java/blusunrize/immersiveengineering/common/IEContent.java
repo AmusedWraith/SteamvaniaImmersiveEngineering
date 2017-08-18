@@ -112,8 +112,7 @@ import blusunrize.immersiveengineering.common.entities.EntityChemthrowerShot;
 import blusunrize.immersiveengineering.common.entities.EntitySkylineHook;
 
 import blusunrize.immersiveengineering.common.items.ItemChemthrower;
-import blusunrize.immersiveengineering.common.items.ItemDrill;
-import blusunrize.immersiveengineering.common.items.ItemDrillhead;
+
 import blusunrize.immersiveengineering.common.items.ItemEngineersBlueprint;
 import blusunrize.immersiveengineering.common.items.ItemGraphiteElectrode;
 import blusunrize.immersiveengineering.common.items.ItemIEBase;
@@ -188,8 +187,7 @@ public class IEContent
 
 
 	public static ItemIEBase itemFluidContainers;
-	public static ItemIEBase itemDrill;
-	public static ItemIEBase itemDrillhead;
+
 	public static ItemIEBase itemToolUpgrades;
 	public static ItemIEBase itemSkyhook;
 	public static ItemIEBase itemBlueprint;
@@ -277,8 +275,7 @@ public class IEContent
 				return stack.getItemDamage()%2==0?16:1;
 			}
 		};
-		itemDrill = new ItemDrill();
-		itemDrillhead = new ItemDrillhead();
+
 		itemToolUpgrades = new ItemToolUpgrade();
 		itemSkyhook = new ItemSkyhook();
 		itemBlueprint = new ItemEngineersBlueprint();
@@ -504,10 +501,6 @@ public class IEContent
 
 		IERecipes.initArcSmeltingRecipes();
 
-		DieselHandler.registerDrillFuel(fluidBiodiesel);
-		DieselHandler.registerDrillFuel(FluidRegistry.getFluid("fuel"));
-		DieselHandler.registerDrillFuel(FluidRegistry.getFluid("biofuel"));
-		DieselHandler.registerDrillFuel(FluidRegistry.getFluid("diesel"));
 
 		DieselHandler.registerFuel(fluidBiodiesel, 125);
 		DieselHandler.registerFuel(FluidRegistry.getFluid("fuel"), 375);

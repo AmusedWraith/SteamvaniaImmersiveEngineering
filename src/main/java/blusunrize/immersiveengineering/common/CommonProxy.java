@@ -61,8 +61,6 @@ public class CommonProxy implements IGuiHandler
 			return new ContainerSorter(player.inventory, (TileEntityConveyorSorter) te);
 		if(ID==Lib.GUIID_Refinery && te instanceof TileEntityRefinery)
 			return new ContainerRefinery(player.inventory, (TileEntityRefinery) te);
-		//		if(ID==Lib.GUIID_Workbench && player.getCurrentEquippedItem()!=null && player.getCurrentEquippedItem().getItem() instanceof ItemDrill)
-		//			return new ContainerDrill(player.inventory, world);
 		if(ID==Lib.GUIID_Workbench && te instanceof TileEntityModWorkbench)
 			return new ContainerModWorkbench(player.inventory, (TileEntityModWorkbench) te);
 		if(ID==Lib.GUIID_ArcFurnace && te instanceof TileEntityArcFurnace)

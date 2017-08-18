@@ -16,7 +16,7 @@ import blusunrize.immersiveengineering.api.energy.ImmersiveNetHandler.Connection
 import blusunrize.immersiveengineering.api.energy.WireType;
 import blusunrize.immersiveengineering.api.shader.ShaderCase;
 import blusunrize.immersiveengineering.api.shader.ShaderRegistry;
-import blusunrize.immersiveengineering.api.tool.IDrillHead;
+
 import blusunrize.immersiveengineering.api.tool.ZoomHandler;
 import blusunrize.immersiveengineering.api.tool.ZoomHandler.IZoomTool;
 import blusunrize.immersiveengineering.client.fx.ParticleRenderer;
@@ -29,7 +29,7 @@ import blusunrize.immersiveengineering.common.blocks.IEBlockInterfaces;
 import blusunrize.immersiveengineering.common.blocks.IEBlockInterfaces.IBlockOverlayText;
 
 import blusunrize.immersiveengineering.common.items.ItemChemthrower;
-import blusunrize.immersiveengineering.common.items.ItemDrill;
+
 
 import blusunrize.immersiveengineering.common.items.ItemSkyhook;
 import blusunrize.immersiveengineering.common.util.IELogger;
@@ -226,7 +226,7 @@ public class ClientEventHandler
 		{
 			EntityPlayer player = event.player;
 			ItemStack stack = player.getCurrentEquippedItem();
-			boolean twohanded = stack!=null && (stack.getItem() instanceof ItemDrill);
+			boolean twohanded = false;
 			if(twohanded && (player!=ClientUtils.mc().renderViewEntity||ClientUtils.mc().gameSettings.thirdPersonView!=0))
 			{
 				if(player.getItemInUseCount() <= 0)
@@ -235,20 +235,7 @@ public class ClientEventHandler
 					player.setItemInUse(stack, Integer.MAX_VALUE);
 				}
 			}
-			if (!Minecraft.getMinecraft().isIntegratedServerRunning()&&ItemDrill.animationTimer!=null&&ItemDrill.animationTimer.containsKey(player.getCommandSenderName()))
-			{
-				synchronized (ItemDrill.animationTimer)
-				{
-					Integer timer = ItemDrill.animationTimer.get(player.getCommandSenderName());
-					timer--;
-					if (timer < 18&&timer>15)
-						timer = 20;
-					if (timer>0)
-						ItemDrill.animationTimer.put(player.getCommandSenderName(), timer);
-					else
-						ItemDrill.animationTimer.remove(player.getCommandSenderName());
-				}
-			}
+	
 		}
 	}
 
@@ -432,10 +419,9 @@ public class ClientEventHandler
 					}
 				}
 				
-				else if((equipped.getItem() instanceof ItemDrill && equipped.getItemDamage()==0)
-						||equipped.getItem() instanceof ItemChemthrower)
+				else if(equipped.getItem() instanceof ItemChemthrower)
 				{
-					boolean drill = equipped.getItem() instanceof ItemDrill;
+					boolean drill = false;
 					ClientUtils.bindTexture("immersiveengineering:textures/gui/hudElements.png");
 					GL11.glColor4f(1, 1, 1, 1);
 					float dx = event.resolution.getScaledWidth()-16;
@@ -468,25 +454,12 @@ public class ClientEventHandler
 					//						GL11.glRotatef(-angle, 0, 0, 1);
 					//					}
 					GL11.glTranslated(23,37,0);
-					if(drill)
-					{
-						ClientUtils.drawTexturedRect(-54,-73, 66,72, 108/256f,174/256f, 4/256f,76/256f);
-						RenderItem ir = RenderItem.getInstance();
-						ItemStack head = ((ItemDrill)equipped.getItem()).getHead(equipped);
-						if(head!=null)
-						{
-							ir.renderItemIntoGUI(ClientUtils.mc().fontRenderer, ClientUtils.mc().renderEngine, head, -51,-45);
-							ir.renderItemOverlayIntoGUI(ClientUtils.font(), ClientUtils.mc().renderEngine, head, -51,-45);
-							RenderHelper.disableStandardItemLighting();
-						}
-					}
-					else
-					{
+					
 						ClientUtils.drawTexturedRect(-41,-73, 53,72, 8/256f,61/256f, 4/256f,76/256f);
 						boolean ignite = ItemNBTHelper.getBoolean(equipped, "ignite");
 						ClientUtils.drawTexturedRect(-32,-43, 12,12, 66/256f,78/256f, (ignite?21:9)/256f,(ignite?33:21)/256f);
 
-					}
+					
 					GL11.glPopMatrix();
 				}
 	
@@ -685,67 +658,7 @@ public class ClientEventHandler
 
 			ItemStack stack = event.player.getCurrentEquippedItem();
 			World world = event.player.worldObj;
-			if(stack!=null && stack.getItem() instanceof ItemDrill && ((ItemDrill)stack.getItem()).isEffective(world.getBlock(event.target.blockX,event.target.blockY,event.target.blockZ).getMaterial()))
-			{
-				ItemStack head = ((ItemDrill)stack.getItem()).getHead(stack);
-				if(head!=null)
-				{
-					int side = event.target.sideHit;
-					int diameter = ((IDrillHead)head.getItem()).getMiningSize(head)+((ItemDrill)stack.getItem()).getUpgrades(stack).getInteger("size");
-					int depth = ((IDrillHead)head.getItem()).getMiningDepth(head)+((ItemDrill)stack.getItem()).getUpgrades(stack).getInteger("depth");
-
-					int startX=event.target.blockX;
-					int startY=event.target.blockY;
-					int startZ=event.target.blockZ;
-					if(diameter%2==0)//even numbers
-					{
-						float hx = (float)event.target.hitVec.xCoord-event.target.blockX;
-						float hy = (float)event.target.hitVec.yCoord-event.target.blockY;
-						float hz = (float)event.target.hitVec.zCoord-event.target.blockZ;
-						if((side<2&&hx<.5)||(side<4&&hx<.5))
-							startX-= diameter/2;
-						if(side>1&&hy<.5)
-							startY-= diameter/2;
-						if((side<2&&hz<.5)||(side>3&&hz<.5))
-							startZ-= diameter/2;
-					}
-					else//odd numbers
-					{
-						startX-=(side==4||side==5?0: diameter/2);
-						startY-=(side==0||side==1?0: diameter/2);
-						startZ-=(side==2||side==3?0: diameter/2);
-					}
-
-					GL11.glColor4f(0.1F, 0.1F, 0.1F, 0.4F);
-					GL11.glLineWidth(1F);
-					GL11.glDisable(GL11.GL_TEXTURE_2D);
-
-					//					AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(startX,startY,startZ, startX+(side==4||side==5?1:diameter),startY+(side==0||side==1?1:diameter),startZ+(side==2||side==3?1: diameter));
-					//					RenderGlobal.drawOutlinedBoundingBox(aabb.expand((double)f1, (double)f1, (double)f1).getOffsetBoundingBox(-d0, -d1, -d2), -1);
-					for(int dd=0; dd<depth; dd++)
-						for(int dw=0; dw<diameter; dw++)
-							for(int dh=0; dh<diameter; dh++)
-							{
-								int x = startX+ (side==4||side==5?dd: dw);
-								int y = startY+ (side==0||side==1?dd: dh);
-								int z = startZ+ (side==0||side==1?dh: side==4||side==5?dw: dd);
-								Block block = event.player.worldObj.getBlock(x,y,z);
-								if(block!=null && !block.isAir(world, x, y, z) && block.getPlayerRelativeBlockHardness(event.player, world, x, y, z) != 0)
-								{
-									if(!((ItemDrill)stack.getItem()).canBreakExtraBlock(world, block, x, y, z, world.getBlockMetadata(x,y,z), event.player, stack, head, false))
-										continue;
-									AxisAlignedBB aabb = block.getSelectedBoundingBoxFromPool(event.player.worldObj, x,y,z);
-									if(aabb!=null)
-									{
-										RenderGlobal.drawOutlinedBoundingBox(aabb.expand((double)f1, (double)f1, (double)f1).getOffsetBoundingBox(-d0, -d1, -d2), -1);
-									}
-								}
-							}
-					GL11.glDepthMask(true);
-					GL11.glEnable(GL11.GL_TEXTURE_2D);
-					GL11.glDisable(GL11.GL_BLEND);
-				}
-			}
+			
 
 		}
 	}

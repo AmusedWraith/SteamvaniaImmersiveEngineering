@@ -23,7 +23,7 @@ import blusunrize.immersiveengineering.api.shader.IShaderItem;
 import blusunrize.immersiveengineering.api.shader.ShaderCaseMinecart;
 import blusunrize.immersiveengineering.api.tool.ExcavatorHandler;
 import blusunrize.immersiveengineering.api.tool.ExcavatorHandler.MineralMix;
-import blusunrize.immersiveengineering.api.tool.IDrillHead;
+
 import blusunrize.immersiveengineering.client.models.ModelShaderMinecart;
 import blusunrize.immersiveengineering.common.blocks.BlockIEBase;
 import blusunrize.immersiveengineering.common.blocks.IEBlockInterfaces.ISpawnInterdiction;
@@ -31,7 +31,7 @@ import blusunrize.immersiveengineering.common.blocks.TileEntityImmersiveConnecta
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityMultiblockPart;
 import blusunrize.immersiveengineering.common.entities.EntityPropertiesShaderCart;
-import blusunrize.immersiveengineering.common.items.ItemDrill;
+
 import blusunrize.immersiveengineering.common.util.IEAchievements;
 import blusunrize.immersiveengineering.common.util.IELogger;
 import blusunrize.immersiveengineering.common.util.IEPotions;
@@ -39,7 +39,7 @@ import blusunrize.immersiveengineering.common.util.ItemNBTHelper;
 import blusunrize.immersiveengineering.common.util.Lib;
 import blusunrize.immersiveengineering.common.util.Utils;
 import blusunrize.immersiveengineering.common.util.compat.computercraft.TileEntityRequest;
-import blusunrize.immersiveengineering.common.util.network.MessageDrill;
+
 import blusunrize.immersiveengineering.common.util.network.MessageMinecartShaderSync;
 import blusunrize.immersiveengineering.common.util.network.MessageMineralListSync;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -279,25 +279,7 @@ public class EventHandler
 				timeout--;
 				cachedRequestResults.add(req);
 			}
-			if (ItemDrill.animationTimer!=null&&event.world.getTotalWorldTime()!=ItemDrill.lastUpdate)
-			{
-				synchronized (ItemDrill.animationTimer)
-				{
-					for (String name:((Map<String, Integer>)ItemDrill.animationTimer).keySet())
-					{
-						Integer timer = ItemDrill.animationTimer.get(name);
-						timer--;
-						if (timer<=0)
-						{
-							ItemDrill.animationTimer.remove(name);
-							ImmersiveEngineering.packetHandler.sendToAll(new MessageDrill(name, false));
-						}
-						else
-							ItemDrill.animationTimer.put(name, timer);
-					}
-				}
-				ItemDrill.lastUpdate = event.world.getTotalWorldTime();
-			}
+	
 		}
 	}
 
@@ -526,51 +508,13 @@ public class EventHandler
 	{
 		ItemStack current = event.entityPlayer.getCurrentEquippedItem();
 		//Stop the combustion drill from working underwater
-		if(current!=null && current.getItem().equals(IEContent.itemDrill) && current.getItemDamage()==0 && event.entityPlayer.isInsideOfMaterial(Material.water))
-			if( ((ItemDrill)IEContent.itemDrill).getUpgrades(current).getBoolean("waterproof"))
-				event.newSpeed*=5;
-			else
+
 				event.setCanceled(true);
 	}
 	@SubscribeEvent
 	public void onAnvilChange(AnvilUpdateEvent event)
 	{
-		if(event.left!=null && event.left.getItem() instanceof IDrillHead && ((IDrillHead)event.left.getItem()).getHeadDamage(event.left)>0)
-		{
-			if(event.right!=null && event.left.getItem().getIsRepairable(event.left, event.right))
-			{
-				event.output = event.left.copy();
-				int repair = Math.min(
-						((IDrillHead)event.output.getItem()).getHeadDamage(event.output),
-						((IDrillHead)event.output.getItem()).getMaximumHeadDamage(event.output)/4);
-				int cost = 0;
-				for(;repair>0&&cost<event.right.stackSize; ++cost)
-				{
-					((IDrillHead)event.output.getItem()).damageHead(event.output, -repair);
-					event.cost += Math.max(1, repair/200);
-					repair = Math.min(
-							((IDrillHead)event.output.getItem()).getHeadDamage(event.output),
-							((IDrillHead)event.output.getItem()).getMaximumHeadDamage(event.output)/4);
-				}
-				event.materialCost = cost;
-
-				if(event.name==null || event.name.isEmpty())
-				{
-					if(event.left.hasDisplayName())
-					{
-						event.cost += 5;
-						event.output.func_135074_t();
-					}
-				}
-				else if (!event.name.equals(event.left.getDisplayName()))
-				{
-					event.cost += 5;
-					if(event.left.hasDisplayName())
-						event.cost += 2;
-					event.output.setStackDisplayName(event.name);
-				}
-			}
-		}
+		
 	}
 	public static TileEntity requestTE(World w, int x, int y, int z)
 	{

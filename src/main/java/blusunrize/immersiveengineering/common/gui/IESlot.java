@@ -8,7 +8,6 @@ import blusunrize.immersiveengineering.api.crafting.BlueprintCraftingRecipe;
 import blusunrize.immersiveengineering.api.shader.IShaderEquipableItem;
 import blusunrize.immersiveengineering.api.shader.IShaderItem;
 
-import blusunrize.immersiveengineering.api.tool.IDrillHead;
 import blusunrize.immersiveengineering.api.tool.IUpgrade;
 import blusunrize.immersiveengineering.api.tool.IUpgradeableTool;
 import blusunrize.immersiveengineering.common.IEContent;
@@ -89,23 +88,7 @@ public abstract class IESlot extends Slot
 		}
 	}
 
-	public static class DrillHead extends IESlot
-	{
-		public DrillHead(Container container, IInventory inv, int id, int x, int y)
-		{
-			super(container, inv, id, x, y);
-		}
-		@Override
-		public boolean isItemValid(ItemStack itemStack)
-		{
-			return itemStack!=null && itemStack.getItem() instanceof IDrillHead;
-		}
-		@Override
-		public int getSlotStackLimit()
-		{
-			return 1;
-		}
-	}
+
 	public static class Upgrades extends IESlot
 	{
 		ItemStack upgradeableTool;

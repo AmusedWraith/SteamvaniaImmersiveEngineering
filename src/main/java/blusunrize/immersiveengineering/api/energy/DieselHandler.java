@@ -23,7 +23,7 @@ import net.minecraftforge.oredict.OreDictionary;
 public class DieselHandler
 {
 	static HashMap<String, Integer> dieselGenBurnTime = new HashMap<String, Integer>();
-	static Set<Fluid> drillFuel = new HashSet<Fluid>();
+
 	/**
 	 * @param fuel the fluid to be used as fuel
 	 * @param time the total burn time gained from 1000 mB
@@ -54,15 +54,7 @@ public class DieselHandler
 		return ApiUtils.sortMap(dieselGenBurnTime, inverse);
 	}
 
-	public static void registerDrillFuel(Fluid fuel)
-	{
-		if(fuel!=null)
-			drillFuel.add(fuel);
-	}
-	public static boolean isValidDrillFuel(Fluid fuel)
-	{
-		return fuel!=null && drillFuel.contains(fuel);
-	}
+	
 
 	public static class SqueezerRecipe
 	{

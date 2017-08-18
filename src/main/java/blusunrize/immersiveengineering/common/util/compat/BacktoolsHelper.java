@@ -15,7 +15,7 @@ public class BacktoolsHelper extends IECompatModule
 	@Override
 	public void init()
 	{
-		FMLInterModComms.sendMessage("BackTools", "blacklist", new ItemStack(IEContent.itemDrill,1,OreDictionary.WILDCARD_VALUE));
+
 
 		FMLInterModComms.sendMessage("BackTools", "blacklist", new ItemStack(IEContent.itemChemthrower,1,OreDictionary.WILDCARD_VALUE));
 

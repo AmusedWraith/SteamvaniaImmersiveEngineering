@@ -46,7 +46,7 @@ import blusunrize.immersiveengineering.client.render.EntityRenderNone;
 
 
 import blusunrize.immersiveengineering.client.render.ItemRenderChemthrower;
-import blusunrize.immersiveengineering.client.render.ItemRenderDrill;
+
 
 
 import blusunrize.immersiveengineering.client.render.ItemRenderToolbox;
@@ -237,8 +237,6 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerBlockHandler(new BlockRenderStoneDevices());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBlastFurnaceAdvanced.class, new TileRenderBlastFurnaceAdvanced());
 
-		//DRILL
-		MinecraftForgeClient.registerItemRenderer(IEContent.itemDrill, new ItemRenderDrill());
 		//ZIPLINE
 		RenderingRegistry.registerEntityRenderingHandler(EntitySkylineHook.class, new EntityRenderNone());
 
@@ -416,14 +414,7 @@ public class ClientProxy extends CommonProxy
 		ManualHelper.addEntry("chargingStation", ManualHelper.CAT_MACHINES, new ManualPages.Crafting(ManualHelper.getManual(), "chargingStation0", new ItemStack(IEContent.blockMetalDevice2,1,BlockMetalDevices2.META_chargingStation)),new ManualPages.Text(ManualHelper.getManual(), "chargingStation1"));
 		ManualHelper.addEntry("jerrycan", ManualHelper.CAT_MACHINES, new ManualPages.Crafting(ManualHelper.getManual(), "jerrycan0", new ItemStack(IEContent.itemJerrycan)));
 		ManualHelper.addEntry("toolbox", ManualHelper.CAT_MACHINES, new ManualPages.Crafting(ManualHelper.getManual(), "toolbox0", new ItemStack(IEContent.itemToolbox)));
-		ManualHelper.addEntry("drill", ManualHelper.CAT_MACHINES,
-				new ManualPages.CraftingMulti(ManualHelper.getManual(), "drill0", new ItemStack(IEContent.itemDrill,1,0), new ItemStack(IEContent.itemMaterial,1,9)),
-				new ManualPages.Crafting(ManualHelper.getManual(), "drill1", new ItemStack(IEContent.itemDrillhead,1,0)),
-				new ManualPages.Crafting(ManualHelper.getManual(), "drill2", new ItemStack(IEContent.itemToolUpgrades,1,0)),
-				new ManualPages.Crafting(ManualHelper.getManual(), "drill3", new ItemStack(IEContent.itemToolUpgrades,1,1)),
-				new ManualPages.Crafting(ManualHelper.getManual(), "drill4", new ItemStack(IEContent.itemToolUpgrades,1,2)),
-				new ManualPages.Crafting(ManualHelper.getManual(), "drill5", new ItemStack(IEContent.itemToolUpgrades,1,3)));
-	
+
 
 		ArrayList<IManualPage> pages = new ArrayList<IManualPage>();
 
@@ -439,8 +430,7 @@ public class ClientProxy extends CommonProxy
 				new ManualPages.Text(ManualHelper.getManual(), "skyhook1"));
 		ManualHelper.addEntry("chemthrower", ManualHelper.CAT_MACHINES,
 				new ManualPages.CraftingMulti(ManualHelper.getManual(), "chemthrower0", new ItemStack(IEContent.itemChemthrower,1,0), new ItemStack(IEContent.itemMaterial,1,9), new ItemStack(IEContent.itemToolUpgrades,1,0)),
-				new ManualPages.Crafting(ManualHelper.getManual(), "chemthrower1", new ItemStack(IEContent.itemToolUpgrades,1,3)),
-				new ManualPages.Crafting(ManualHelper.getManual(), "chemthrower2", new ItemStack(IEContent.itemToolUpgrades,1,7)));
+				new ManualPages.Crafting(ManualHelper.getManual(), "chemthrower1", new ItemStack(IEContent.itemToolUpgrades,1,3)));
 
 
 		ManualHelper.addEntry("improvedBlastfurnace", ManualHelper.CAT_HEAVYMACHINES,
@@ -515,8 +505,6 @@ public class ClientProxy extends CommonProxy
 			return new GuiSorter(player.inventory, (TileEntityConveyorSorter) te);
 		if(ID==Lib.GUIID_Refinery && te instanceof TileEntityRefinery)
 			return new GuiRefinery(player.inventory, (TileEntityRefinery) te);
-		//		if(ID==Lib.GUIID_Workbench && player.getCurrentEquippedItem()!=null && player.getCurrentEquippedItem().getItem() instanceof ItemDrill)
-		//			return new GuiDrill(player.inventory, world);
 		if(ID==Lib.GUIID_Workbench && te instanceof TileEntityModWorkbench)
 			return new GuiModWorkbench(player.inventory, (TileEntityModWorkbench) te);
 		if(ID==Lib.GUIID_ArcFurnace && te instanceof TileEntityArcFurnace)

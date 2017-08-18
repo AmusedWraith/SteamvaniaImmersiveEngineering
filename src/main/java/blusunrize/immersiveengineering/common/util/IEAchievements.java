@@ -16,7 +16,7 @@ import blusunrize.immersiveengineering.ImmersiveEngineering;
 import blusunrize.immersiveengineering.common.Config;
 import blusunrize.immersiveengineering.common.IEContent;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalMultiblocks;
-import blusunrize.immersiveengineering.common.items.ItemDrill;
+
 
 import cpw.mods.fml.common.Loader;
 
@@ -38,8 +38,7 @@ public class IEAchievements
 	
 	public static Achievement craftWorkbench;
 
-	public static Achievement craftDrill;
-	public static Achievement upgradeDrill;
+
 	public static Achievement craftSkyhook;
 	public static Achievement skyhookPro;
 	public static Achievement craftChemthrower;
@@ -80,18 +79,7 @@ public class IEAchievements
 		
 		craftWorkbench = new AchievementIE("craftWorkbench", 2, -4, new ItemStack(IEContent.blockWoodenDevice,1,5), makeSteel).setNormalCrafting();
 	
-		ItemStack drill = new ItemStack(IEContent.itemDrill);
-		((ItemDrill)IEContent.itemDrill).setHead(drill, new ItemStack(IEContent.itemDrillhead));
-		craftDrill = new AchievementIE("craftDrill", 1, -7, drill, craftWorkbench).setNormalCrafting();
-		ItemStack[] upgrades = new ItemStack[4];
-		upgrades[0]=new ItemStack(IEContent.itemDrillhead);
-		upgrades[1]=new ItemStack(IEContent.itemToolUpgrades,1,0);
-		upgrades[2]=new ItemStack(IEContent.itemToolUpgrades,1,1);
-		upgrades[3]=new ItemStack(IEContent.itemToolUpgrades,3,2);
-		ItemStack drill2 = drill.copy();
-		((ItemDrill)IEContent.itemDrill).setContainedItems(drill2, upgrades);
-		((ItemDrill)IEContent.itemDrill).recalculateUpgrades(drill2);
-		upgradeDrill = new AchievementIE("upgradeDrill", 0, -7, drill2, craftDrill);
+
 		
 		craftSkyhook = new AchievementIE("craftSkyhook", 1, -6, IEContent.itemSkyhook, craftWorkbench).setNormalCrafting();
 		ItemStack hook = new ItemStack(IEContent.itemSkyhook);

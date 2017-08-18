@@ -134,9 +134,7 @@ public class Config
 		setInt("excavator_depletion", config.get("machines", "Excavator: Mineral Depletion", 76800, "The maximum amount of yield one can get out of a chunk with the excavator. Set a number smaller than zero to make it infinite").getInt());
 		setInt("excavator_depletion_days", getInt("excavator_depletion")*45/24000);
 
-		setInt("coredrill_time", config.get("machines", "Core Sample Drill: Evaluation Time", 600, "The length in ticks it takes for the Core Sample Drill to figure out which mineral is found in a chunk").getInt());
-		setInt("coredrill_consumption", config.get("machines", "Core Sample Drill: Consumption", 40, "The RF per tick consumed by the Core Sample Drill").getInt());
-
+	
 		setInt("arcfurnace_electrodeDamage", config.get("machines", "Arc Furnace: Graphite Electrodes", 96000, "The maximum amount of damage Graphite Electrodes can take. While the furnace is working, electrodes sustain 1 damage per tick, so this is effectively the lifetime in ticks. The default value of 96000 makes them last for 8 consecutive ingame days").getInt());
 		setBoolean("arcfurnace_electrodeCrafting", config.get("machines", "Arc Furnace: Craftable Blueprint", false, "Set this to true to make the blueprint for graphite electrodes craftable in addition to villager/dungeon loot").getBoolean());
 		setBoolean("arcfurnace_recycle", config.get("machines", "Arc Furnace: Recycling", true, "Set this to false to disable the Arc Furnace's recycling of armors and tools").getBoolean());

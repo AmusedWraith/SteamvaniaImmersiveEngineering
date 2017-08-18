@@ -82,7 +82,7 @@ public class CommandMineral extends IESubCommand
 					return;
 				}
 				info.depletion = depl;
-				sender.addChatMessage(new ChatComponentTranslation(Lib.CHAT_COMMAND+getIdent()+".setDepletion.sucess",(depl<0?StatCollector.translateToLocal(Lib.CHAT_INFO+"coreDrill.infinite"):Integer.toString(depl))));
+
 				IESaveData.setDirty(sender.getEntityWorld().provider.dimensionId);
 				break;
 			default:
