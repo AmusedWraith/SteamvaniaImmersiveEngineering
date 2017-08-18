@@ -502,28 +502,8 @@ public class IEContent
 		IERecipes.initArcSmeltingRecipes();
 
 
-		DieselHandler.registerFuel(fluidBiodiesel, 125);
-		DieselHandler.registerFuel(FluidRegistry.getFluid("fuel"), 375);
-		DieselHandler.registerFuel(FluidRegistry.getFluid("diesel"), 175);
-
 		ChemthrowerHandler.registerEffect(FluidRegistry.WATER, new ChemthrowerEffect_Extinguish());
-		ChemthrowerHandler.registerEffect(fluidCreosote, new ChemthrowerEffect_Potion(null,0, IEPotions.flammable,140,0));
-		ChemthrowerHandler.registerFlammable(fluidCreosote);
-		ChemthrowerHandler.registerEffect(fluidBiodiesel, new ChemthrowerEffect_Potion(null,0, IEPotions.flammable,140,1));
-		ChemthrowerHandler.registerFlammable(fluidBiodiesel);
-		ChemthrowerHandler.registerFlammable(fluidEthanol);
-		ChemthrowerHandler.registerEffect("oil", new ChemthrowerEffect_Potion(null,0, new PotionEffect(IEPotions.flammable.id,140,0),new PotionEffect(Potion.blindness.id,80,1)));
-		ChemthrowerHandler.registerFlammable("oil");
-		ChemthrowerHandler.registerEffect("fuel", new ChemthrowerEffect_Potion(null,0, IEPotions.flammable,100,1));
-		ChemthrowerHandler.registerFlammable("fuel");
-		ChemthrowerHandler.registerEffect("diesel", new ChemthrowerEffect_Potion(null,0, IEPotions.flammable,140,1));
-		ChemthrowerHandler.registerFlammable("diesel");
-		ChemthrowerHandler.registerEffect("kerosene", new ChemthrowerEffect_Potion(null,0, IEPotions.flammable,100,1));
-		ChemthrowerHandler.registerFlammable("kerosene");
-		ChemthrowerHandler.registerEffect("biofuel", new ChemthrowerEffect_Potion(null,0, IEPotions.flammable,140,1));
-		ChemthrowerHandler.registerFlammable("biofuel");
-		ChemthrowerHandler.registerEffect("rocket_fuel", new ChemthrowerEffect_Potion(null,0, IEPotions.flammable,60,2));
-		ChemthrowerHandler.registerFlammable("rocket_fuel");
+		
 
 	
 		ExternalHeaterHandler.defaultFurnaceEnergyCost = Config.getInt("heater_consumption");

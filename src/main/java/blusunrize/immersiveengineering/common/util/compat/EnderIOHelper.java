@@ -28,7 +28,6 @@ public class EnderIOHelper extends IECompatModule
 		IERecipes.addOreDictAlloyingRecipe("ingotConductiveIron",1, "Iron", 100,512, "dustRedstone");
 		IERecipes.addOreDictAlloyingRecipe("ingotDarkSteel",1, "Iron", 400,512, "dustCoal","dustObsidian");
 
-		ChemthrowerHandler.registerEffect("nutrient_distillation", new ChemthrowerEffect_Potion(null,0, Potion.confusion,80,1));
 	}
 
 	@Override

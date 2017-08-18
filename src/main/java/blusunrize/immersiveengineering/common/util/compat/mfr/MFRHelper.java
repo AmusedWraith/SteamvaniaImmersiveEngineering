@@ -27,8 +27,7 @@ public class MFRHelper extends IECompatModule
 		FactoryRegistry.sendMessage("registerPlantable",new IEPlantable(IEContent.itemSeeds, IEContent.blockCrop));
 		FactoryRegistry.sendMessage("registerHarvestable", new IEHarvestable());
 
-		ChemthrowerHandler.registerEffect("sewage", new ChemthrowerEffect_Potion(null,0, new PotionEffect(Potion.poison.id,60,0)));
-		ChemthrowerHandler.registerEffect("sludge", new ChemthrowerEffect_Potion(null,0, new PotionEffect(Potion.wither.id,20,0),new PotionEffect(Potion.confusion.id,40,0)));
-		ChemthrowerHandler.registerEffect("pinkslime", new ChemthrowerEffect_Potion(null,0, IEPotions.sticky,100,1));
+	
+		
 	}
 }

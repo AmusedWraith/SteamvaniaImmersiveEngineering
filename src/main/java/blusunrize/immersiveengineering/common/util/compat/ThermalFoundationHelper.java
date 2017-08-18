@@ -41,13 +41,7 @@ public class ThermalFoundationHelper extends IECompatModule
 		if(r!=null)
 			r.addToSecondaryOutput(Items.snowball,.5f);
 
-		ChemthrowerHandler.registerEffect("coal", new ChemthrowerEffect_Potion(null,0, IEPotions.flammable,100,0));
-		ChemthrowerHandler.registerFlammable("coal");
-		ChemthrowerHandler.registerEffect("cryotheum", new ChemthrowerEffect_Potion(DamageHelper.cryotheum,2, Potion.moveSlowdown,50,3));
-		ChemthrowerHandler.registerEffect("pyrotheum", new ChemthrowerEffect_Damage(DamageHelper.pyrotheum,3));
-		ChemthrowerHandler.registerEffect("ender", new ChemthrowerEffect_Teleport(null,0, .25f));
-		ChemthrowerHandler.registerEffect("mana", new ChemthrowerEffect_Teleport(null,0, .05f));
-		ChemthrowerHandler.registerEffect("redstone", new ChemthrowerEffect_Potion(null,0, IEPotions.conductive,100,1));
+
 	}
 
 	@Override

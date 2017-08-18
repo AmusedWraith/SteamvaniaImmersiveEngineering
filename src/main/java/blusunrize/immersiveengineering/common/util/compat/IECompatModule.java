@@ -8,7 +8,7 @@ import java.util.Set;
 import blusunrize.immersiveengineering.common.Config;
 import blusunrize.immersiveengineering.common.util.IELogger;
 import blusunrize.immersiveengineering.common.util.compat.computercraft.ComputercraftHelper;
-import blusunrize.immersiveengineering.common.util.compat.hydcraft.HydCraftHelper;
+
 import blusunrize.immersiveengineering.common.util.compat.mfr.MFRHelper;
 import blusunrize.immersiveengineering.common.util.compat.minetweaker.MTHelper;
 import blusunrize.immersiveengineering.common.util.compat.opencomputers.OCHelper;
@@ -32,7 +32,6 @@ public abstract class IECompatModule
 		moduleClasses.put("BackTools", BacktoolsHelper.class);
 		moduleClasses.put("Waila", WailaHelper.class);
 
-		moduleClasses.put("HydCraft", HydCraftHelper.class);
 		moduleClasses.put("ThermalExpansion", ThermalExpansionHelper.class);
 		moduleClasses.put("ThermalFoundation", ThermalFoundationHelper.class);
 		moduleClasses.put("ThermalDynamics", ThermalDynamicsHelper.class);
@@ -47,9 +46,7 @@ public abstract class IECompatModule
 		moduleClasses.put("steamcraft2", SteamCraftHelper.class);
 		moduleClasses.put("ExtraUtilities", ExtraUtilsHelper.class);
 		moduleClasses.put("Thaumcraft", ThaumcraftHelper.class);
-		moduleClasses.put("TConstruct", TConstructHelper.class);
-		moduleClasses.put("Mekanism", MekanismHelper.class);
-		moduleClasses.put("cuttingedge", CuttingEdgeHelper.class);
+
 		moduleClasses.put("Railcraft", RailcraftHelper.class);
 		moduleClasses.put("ComputerCraft", ComputercraftHelper.class);
 		moduleClasses.put("OpenComputers", OCHelper.class);
