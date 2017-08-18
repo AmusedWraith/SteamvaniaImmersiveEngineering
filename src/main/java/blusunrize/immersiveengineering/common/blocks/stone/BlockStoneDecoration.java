@@ -15,7 +15,7 @@ public class BlockStoneDecoration extends BlockIEBase
 	public BlockStoneDecoration()
 	{
 		super("stoneDecoration", Material.rock,1, ItemBlockIEBase.class, 
-				"hempcrete","cokeBrick","blastBrick","concrete","concreteTile","blastBrickReinforced");
+				"hempcrete","blastBrick","concrete","concreteTile","blastBrickReinforced");
 		this.setHardness(2.0F);
 		this.setResistance(20.0F);
 		for(int i=0; i<this.subNames.length; i++)
