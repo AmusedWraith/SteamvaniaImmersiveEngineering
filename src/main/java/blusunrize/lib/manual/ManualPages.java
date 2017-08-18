@@ -618,9 +618,9 @@ public abstract class ManualPages implements IManualPage
 					{
 						for(int iStack=0; iStack<stacks.length; iStack++)
 						{
-							//System.out.println(((IRecipe)o).getRecipeOutput().getDisplayName());
+							
 							Object stack = stacks[iStack];
-							System.out.println(o.toString() +":"+stack.toString());
+							
 						
 							if(((IRecipe)o).getRecipeOutput()!=null && ManualUtils.stackMatchesObject(((IRecipe)o).getRecipeOutput(), stack))
 							{
